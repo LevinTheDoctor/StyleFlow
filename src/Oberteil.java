@@ -1,18 +1,18 @@
-public class Oberteil extends Kleidungsstueck{
-    private final Boolean hatSchirm;
-    private final Boolean BedecktGesicht;
+public class Oberteil extends  Kleidungsstueck{
+    private final int AermelLaenge;
+    private final String Schnitt;
 
-    public Oberteil(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, Boolean hatSchirm, Boolean bedecktGesicht) {
+    public Oberteil(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, int aermelLaenge, String schnitt) {
         super(name, farbe, groesse, material, marke, anlass, wetter);
-        this.hatSchirm = hatSchirm;
-        BedecktGesicht = bedecktGesicht;
+        this.AermelLaenge = aermelLaenge;
+        this.Schnitt = schnitt;
     }
 
-    public Boolean getHatSchirm() {
-        return hatSchirm;
+    public int getAermelLaenge() {
+        return AermelLaenge;
     }
 
-    public Boolean getBedecktGesicht() {
-        return BedecktGesicht;
+    public String getSchnitt() {
+        return Schnitt;
     }
 }

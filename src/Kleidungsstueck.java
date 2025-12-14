@@ -8,6 +8,7 @@ public abstract class Kleidungsstueck {
     private String Wetter;
     private String BildDateiPfad;
 
+
     public Kleidungsstueck(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter) {
         Name = name;
         Farbe = farbe;

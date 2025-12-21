@@ -9,7 +9,7 @@ public abstract class Kleidungsstueck {
     private String BildDateiPfad;
 
 
-    public Kleidungsstueck(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter) {
+    public Kleidungsstueck(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter,String bildDateiPfad) {
         Name = name;
         Farbe = farbe;
         Groesse = groesse;
@@ -17,6 +17,7 @@ public abstract class Kleidungsstueck {
         Marke = marke;
         Anlass = anlass;
         Wetter = wetter;
+        BildDateiPfad = bildDateiPfad;
     }
 
     public String getName() {

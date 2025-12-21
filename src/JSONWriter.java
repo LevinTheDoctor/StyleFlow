@@ -1,8 +1,9 @@
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 public class JSONWriter {
-
-    public void OberteilWriter(Oberteil[] oberteile) {
+    // Wirklich Schreibfunktionen für die jeweiligen Kleidungsstücke
+    public void oberteilWriter(Oberteil[] oberteile) {
         try
         {
             File OberteilFile = new File("Oberteile.json");
@@ -46,19 +47,23 @@ public class JSONWriter {
                 if (oberteil.equals(LetzesOberteil))
                 {
                     writer.println("}");
-                } else if (!oberteil.equals(LetzesOberteil))
+                } else
                 {
                     writer.println("},");
                 }
             }
             writer.println("]");
+            writer.flush();
+            writer.close();
         } catch (Exception e)
         {
-            e.printStackTrace();
+            // Logger da e.printStackTrace() Warungen ausgeworfen hat
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
         }
     }
 
-    public void KopfbedeckungWriter(Kopfbedeckung[] kopfbedeckungen) {
+    public void kopfbedeckungWriter(Kopfbedeckung[] kopfbedeckungen) {
         try
         {
             File KopfbedeckungFile = new File("Kopfbedeckungen.json");
@@ -102,19 +107,22 @@ public class JSONWriter {
                 if (kopfbedeckung.equals(LetzeKopfbedeckung))
                 {
                     writer.println("}");
-                } else if (!kopfbedeckung.equals(LetzeKopfbedeckung))
+                } else
                 {
                     writer.println("},");
                 }
             }
             writer.println("]");
+            writer.flush();
+            writer.close();
         } catch (Exception e)
         {
-            e.printStackTrace();
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
         }
     }
 
-    public void UnterteilWriter(Unterteil[] unterteile) {
+    public void unterteilWriter(Unterteil[] unterteile) {
         try
         {
             File UnterteilFile = new File("Unterteile.json");
@@ -159,19 +167,22 @@ public class JSONWriter {
                 if (unterteil.equals(LetzesUnterteil))
                 {
                     writer.println("}");
-                } else if (!unterteil.equals(LetzesUnterteil))
+                } else
                 {
                     writer.println("},");
                 }
             }
             writer.println("]");
+            writer.flush();
+            writer.close();
         } catch (Exception e)
         {
-            e.printStackTrace();
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
         }
     }
 
-    public void SchuheWriter(Schuhe[] schuhe) {
+    public void schuheWriter(Schuhe[] schuhe) {
         try
         {
             File SchuheFile = new File("Schuhe.json");
@@ -215,15 +226,18 @@ public class JSONWriter {
                 if (Schuh.equals(LetzerSchuh))
                 {
                     writer.println("}");
-                } else if (!Schuh.equals(LetzerSchuh))
+                } else
                 {
                     writer.println("},");
                 }
             }
             writer.println("]");
+            writer.flush();
+            writer.close();
         } catch (Exception e)
         {
-            e.printStackTrace();
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
         }
     }
 }

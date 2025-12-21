@@ -171,7 +171,7 @@ public class JSONReader {
 
     public Schuhe[] readSchuheJSON()
     {
-        try(BufferedReader Reader = new BufferedReader(new FileReader("Oberteil.json")))  // Reader wird automatisch geschlossen
+        try(BufferedReader Reader = new BufferedReader(new FileReader("Schuhe.json")))  // Reader wird automatisch geschlossen
         {
             String line;
             StringBuilder Content = new StringBuilder();

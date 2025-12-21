@@ -3,9 +3,9 @@ public abstract class Kleidungsstueck {
     private final String[] Farbe;
     private final String Groesse;
     private final String[] Material;
-    private String Marke;
-    private String Anlass;
-    private String Wetter;
+    private final String Marke;
+    private final String Anlass;
+    private final String Wetter;
     private String BildDateiPfad;
 
 
@@ -48,10 +48,6 @@ public abstract class Kleidungsstueck {
 
     public String getBildDateiPfad() {
         return BildDateiPfad;
-    }
-
-    public void setBildDateiPfad(String bildDateiPfad) {
-        BildDateiPfad = bildDateiPfad;
     }
 }
 

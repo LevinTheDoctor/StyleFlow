@@ -6,7 +6,7 @@ public abstract class Kleidungsstueck {
     private final String Marke;
     private final String Anlass;
     private final String Wetter;
-    private String BildDateiPfad;
+    private final String BildDateiPfad;
 
 
     public Kleidungsstueck(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter,String bildDateiPfad) {

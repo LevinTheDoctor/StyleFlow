@@ -12,25 +12,25 @@ public class JSONReader {
     }
 
     // Methoden zum Parsen der Daten aus der JSON-Datei
-    public boolean BooleanAusJSON(String line)
+    public boolean ReadBoolean(String line)
     {
         String[] parts = line.split(":");
         return Boolean.parseBoolean(parts[1].trim().replace(",", "").replace("\"", ""));
     }
 
-    public String StringAusJSON(String line) {
+    public String ReadString(String line) {
         String[] parts = line.split(":");
         return parts[1].trim().replace(",", "").replace("\"", "");
     }
 
-    public String[] StringArrayAusJSON(String line)
+    public String[] ReadStringArray(String line)
     {
         String[] parts = line.split(":");
         String arrayInJSON = parts[1].trim().replace(",", "").replace("[", "").replace("]", "").replace("\"", "");
         return arrayInJSON.split(",");
     }
 
-    public Integer IntegerAusJSON(String line)
+    public Integer ReadInteger(String line)
     {
         String[] parts = line.split(":");
         return Integer.parseInt(parts[1].trim().replace(",", "").replace("\"", ""));
@@ -56,16 +56,16 @@ public class JSONReader {
             for (int OberteilIndex = 0; OberteilIndex < AnzahlOberteile; OberteilIndex++)
             {
                 Oberteile[OberteilIndex] = new Oberteil(
-                        StringAusJSON(AlleZeilen[JSONIndex+1]),
-                        StringArrayAusJSON(AlleZeilen[JSONIndex+2]),
-                        StringAusJSON(AlleZeilen[JSONIndex+3]),
-                        StringArrayAusJSON(AlleZeilen[JSONIndex+4]),
-                        StringAusJSON(AlleZeilen[JSONIndex+5]),
-                        StringAusJSON(AlleZeilen[JSONIndex+6]),
-                        StringAusJSON(AlleZeilen[JSONIndex+7]),
-                        StringAusJSON(AlleZeilen[JSONIndex+8]),
-                        IntegerAusJSON(AlleZeilen[JSONIndex+9]),
-                        StringAusJSON(AlleZeilen[JSONIndex+10])
+                        ReadString(AlleZeilen[JSONIndex+1]),
+                        ReadStringArray(AlleZeilen[JSONIndex+2]),
+                        ReadString(AlleZeilen[JSONIndex+3]),
+                        ReadStringArray(AlleZeilen[JSONIndex+4]),
+                        ReadString(AlleZeilen[JSONIndex+5]),
+                        ReadString(AlleZeilen[JSONIndex+6]),
+                        ReadString(AlleZeilen[JSONIndex+7]),
+                        ReadString(AlleZeilen[JSONIndex+8]),
+                        ReadInteger(AlleZeilen[JSONIndex+9]),
+                        ReadString(AlleZeilen[JSONIndex+10])
                 );
                 JSONIndex += 12;
             }
@@ -100,16 +100,16 @@ public class JSONReader {
             for (int UnterteilIndex = 0; UnterteilIndex < AnzahlUnterteile; UnterteilIndex++)
             {
                 Unterteil[UnterteilIndex] = new Unterteil(
-                        StringAusJSON(AlleZeilen[JSONIndex+1]),
-                        StringArrayAusJSON(AlleZeilen[JSONIndex+2]),
-                        StringAusJSON(AlleZeilen[JSONIndex+3]),
-                        StringArrayAusJSON(AlleZeilen[JSONIndex+4]),
-                        StringAusJSON(AlleZeilen[JSONIndex+5]),
-                        StringAusJSON(AlleZeilen[JSONIndex+6]),
-                        StringAusJSON(AlleZeilen[JSONIndex+7]),
-                        StringAusJSON(AlleZeilen[JSONIndex+8]),
-                        IntegerAusJSON(AlleZeilen[JSONIndex+9]),
-                        IntegerAusJSON(AlleZeilen[JSONIndex+10])
+                        ReadString(AlleZeilen[JSONIndex+1]),
+                        ReadStringArray(AlleZeilen[JSONIndex+2]),
+                        ReadString(AlleZeilen[JSONIndex+3]),
+                        ReadStringArray(AlleZeilen[JSONIndex+4]),
+                        ReadString(AlleZeilen[JSONIndex+5]),
+                        ReadString(AlleZeilen[JSONIndex+6]),
+                        ReadString(AlleZeilen[JSONIndex+7]),
+                        ReadString(AlleZeilen[JSONIndex+8]),
+                        ReadInteger(AlleZeilen[JSONIndex+9]),
+                        ReadInteger(AlleZeilen[JSONIndex+10])
                 );
                 JSONIndex += 12;
             }
@@ -144,16 +144,16 @@ public class JSONReader {
             for (int KopfbedeckungIndex = 0; KopfbedeckungIndex < AnzahlKopfbedckung; KopfbedeckungIndex++)
             {
                 kopfbedeckung[KopfbedeckungIndex] = new Kopfbedeckung(
-                        StringAusJSON(AlleZeilen[JSONIndex+1]),
-                        StringArrayAusJSON(AlleZeilen[JSONIndex+2]),
-                        StringAusJSON(AlleZeilen[JSONIndex+3]),
-                        StringArrayAusJSON(AlleZeilen[JSONIndex+4]),
-                        StringAusJSON(AlleZeilen[JSONIndex+5]),
-                        StringAusJSON(AlleZeilen[JSONIndex+6]),
-                        StringAusJSON(AlleZeilen[JSONIndex+7]),
-                        StringAusJSON(AlleZeilen[JSONIndex+8]),
-                        BooleanAusJSON(AlleZeilen[JSONIndex+9]),
-                        BooleanAusJSON(AlleZeilen[JSONIndex+10])
+                        ReadString(AlleZeilen[JSONIndex+1]),
+                        ReadStringArray(AlleZeilen[JSONIndex+2]),
+                        ReadString(AlleZeilen[JSONIndex+3]),
+                        ReadStringArray(AlleZeilen[JSONIndex+4]),
+                        ReadString(AlleZeilen[JSONIndex+5]),
+                        ReadString(AlleZeilen[JSONIndex+6]),
+                        ReadString(AlleZeilen[JSONIndex+7]),
+                        ReadString(AlleZeilen[JSONIndex+8]),
+                        ReadBoolean(AlleZeilen[JSONIndex+9]),
+                        ReadBoolean(AlleZeilen[JSONIndex+10])
                 );
                 JSONIndex += 11;
             }
@@ -188,16 +188,16 @@ public class JSONReader {
             for (int SchuheIndex = 0; SchuheIndex < AnzahlSchuhe; SchuheIndex++)
             {
                 schuhe[SchuheIndex] = new Schuhe(
-                        StringAusJSON(AlleZeilen[JSONIndex+1]),
-                        StringArrayAusJSON(AlleZeilen[JSONIndex+2]),
-                        StringAusJSON(AlleZeilen[JSONIndex+3]),
-                        StringArrayAusJSON(AlleZeilen[JSONIndex+4]),
-                        StringAusJSON(AlleZeilen[JSONIndex+5]),
-                        StringAusJSON(AlleZeilen[JSONIndex+6]),
-                        StringAusJSON(AlleZeilen[JSONIndex+7]),
-                        StringAusJSON(AlleZeilen[JSONIndex+8]),
-                        StringAusJSON(AlleZeilen[JSONIndex+9]),
-                        StringAusJSON(AlleZeilen[JSONIndex+10])
+                        ReadString(AlleZeilen[JSONIndex+1]),
+                        ReadStringArray(AlleZeilen[JSONIndex+2]),
+                        ReadString(AlleZeilen[JSONIndex+3]),
+                        ReadStringArray(AlleZeilen[JSONIndex+4]),
+                        ReadString(AlleZeilen[JSONIndex+5]),
+                        ReadString(AlleZeilen[JSONIndex+6]),
+                        ReadString(AlleZeilen[JSONIndex+7]),
+                        ReadString(AlleZeilen[JSONIndex+8]),
+                        ReadString(AlleZeilen[JSONIndex+9]),
+                        ReadString(AlleZeilen[JSONIndex+10])
                 );
                 JSONIndex += 11;
             }

@@ -1,2 +1,4 @@
-public class Kleid extends Kleidungsstueck{
+public class Kleid extends Kleidungsstueck
+{
+
 }

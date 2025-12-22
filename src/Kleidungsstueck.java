@@ -8,7 +8,7 @@ public abstract class Kleidungsstueck {
     private final String Wetter;
     private final String BildDateiPfad;
     private final int KleidungsID;
-    int KleidungsstuckAnzahl;
+    private static int KleidungsstuckAnzahl;
 
 
     public Kleidungsstueck(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter,String bildDateiPfad) {
@@ -57,6 +57,10 @@ public abstract class Kleidungsstueck {
 
     public int getKleidungsID() {
         return KleidungsID;
+    }
+
+    public static int getKleidungsstuckAnzahl() {
+        return KleidungsstuckAnzahl;
     }
 }
 

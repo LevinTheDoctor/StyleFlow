@@ -1,4 +1,5 @@
-public abstract class Kleidungsstueck {
+public abstract class Kleidungsstueck
+{
     private final String Name;
     private final String[] Farbe;
     private final String Groesse;

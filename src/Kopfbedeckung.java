@@ -1,4 +1,4 @@
-public class Kopfbedeckung extends Kleidungsstueck{
+public abstract class Kopfbedeckung extends Kleidungsstueck{
     private final Boolean HatSchirm;
     private final Boolean BedecktGesicht;
 

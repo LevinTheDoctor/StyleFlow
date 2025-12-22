@@ -1,4 +1,4 @@
-public class Oberteil extends  Kleidungsstueck{
+public abstract class Oberteil extends  Kleidungsstueck{
     private final int AermelLaenge;
     private final String Schnitt;
 

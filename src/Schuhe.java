@@ -1,4 +1,4 @@
-public class Schuhe extends Kleidungsstueck{
+public abstract class Schuhe extends Kleidungsstueck{
     private final String SolenMaterial;
     private final String VerschlussTyp;
     public Schuhe(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter,String BildDateiPfad,String solenMaterial, String verschlussTyp) {

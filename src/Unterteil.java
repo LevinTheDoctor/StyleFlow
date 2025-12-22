@@ -1,4 +1,4 @@
-public class Unterteil extends Kleidungsstueck {
+public abstract class Unterteil extends Kleidungsstueck {
     private final int Laenge;
     private final int AnzahlTaschen;
 

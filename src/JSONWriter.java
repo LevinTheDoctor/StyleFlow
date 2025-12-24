@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.logging.Logger;
 public class JSONWriter {
     public void Komma(PrintWriter writer, Boolean LetztesElement)
@@ -46,48 +47,25 @@ public class JSONWriter {
         Komma(writer,LetztesElementBool);
     }
     // Wirklich Schreibfunktionen für die jeweiligen Kleidungsstücke
-    public void oberteilWriter(Oberteil[] oberteile) {
+    public void KleidungsstueckWriter(Kleidungsstueck[] kleidungsstuecke) {
         try
         {
-            File OberteilFile = new File("Oberteile.json");
-            PrintWriter writer = new PrintWriter(OberteilFile);
+            File KleidungstueckeFile = new File("Kleidungsstuecke.json");
+            PrintWriter writer = new PrintWriter(KleidungstueckeFile);
             writer.println("[");
-            Oberteil LetzesOberteil = oberteile[oberteile.length -1];
-            for (Oberteil oberteil : oberteile) {
+            Kleidungsstueck LetzesKleidungsstück = kleidungsstuecke[kleidungsstuecke.length -1];
+            for (Kleidungsstueck kleidungsstueck : kleidungsstuecke) {
                 writer.println("{");
-                writer.println("\"Name\": \"" + oberteil.getName() + "\",");
-                writer.print("\"Farbe\": " + "[");
-                String[] farben = oberteil.getFarbe();
-                String LetzteFarbe = farben[farben.length -1];
-                for (String farbe : farben)
-                {
-                    writer.print("\"" + farbe + "\"");
-                    if (!farbe.equals(LetzteFarbe))
-                    {
-                        writer.print(", ");
-                    }
-                }
-                writer.println("],");
-                writer.println("\"Groesse\": \"" + oberteil.getGroesse() + "\",");
-                writer.print("\"Material\": " + "[");
-                String[] Material = oberteil.getMaterial();
-                String LetztesMaterial = Material[Material.length -1];
-                for (String material : Material)
-                {
-                    writer.print("\"" + material + "\"");
-                    if (!material.equals(LetztesMaterial))
-                    {
-                        writer.print(", ");
-                    }
-                }
-                writer.println("],");
-                writer.println("\"Marke\": \"" + oberteil.getMarke() + "\"");
-                writer.println("\"Anlass\": \"" + oberteil.getAnlass() + "\"");
-                writer.println("\"Wetter\": \"" + oberteil.getWetter() + "\"");
-                writer.println("\"BildDateiPfad\": \"" + oberteil.getBildDateiPfad() + "\"");
-                writer.println("\"AermelLaenge\": \"" + oberteil.getAermelLaenge() + "\"");
-                writer.println("\"Schnitt\": \"" + oberteil.getSchnitt() + "\"");
-                if (oberteil.equals(LetzesOberteil))
+                WriteString(writer,"Name",kleidungsstueck.getAnlass(),false);
+                WriteStringArray(writer,"Farbe",kleidungsstueck.getFarbe(),false);
+                WriteString(writer,"Groesse",kleidungsstueck.getGroesse(),false);;
+                WriteStringArray(writer,"Material",kleidungsstueck.getMaterial(),false);
+                WriteString(writer,"Marke",kleidungsstueck.getMarke(),false);
+                WriteString(writer,"Anlass",kleidungsstueck.getAnlass(),false);
+                WriteString(writer,"Wetter",kleidungsstueck.getWetter(),false);
+                WriteString(writer,"BildDateiPfad",kleidungsstueck.getBildDateiPfad(),false);
+                WriteInteger(writer,"KleidungsID",kleidungsstueck.getKleidungsID(),true);
+                if (kleidungsstueck.equals(LetzesKleidungsstück))
                 {
                     writer.println("}");
                 } else
@@ -105,6 +83,35 @@ public class JSONWriter {
             LOGGER.severe(e.getMessage());
         }
     }
+    public void OberteilWriter(Oberteil[] oberteile) {
+        try
+        {
+            File OberteilFile = new File("Oberteil.json");
+            PrintWriter writer = new PrintWriter(OberteilFile);
+            writer.println("[");
+            Oberteil LetzeKopfbedeckung = oberteile[oberteile.length -1];
+            for (Oberteil oberteil : oberteile) {
+                writer.println("{");
+                WriteInteger(writer,"KleidungsID",oberteil.getKleidungsID(),false);
+                WriteInteger(writer,"AermelLaenge",oberteil.getAermelLaenge(),false); ;
+                WriteString(writer,"Schnitt",oberteil.getSchnitt(),true); ;
+                if (oberteil.equals(LetzeKopfbedeckung))
+                {
+                    writer.println("}");
+                } else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        } catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+    }
 
     public void kopfbedeckungWriter(Kopfbedeckung[] kopfbedeckungen) {
         try
@@ -115,38 +122,9 @@ public class JSONWriter {
             Kopfbedeckung LetzeKopfbedeckung = kopfbedeckungen[kopfbedeckungen.length -1];
             for (Kopfbedeckung kopfbedeckung : kopfbedeckungen) {
                 writer.println("{");
-                writer.println("\"Name\": \"" + kopfbedeckung.getName() + "\",");
-                writer.print("\"Farbe\": " + "[");
-                String[] farben = kopfbedeckung.getFarbe();
-                String LetzteFarbe = farben[farben.length -1];
-                for (String farbe : farben)
-                {
-                    writer.print("\"" + farbe + "\"");
-                    if (!farbe.equals(LetzteFarbe))
-                    {
-                        writer.print(", ");
-                    }
-                }
-                writer.println("],");
-                writer.println("\"Groesse\": \"" + kopfbedeckung.getGroesse() + "\",");
-                writer.print("\"Material\": " + "[");
-                String[] Material = kopfbedeckung.getMaterial();
-                String LetztesMaterial = Material[Material.length -1];
-                for (String material : Material)
-                {
-                    writer.print("\"" + material + "\"");
-                    if (!material.equals(LetztesMaterial))
-                    {
-                        writer.print(", ");
-                    }
-                }
-                writer.println("],");
-                writer.println("\"Marke\": \"" + kopfbedeckung.getMarke() + "\"");
-                writer.println("\"Anlass\": \"" + kopfbedeckung.getAnlass() + "\"");
-                writer.println("\"Wetter\": \"" + kopfbedeckung.getWetter() + "\"");
-                writer.println("\"BildDateiPfad\": \"" + kopfbedeckung.getBildDateiPfad() + "\"");
-                writer.println("\"HatSchirm\": " + kopfbedeckung.getHatSchirm() );
-                writer.println("\"Bedeckt\": " + kopfbedeckung.getBedecktGesicht() );
+                WriteInteger(writer,"KleidungsID",kopfbedeckung.getKleidungsID(),false);
+                WriteBoolean(writer,"HatSchirm",kopfbedeckung.getHatSchirm(),false); ;
+                WriteBoolean(writer,"BedecktGesicht",kopfbedeckung.getBedecktGesicht(),true); ;
                 if (kopfbedeckung.equals(LetzeKopfbedeckung))
                 {
                     writer.println("}");
@@ -174,39 +152,9 @@ public class JSONWriter {
             Unterteil LetzesUnterteil = unterteile[unterteile.length -1];
             for (Unterteil unterteil : unterteile) {
                 writer.println("{");
-                writer.println("\"Name\": \"" + unterteil.getName() + "\",");
-                writer.print("\"Farbe\": " + "[");
-                String[] farben = unterteil.getFarbe();
-                String LetzteFarbe = farben[farben.length -1];
-                for (String farbe : farben)
-                {
-                    writer.print("\"" + farbe + "\"");
-                    if (!farbe.equals(LetzteFarbe))
-                    {
-                        writer.print(", ");
-                    }
-                }
-                writer.println("],");
-                writer.println("\"Groesse\": \"" + unterteil.getGroesse() + "\",");
-                writer.print("\"Material\": " + "[");
-                String[] Material = unterteil.getMaterial();
-                String LetztesMaterial = Material[Material.length -1];
-                for (String material : Material)
-                {
-                    writer.print("\"" + material + "\"");
-                    if (!material.equals(LetztesMaterial))
-                    {
-                        writer.print(", ");
-                    }
-                }
-                writer.println("],");
-                writer.println("\"Marke\": \"" + unterteil.getMarke() + "\"");
-                writer.println("\"Anlass\": \"" + unterteil.getAnlass() + "\"");
-                writer.println("\"Wetter\": \"" + unterteil.getWetter() + "\"");
-                writer.println("\"BildDateiPfad\": \"" + unterteil.getBildDateiPfad() + "\"");
-                writer.println("\"AnzahlTaschen\": " + unterteil.getAnzahlTaschen());
-                writer.println("\"Laenge\": " + unterteil.getLaenge() );
-
+                WriteInteger(writer,"KleidungsID",unterteil.getKleidungsID(),false);
+                WriteInteger(writer,"AnzahlTaschen",unterteil.getAnzahlTaschen(),false);
+                WriteInteger(writer,"Laenge",unterteil.getLaenge(),true);
                 if (unterteil.equals(LetzesUnterteil))
                 {
                     writer.println("}");
@@ -234,38 +182,9 @@ public class JSONWriter {
             Schuhe LetzerSchuh = schuhe[schuhe.length -1];
             for (Schuhe Schuh : schuhe) {
                 writer.println("{");
-                writer.println("\"Name\": \"" + Schuh.getName() + "\",");
-                writer.print("\"Farbe\": " + "[");
-                String[] farben = Schuh.getFarbe();
-                String LetzteFarbe = farben[farben.length -1];
-                for (String farbe : farben)
-                {
-                    writer.print("\"" + farbe + "\"");
-                    if (!farbe.equals(LetzteFarbe))
-                    {
-                        writer.print(", ");
-                    }
-                }
-                writer.println("],");
-                writer.println("\"Groesse\": \"" + Schuh.getGroesse() + "\",");
-                writer.print("\"Material\": " + "[");
-                String[] Material = Schuh.getMaterial();
-                String LetztesMaterial = Material[Material.length -1];
-                for (String material : Material)
-                {
-                    writer.print("\"" + material + "\"");
-                    if (!material.equals(LetztesMaterial))
-                    {
-                        writer.print(", ");
-                    }
-                }
-                writer.println("],");
-                writer.println("\"Marke\": \"" + Schuh.getMarke() + "\"");
-                writer.println("\"Anlass\": \"" + Schuh.getAnlass() + "\"");
-                writer.println("\"Wetter\": \"" + Schuh.getWetter() + "\"");
-                writer.println("\"BildDateiPfad\": \"" + Schuh.getBildDateiPfad() + "\"");
-                writer.println("\"SolenMaterial\": \"" + Schuh.getSolenMaterial() + "\"");
-                writer.println("\"VerschlussTyp\": \"" + Schuh.getVerschlussTyp() + "\"");
+                WriteInteger(writer,"KleidungsID",Schuh.getKleidungsID(),false);
+                WriteString(writer,"SolenMaterial",Schuh.getSolenMaterial(),false);
+                WriteString(writer,"VerschlussTyp",Schuh.getVerschlussTyp(),true);
                 if (Schuh.equals(LetzerSchuh))
                 {
                     writer.println("}");
@@ -283,4 +202,9 @@ public class JSONWriter {
             LOGGER.severe(e.getMessage());
         }
     }
+
+
+
+
+
 }

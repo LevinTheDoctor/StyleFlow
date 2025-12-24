@@ -203,6 +203,36 @@ public class JSONWriter {
         }
     }
 
+public void kleidWriter(Kleid[] kleider) {
+        try
+        {
+            File KleidFile = new File("Kleid.json");
+            PrintWriter writer = new PrintWriter(KleidFile);
+            writer.println("[");
+            Kleid LetzesKleide = kleider[kleider.length -1];
+            for (Kleid kleid : kleider) {
+                writer.println("{");
+                WriteString(writer,"AuschnittArt",kleid.getAuschnitArt(),false);
+                WriteString(writer,"Schnitt",kleid.getSchnitt(),false);
+                WriteInteger(writer,"LangeInCM",kleid.getLangeInCM(),false);
+                WriteBoolean(writer,"HatArmel",kleid.isHatAermel(),true);
+                if (kleid.equals(LetzesKleide))
+                {
+                    writer.println("}");
+                } else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        } catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+}
 
 
 

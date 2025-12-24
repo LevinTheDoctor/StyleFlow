@@ -317,6 +317,7 @@ public class JSONWriter {
         }
     }
 
+    //Kopfbedeckung Writer und Auspraegungen
     public void kopfbedeckungWriter(Kopfbedeckung[] kopfbedeckungen) {
         try
         {
@@ -330,6 +331,107 @@ public class JSONWriter {
                 WriteBoolean(writer,"HatSchirm",kopfbedeckung.getHatSchirm(),false);
                 WriteBoolean(writer,"BedecktGesicht",kopfbedeckung.getBedecktGesicht(),true);
                 if (kopfbedeckung.equals(LetzeKopfbedeckung))
+                {
+                    writer.println("}");
+                }
+                else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+    }
+
+    public void cappeWriter(Cappe[] cappen)
+    {
+        try
+        {
+            File CappeFile = new File("Cappes.json");
+            PrintWriter writer = new PrintWriter(CappeFile);
+            writer.println("[");
+            Cappe LetzteCappe = cappen[cappen.length -1];
+            for (Cappe cappe : cappen) {
+                writer.println("{");
+                WriteInteger(writer,"KleidungsID",cappe.getKleidungsID(),false);
+                WriteBoolean(writer,"SchirmGekrummt",cappe.isSchrimGekruemt(),false);
+                WriteString(writer,"VerschlussArt",cappe.getVerschlussaArt(),true);
+                if (cappe.equals(LetzteCappe))
+                {
+                    writer.println("}");
+                }
+                else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+    }
+
+    public void hutWriter(Hut[] huete)
+    {
+        try
+        {
+            File HutFile = new File("Huete.json");
+            PrintWriter writer = new PrintWriter(HutFile);
+            writer.println("[");
+            Hut LetzterHut = huete[huete.length -1];
+            for (Hut hut : huete) {
+                writer.println("{");
+                WriteInteger(writer,"KleidungsID",hut.getKleidungsID(),false);
+                WriteInteger(writer,"Hoehe",hut.getHoehe(),false);
+                WriteString(writer,"From",hut.getForm(),false);
+                WriteBoolean(writer,"istSteif",hut.isIstSteif(),false);
+                WriteBoolean(writer,"HatBand",hut.isHatBand(),true);
+                if (hut.equals(LetzterHut))
+                {
+                    writer.println("}");
+                }
+                else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+    }
+
+    public void muetzeWriter(Muetze[] muetzen)
+    {
+        try
+        {
+            File MuetzeFile = new File("Muetzen.json");
+            PrintWriter writer = new PrintWriter(MuetzeFile);
+            writer.println("[");
+            Muetze LetzteMuetze = muetzen[muetzen.length -1];
+            for (Muetze muetze : muetzen) {
+                writer.println("{");
+                WriteInteger(writer,"KleidungsID",muetze.getKleidungsID(),false);
+                WriteString(writer,"Stil",muetze.getStil(),false);
+                WriteBoolean(writer,"HatUmschlag",muetze.isHatUmschlag(),true);
+                if (muetze.equals(LetzteMuetze))
                 {
                     writer.println("}");
                 }
@@ -395,6 +497,39 @@ public class JSONWriter {
                 WriteString(writer,"SolenMaterial",Schuh.getSolenMaterial(),false);
                 WriteString(writer,"VerschlussTyp",Schuh.getVerschlussTyp(),true);
                 if (Schuh.equals(LetzerSchuh))
+                {
+                    writer.println("}");
+                }
+                else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+    }
+
+    public void sturmhaubeWriter(Sturmhaube[] sturmhauben)
+    {
+        try
+        {
+            File SturmhaubeFile = new File("Sturmhauben.json");
+            PrintWriter writer = new PrintWriter(SturmhaubeFile);
+            writer.println("[");
+            Sturmhaube LetzteSturmhaube = sturmhauben[sturmhauben.length -1];
+            for (Sturmhaube sturmhaube : sturmhauben) {
+                writer.println("{");
+                WriteInteger(writer,"KleidungsID",sturmhaube.getKleidungsID(),false);
+                WriteString(writer,"StrickArt",sturmhaube.getStrickArt(),false);
+                WriteString(writer,"AugenAuschnittArt",sturmhaube.getAugenAusschnitsArt(),true);
+                if (sturmhaube.equals(LetzteSturmhaube))
                 {
                     writer.println("}");
                 }

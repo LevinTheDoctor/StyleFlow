@@ -1,10 +1,10 @@
-public class Mütze extends Kopfbedeckung
+public class Muetze extends Kopfbedeckung
 {
     private final String StrickArt;
     private final String Stil;
     private final Boolean hatUmschlag;
 
-    public Mütze(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad,  String strickArt, String stil, Boolean hatUmschlag)
+    public Muetze(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, String strickArt, String stil, Boolean hatUmschlag)
     {
         super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, true,false);
         StrickArt = strickArt;
@@ -20,7 +20,7 @@ public class Mütze extends Kopfbedeckung
         return Stil;
     }
 
-    public Boolean getHatUmschlag() {
+    public Boolean isHatUmschlag() {
         return hatUmschlag;
     }
 }

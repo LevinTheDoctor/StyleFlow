@@ -12,11 +12,11 @@ public class Hose extends Unterteil{
         ArtDerHose = artDerHose;
     }
 
-    public Boolean getHatDoppeltesKine() {
+    public Boolean isHatDoppeltesKine() {
         return HatDoppeltesKine;
     }
 
-    public Boolean getHatFalten() {
+    public Boolean isHatFalten() {
         return HatFalten;
     }
 

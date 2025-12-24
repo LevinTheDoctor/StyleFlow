@@ -1,10 +1,10 @@
-public class Steifel extends Schuhe
+public class Stiefel extends Schuhe
 {
     private final int AbsatzGroesse;
     private final String Art;
     private final String Muster;
 
-    public Steifel(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, String solenMaterial, String verschlussTyp, int absatzGroesse, String art, String muster)
+    public Stiefel(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, String solenMaterial, String verschlussTyp, int absatzGroesse, String art, String muster)
     {
         super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, solenMaterial, verschlussTyp);
         AbsatzGroesse = absatzGroesse;

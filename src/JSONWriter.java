@@ -517,7 +517,8 @@ public class JSONWriter {
         }
     }
 
-    public void hoseWriter(Hose[] hosen) {
+    public void hoseWriter(Hose[] hosen)
+    {
         try
         {
             File HoseFile = new File("Hosen.json");
@@ -551,7 +552,8 @@ public class JSONWriter {
         }
     }
 
-    public void rockWriter(Rock[] rocke) {
+    public void rockWriter(Rock[] rocke)
+    {
         try
         {
             File RockFile = new File("Roecke.json");
@@ -584,7 +586,8 @@ public class JSONWriter {
         }
     }
 
-    public void schuheWriter(Schuhe[] schuhe) {
+    public void schuheWriter(Schuhe[] schuhe)
+    {
         try
         {
             File SchuheFile = new File("Schuhe.json");
@@ -597,6 +600,73 @@ public class JSONWriter {
                 WriteString(writer,"SolenMaterial",Schuh.getSolenMaterial(),false);
                 WriteString(writer,"VerschlussTyp",Schuh.getVerschlussTyp(),true);
                 if (Schuh.equals(LetzerSchuh))
+                {
+                    writer.println("}");
+                }
+                else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+    }
+
+    public void sneakerWriter(Sneaker[] sneaker)
+    {
+        try
+        {
+            File SneakerFile = new File("Sneaker.json");
+            PrintWriter writer = new PrintWriter(SneakerFile);
+            writer.println("[");
+            Sneaker LetzterSneaker = sneaker[sneaker.length -1];
+            for (Sneaker schuh : sneaker) {
+                writer.println("{");
+                WriteInteger(writer,"KleidungsID",schuh.getKleidungsID(),false);
+                WriteBoolean(writer,"Colaboration",schuh.isColaboration(),false);
+                WriteString(writer,"Technolgie",schuh.getTechnologie(),true);
+                if (schuh.equals(LetzterSneaker))
+                {
+                    writer.println("}");
+                }
+                else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+    }
+
+    public void stiefelWriter(Stiefel[] stiefel)
+    {
+        try
+        {
+            File StiefelFile = new File("Stiefel.json");
+            PrintWriter writer = new PrintWriter(StiefelFile);
+            writer.println("[");
+            Stiefel LetzterStiefel = stiefel[stiefel.length -1];
+            for (Stiefel schuh : stiefel) {
+                writer.println("{");
+                WriteInteger(writer,"KleidungsID",schuh.getKleidungsID(),false);
+                WriteInteger(writer,"SchafthheInCM",schuh.getAbsatzGroesse(),false);
+                WriteString(writer,"Art",schuh.getArt(),false);
+                WriteString(writer,"Muster",schuh.getMuster(),true);
+                if (schuh.equals(LetzterStiefel))
                 {
                     writer.println("}");
                 }

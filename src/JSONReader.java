@@ -2,11 +2,17 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.logging.Logger;
+// Die Ganze JSON Read geschichte ist eingetlich daher verschulde das ich im abi und jetzt in der Ausbildung nur mit Datenbanken rumhantier und ich versuche quasi ein Join der JSON Datein manuel über Java ich weiß das ist nicht elgenat aber das kenne ich halt - Levin
 public class JSONReader {
 
     // Reader Klasse nimmt ids aus allen katehgorien um mit ein string array zu erzeugen der dann von den klassen eingelsen wird
     public void StartReader(){
-        int[] KleidungstueckIDs = JSONgetID("Kleidungsstuecke",11,10);
+        if (LesenMoeglich("Kleidungsstuecke"))
+        {
+            int[] KleidungstueckIDs = JSONgetID("Kleidungsstuecke",11,10);
+            String[][] KleidungstueckeWerte = JSONzu2Darray("Kleidungsstuecke",11);
+        }
+
         // Oberteile und Unterklassen
         int[] OberteilIDs = JSONgetID("Oberteile",5,1);
         int[] HemdIDs = JSONgetID("Hemd",5,1);
@@ -35,6 +41,80 @@ public class JSONReader {
 
     }
 
+    public String[][] JSONzu2Darray(String Filename, Integer ZeilenProEintrag)
+    {
+        try(BufferedReader Reader = new BufferedReader(new FileReader(Filename + ".json")))
+        {
+            String line;
+            StringBuilder Content = new StringBuilder();
+            int ZeileAnzahl = 0;
+            while ((line = Reader.readLine()) != null)
+            {
+                Content.append(line).append("\n");
+                ZeileAnzahl++;
+            }
+            int Anzahl = (ZeileAnzahl-2) / ZeilenProEintrag;
+            String[] AlleZeilen = Content.toString().split("\n");
+            int JSONIndex = 2;
+            String[][] Werte = new String[Anzahl][ZeilenProEintrag-2];
+            for (int indexAnzahl = 0; indexAnzahl < Anzahl; indexAnzahl++)
+            {
+                for (int zeile = 0; zeile < ZeilenProEintrag-2; zeile++)
+                {
+                    String Typ = JSONerkenneTyp(AlleZeilen[JSONIndex+zeile]);
+                    switch (Typ){
+                        case "ARRAY":
+                            Werte[indexAnzahl][zeile] = String.join(",",ReadStringArray(AlleZeilen[JSONIndex+zeile]));
+                            break;
+                        case "BOOLEAN":
+                            if(ReadBoolean(AlleZeilen[JSONIndex+zeile]))
+                            {
+                                Werte[indexAnzahl][zeile] ="true";
+                            }
+                            else
+                            {
+                                Werte[indexAnzahl][zeile] ="false";
+                            }
+
+                            break;
+                        case "STRING":
+                            Werte[indexAnzahl][zeile] = ReadString(AlleZeilen[JSONIndex+zeile]);
+                            break;
+                        case "INTEGER":
+                            Werte[indexAnzahl][zeile] = ReadInteger(AlleZeilen[JSONIndex+zeile]).toString();
+                            break;
+                }
+
+                }
+                JSONIndex += ZeilenProEintrag;
+            }
+            return Werte;
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONReader.class.getName());
+            LOGGER.severe(e.getMessage());
+            return new String[0][0];
+        }
+    }
+
+    //Herraus finde Daten Typ JSON
+    public String JSONerkenneTyp(String Wert) {
+        String WertZugeschnitten = Wert.substring(Wert.indexOf(":") + 1).trim().replace(",", "");
+        if (WertZugeschnitten.startsWith("[") && WertZugeschnitten.endsWith("]")) {
+            return "ARRAY";
+        }
+
+        if (WertZugeschnitten.equals("true") || WertZugeschnitten.equals("false")) {
+            return "BOOLEAN";
+        }
+
+        if (WertZugeschnitten.startsWith("\"") && WertZugeschnitten.endsWith("\"")) {
+            return "STRING";
+        }
+
+        return "INTEGER";
+    }
 
     // Überprüft, ob das Lesen der JSON-Datei Existirt wichtig für den Ersten Start
     public boolean LesenMoeglich(String filename)

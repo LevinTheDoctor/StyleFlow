@@ -317,6 +317,39 @@ public class JSONWriter {
         }
     }
 
+    public void jackeWriter(Jacke[] jacken)
+    {
+        try
+        {
+            File JackeFile = new File("Jacken.json");
+            PrintWriter writer = new PrintWriter(JackeFile);
+            writer.println("[");
+            Jacke LetzteJacke = jacken[jacken.length -1];
+            for (Jacke jacke : jacken) {
+                writer.println("{");
+                WriteInteger(writer,"KleidungsID",jacke.getKleidungsID(),false);
+                WriteString(writer,"VerschlussArt",jacke.getVerschlussArt(),false);
+                WriteBoolean(writer,"IstWasserdicht",jacke.isIstWasserdicht(),false);
+                WriteString(writer,"FutterMaterial",jacke.getFutterMaterial(),true);
+                if (jacke.equals(LetzteJacke))
+                {
+                    writer.println("}");
+                }
+                else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+    }
     //Kopfbedeckung Writer und Auspraegungen
     public void kopfbedeckungWriter(Kopfbedeckung[] kopfbedeckungen) {
         try

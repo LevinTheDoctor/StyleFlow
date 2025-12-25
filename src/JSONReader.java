@@ -9,7 +9,6 @@ public class JSONReader {
     public void StartReader(){
         if (LesenMoeglich("Kleidungsstuecke"))
         {
-            int[] KleidungstueckIDs = JSONgetID("Kleidungsstuecke",11,10);
             String[][] KleidungstueckeWerte = JSONzu2Darray("Kleidungsstuecke",11);
         }
 
@@ -17,105 +16,88 @@ public class JSONReader {
         // Die Oberklasse MUSS Existiren daher wird nur darin geschekt ob die Datei der Unterklasse Existirt sonst könnte es zu Fehlerhaften Daten kommen
         if (LesenMoeglich("Oberteile"))
         {
-            int[] OberteilIDs = JSONgetID("Oberteile",5,1);
             String[][] OberteileWerte = JSONzu2Darray("Oberteile",5);
             if (LesenMoeglich("Hemd"))
             {
-                int[] HemdIDs = JSONgetID("Hemd",5,1);
                 String[][] HemdWerte = JSONzu2Darray("Hemd",5);
             }
             if (LesenMoeglich("Pullover"))
             {
-                int[] PulloverIDs = JSONgetID("Pullover",6,1);
                 String[][] PulloverWerte = JSONzu2Darray("Pullover",6);
             }
             if (LesenMoeglich("Tshirts"))
            {
-               int[] TshirtIDs = JSONgetID("Tshirts",5,1);
                String[][] TshirtWerte = JSONzu2Darray("Tshirts",5);
            }
            if (LesenMoeglich("SweatShirts"))
            {
-               int[] SweatShritIDs = JSONgetID("SweatShirts",5,1);
                String[][] SweatShritWerte = JSONzu2Darray("SweatShirts",5);
            }
            if(LesenMoeglich("Polos"))
             {
-                int[] PoloIDs =  JSONgetID("Polos",6,1);
                 String[][] PoloWerte = JSONzu2Darray("Polos",6);
             }
             if(LesenMoeglich("Tops"))
             {
-                int[] TopIDs = JSONgetID("Tops",5,1);
                 String[][] TopsWerte = JSONzu2Darray("Tops",5);
             }
-            if(LesenMoeglich("Jacken")){
-                int[] JackerIDs = JSONgetID("Jacken",6,1);
+            if(LesenMoeglich("Jacken"))
+            {
                 String[][] JackerWerte = JSONzu2Darray("Jacken",6);
             }
         }
         // Kopfbedckung und Unterklassen
         if (LesenMoeglich("Kopfbedckungen"))
         {
-            int[] KopfbedckungIDs = JSONgetID("Kopfbedeckungen",5,1);
             String[][] KopfbedckungWerte =  JSONzu2Darray("Kopfbedeckungen",5);
             if (LesenMoeglich("Cappen"))
             {
-                int[] CappeIDs = JSONgetID("Cappen",5,1);
                 String[][] CappeWerte =  JSONzu2Darray("Cappen",5);
             }
             if  (LesenMoeglich("Huete"))
             {
-                int[] HutIDs = JSONgetID("Huete",7,1);
                 String[][] HutWerte =  JSONzu2Darray("Huete",7);
             }
             if (LesenMoeglich("Muetzen"))
             {
-                int[] MuetzenIDs = JSONgetID("Muetzen",5,1);
                 String[][] MuetzenWerte =  JSONzu2Darray("Muetzen",5);
             }
             if(LesenMoeglich("Sturmhauben"))
             {
-                int[] SturmhaubeIDs = JSONgetID("Sturmhauben",5,1);
                 String[][] SturmhaubenWerte =  JSONzu2Darray("Sturmhauben",5);
             }
         }
         // Unterteil und Unterklassen
         if (LesenMoeglich("Unterteile"))
         {
-            int[] UnterteilIDs = JSONgetID("Unterteile",5,1);
             String[][] UnterteilWerte = JSONzu2Darray("Unterteile",5);
             if (LesenMoeglich("Hosen"))
             {
-                int[] HoseIDs = JSONgetID("Hosen",7,1);
                 String[][] HoseWerte = JSONzu2Darray("Hosen",7);
             }
             if (LesenMoeglich("Roecke"))
             {
-                int[] RockIDs = JSONgetID("Roecke",6,1);
                 String[][] RockWerte = JSONzu2Darray("Roecke",6);
             }
+
+
         }
         //Schue und Unterklassen
         if (LesenMoeglich("Schuhe"))
         {
-            int[] SchuheIDs = JSONgetID("Schuhe",5,1);
             String[][] SchuheWerte = JSONzu2Darray("Schuhe",5);
             if (LesenMoeglich("Sneaker"))
             {
-                int[] SneakerIDs = JSONgetID("Sneaker",5,1);
                 String[][] SneakerWerte = JSONzu2Darray("Sneaker",5);
             }
             if (LesenMoeglich("Steifel"))
             {
-                int[] SteifelIDs = JSONgetID("Steifel",6,1);
                 String[][] SteifelWerte = JSONzu2Darray("Steifel",6);
             }
         }
         //Kleid
         if (LesenMoeglich("Kleid"))
         {
-            int[] KleidIDs = JSONgetID("Kleid",6,1);
             String[][] KleidWerte = JSONzu2Darray("Kleid",6);
         }
         // Zusammenfügen also Quasi die JOIN lodik wie in SQL
@@ -226,38 +208,6 @@ public class JSONReader {
     {
         String[] parts = line.split(":");
         return Integer.parseInt(parts[1].trim().replace(",", "").replace("\"", ""));
-    }
-
-    // Methode um IDs zu bekommen
-    public int[] JSONgetID(String filename,Integer ZeilenProEintrag, Integer IDZeile)
-    {
-        try(BufferedReader Reader = new BufferedReader(new FileReader(filename + ".json")))
-        {
-            String line;
-            StringBuilder Content = new StringBuilder();
-            int ZeileAnzahl = 0;
-            while ((line = Reader.readLine()) != null)
-            {
-                Content.append(line).append("\n");
-                ZeileAnzahl++;
-            }
-            int Anzahl = (ZeileAnzahl-2) / ZeilenProEintrag;
-            String[] AlleZeilen = Content.toString().split("\n");
-            int JSONIndex = 1+IDZeile;
-            int[] IDs = new int[Anzahl];
-            for (int i = 0; i < Anzahl; i++)
-            {
-                IDs[i] = ReadInteger(AlleZeilen[JSONIndex]);
-                JSONIndex += ZeilenProEintrag;
-            }
-            return IDs;
-        }
-        catch (Exception e)
-        {
-            Logger LOGGER = Logger.getLogger(JSONReader.class.getName());
-            LOGGER.severe(e.getMessage());
-            return new int[0];
-        }
     }
 
 }

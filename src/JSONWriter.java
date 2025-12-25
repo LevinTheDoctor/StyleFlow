@@ -387,7 +387,7 @@ public class JSONWriter {
     {
         try
         {
-            File CappeFile = new File("Cappes.json");
+            File CappeFile = new File("Cappen.json");
             PrintWriter writer = new PrintWriter(CappeFile);
             writer.println("[");
             Cappe LetzteCappe = cappen[cappen.length -1];

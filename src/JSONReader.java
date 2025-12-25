@@ -4,6 +4,38 @@ import java.io.FileReader;
 import java.util.logging.Logger;
 public class JSONReader {
 
+    // Reader Klasse nimmt ids aus allen katehgorien um mit ein string array zu erzeugen der dann von den klassen eingelsen wird
+    public void StartReader(){
+        int[] KleidungstueckIDs = JSONgetID("Kleidungsstuecke",11,10);
+        // Oberteile und Unterklassen
+        int[] OberteilIDs = JSONgetID("Oberteile",5,1);
+        int[] HemdIDs = JSONgetID("Hemd",5,1);
+        int[] PulloverIDs = JSONgetID("Pullover",6,1);
+        int[] TshirtIDs = JSONgetID("Tshirts",5,1);
+        int[] SweatShritIDs = JSONgetID("SweatShirts",5,1);
+        int[] PoloIDs =  JSONgetID("Polos",6,1);
+        int[] TopIDs = JSONgetID("Tops",5,1);
+        int[] JackerIDs = JSONgetID("Jacken",6,1);
+        // Kopfbedckung und Unterklassen
+        int[] KopfbedckungIDs = JSONgetID("Kopfbedeckungen",5,1);
+        int[] CappeIDs = JSONgetID("Cappen",5,1);
+        int[] HutIDs = JSONgetID("Huete",7,1);
+        int[] muetzeIDs = JSONgetID("Muetzen",5,1);
+        int[] sturmhaubeIDs = JSONgetID("Sturmhauben",5,1);
+        // Unterteil und Unterklassen
+        int[] UnterteilIDs = JSONgetID("Unterteile",5,1);
+        int[] HoseIDs = JSONgetID("Hosen",7,1);
+        int[] RockIDs = JSONgetID("Roecke",6,1);
+        //Schue und Unterklassen
+        int[] SchuheIDs = JSONgetID("Schuhe",5,1);
+        int[] SneakerIDs = JSONgetID("Sneaker",5,1);
+        int[] SteifelIDs = JSONgetID("Steifel",6,1);
+        //Kleid
+        int[] KleidIDs = JSONgetID("Kleid",6,1);
+
+    }
+
+
     // Überprüft, ob das Lesen der JSON-Datei Existirt wichtig für den Ersten Start
     public boolean LesenMoeglich(String filename)
     {

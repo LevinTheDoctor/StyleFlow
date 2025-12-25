@@ -33,7 +33,7 @@ public class JSONWriter {
     public void WriteStringArray (PrintWriter writer,String name, String[] Werte, Boolean LetztesElementBool)
     {
         String LetztesElement = Werte[Werte.length -1];
-        writer.print("\""+ name + "[");
+        writer.print("\""+ name + "\": [");
         for (String Wert : Werte)
         {
             writer.print("\"" + Wert + "\"");
@@ -750,8 +750,5 @@ public void kleidWriter(Kleid[] kleider) {
             LOGGER.severe(e.getMessage());
         }
 }
-
-
-
 
 }

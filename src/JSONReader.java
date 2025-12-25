@@ -36,7 +36,37 @@ public class JSONReader {
         return Integer.parseInt(parts[1].trim().replace(",", "").replace("\"", ""));
     }
 
-    // Methode zum Lesen der Oberteile aus der JSON-Datei zur Liste
+    // Methode um IDs zu bekommen
+    public int[] JSONgetID(String filename,Integer ZeilenProEintrag, Integer IDZeile)
+    {
+        try(BufferedReader Reader = new BufferedReader(new FileReader(filename + ".json")))
+        {
+            String line;
+            StringBuilder Content = new StringBuilder();
+            int ZeileAnzahl = 0;
+            while ((line = Reader.readLine()) != null)
+            {
+                Content.append(line).append("\n");
+                ZeileAnzahl++;
+            }
+            int Anzahl = (ZeileAnzahl-2) / ZeilenProEintrag;
+            String[] AlleZeilen = Content.toString().split("\n");
+            int JSONIndex = 1+IDZeile;
+            int[] IDs = new int[Anzahl];
+            for (int i = 0; i < Anzahl; i++)
+            {
+                IDs[i] = ReadInteger(AlleZeilen[JSONIndex]);
+                JSONIndex += ZeilenProEintrag;
+            }
+            return IDs;
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONReader.class.getName());
+            LOGGER.severe(e.getMessage());
+            return new int[0];
+        }
+    }
 
 }
 

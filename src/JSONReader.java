@@ -103,6 +103,49 @@ public class JSONReader {
         // Zusammenfügen also Quasi die JOIN lodik wie in SQL
     }
 
+    public String[][] JSONjoin(String[][] Grundliste,int indexIDGrundliste,String[][] Erweitrungsliste, int indexIDErweitrungsliste)
+    {
+        String[][] JoinedListe = new String[Grundliste.length][Grundliste[0].length+Erweitrungsliste[0].length-1];
+        int JoindListListIndex = 0;
+        for(String[] GrundElement : Grundliste)
+        {
+            int ID = Integer.parseInt(GrundElement[indexIDGrundliste]);
+            for(String[] ErweitrungElement : Erweitrungsliste)
+            {
+                int EID = Integer.parseInt(ErweitrungElement[indexIDErweitrungsliste]);
+                if (ID == EID)
+                {
+                    int idxList = 1;
+                    for (int index = 0; index < ErweitrungElement.length; index++)
+                    {
+                        JoinedListe[JoindListListIndex][index] = ErweitrungElement[index];
+                        idxList++;
+                    }
+                    String[] GrundElementOhneID = new String[GrundElement.length-1];
+                    int idxGrundOhneID = 0;
+                    for (int indexG = 0; indexG < GrundElement.length; indexG++)
+                    {
+                        if (indexG == indexIDGrundliste)
+                        {
+                        }
+                        else
+                        {
+                            GrundElementOhneID[idxGrundOhneID] = GrundElement[indexG];
+                            idxGrundOhneID++;
+                        }
+                    }
+                    for (int index = 0; index < GrundElementOhneID.length; index++)
+                    {
+                        JoinedListe[JoindListListIndex][idxList+index] = GrundElementOhneID[index];
+                    }
+                    JoindListListIndex++;
+                }
+            }
+
+        }
+        return JoinedListe;
+    }
+
     public String[][] JSONzu2Darray(String Filename, Integer ZeilenProEintrag)
     {
         try(BufferedReader Reader = new BufferedReader(new FileReader(Filename + ".json")))

@@ -719,6 +719,38 @@ public class JSONWriter {
         }
     }
 
+    public void halbschuheWriter(Halbschuhe[] halbschuhe){
+        try
+        {
+            File StiefelFile = new File("Halbschuhe.json");
+            PrintWriter writer = new PrintWriter(StiefelFile);
+            writer.println("[");
+            Halbschuhe LetzterHalbschuh = halbschuhe[halbschuhe.length -1];
+            for (Halbschuhe halbschuh : halbschuhe) {
+                writer.println("{");
+                WriteInteger(writer,"KleidungsID",halbschuh.getKleidungsID(),false);
+                WriteString(writer,"Art",halbschuh.getArt(),false);
+                WriteString(writer,"Muster",halbschuh.getMuster(),true);
+                if (halbschuh.equals(LetzterHalbschuh))
+                {
+                    writer.println("}");
+                }
+                else
+                {
+                    writer.println("},");
+                }
+            }
+            writer.println("]");
+            writer.flush();
+            writer.close();
+        }
+        catch (Exception e)
+        {
+            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            LOGGER.severe(e.getMessage());
+        }
+    }
+
 public void kleidWriter(Kleid[] kleider) {
         try
         {

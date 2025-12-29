@@ -94,10 +94,16 @@ public class JSONReader {
                 if (LesenMoeglich("Hosen"))
                 {
                     String[][] HoseWerte = JSONjoin(JSONzu2Darray("Hosen",7),0,UnterteilWerte,8);
+                    for (String[] Werte : HoseWerte){
+                        Hose hose = new Hose(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Integer.parseInt(Werte[10]),Boolean.parseBoolean(Werte[11]),Boolean.parseBoolean(Werte[12]),Werte[13],Werte[14]);
+                    }
                 }
                 if (LesenMoeglich("Roecke"))
                 {
                     String[][] RockWerte = JSONjoin(JSONzu2Darray("Roecke",6),0,UnterteilWerte,8);
+                    for (String[] Werte : RockWerte){
+                        Rock rock = new Rock(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Integer.parseInt(Werte[10]),Werte[11],Integer.parseInt(Werte[12]),Werte[13]);
+                    }
                 }
             }
             //Schue und Unterklassen
@@ -108,10 +114,22 @@ public class JSONReader {
                 if (LesenMoeglich("Sneaker"))
                 {
                     String[][] SneakerWerte = JSONjoin(JSONzu2Darray("Sneaker",5),0,SchuheWerte,8);
+                    for (String[] Werte : SneakerWerte){
+                        Sneaker sneaker = new Sneaker(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Boolean.parseBoolean(Werte[11]),Werte[12]);
+                    }
                 }
                 if (LesenMoeglich("Steifel"))
                 {
                     String[][] SteifelWerte = JSONjoin(JSONzu2Darray("Steifel",6),0,SchuheWerte,8);
+                    for (String[] Werte : SteifelWerte){
+                        Stiefel stiefel = new Stiefel(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Integer.parseInt(Werte[11]),Werte[12],Werte[13]);
+                    }
+                }
+                if (LesenMoeglich("Halbschuhe")){
+                    String[][] HalbschuheWerte = JSONjoin(JSONzu2Darray("Halbschuhe",5),0,SchuheWerte,8);
+                    for (String[] Werte : HalbschuheWerte){
+                        Halbschuhe halbschuhe = new Halbschuhe(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Werte[11],Werte[12]);
+                    }
                 }
             }
             //Kleid

@@ -118,6 +118,9 @@ public class JSONReader {
             if (LesenMoeglich("Kleid"))
             {
                 String[][] KleidWerte = JSONjoin(JSONzu2Darray("Kleid",6),0,KleidungstueckeWerte,8);
+                for (String[] Werte : KleidWerte){
+                    Kleid kleid = new Kleid(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Integer.parseInt(Werte[11]),Boolean.parseBoolean(Werte[12]));
+                }
             }
         }
     }

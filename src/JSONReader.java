@@ -115,29 +115,18 @@ public class JSONReader {
                 int EID = Integer.parseInt(ErweitrungElement[indexIDErweitrungsliste]);
                 if (ID == EID)
                 {
-                    int idxList = 1;
-                    for (int index = 0; index < ErweitrungElement.length; index++)
-                    {
-                        JoinedListe[JoindListListIndex][index] = ErweitrungElement[index];
-                        idxList++;
-                    }
+                    System.arraycopy(ErweitrungElement, 0, JoinedListe[JoindListListIndex], 0, ErweitrungElement.length);
                     String[] GrundElementOhneID = new String[GrundElement.length-1];
                     int idxGrundOhneID = 0;
                     for (int indexG = 0; indexG < GrundElement.length; indexG++)
                     {
-                        if (indexG == indexIDGrundliste)
-                        {
-                        }
-                        else
-                        {
+                        if (indexG != indexIDGrundliste) {
                             GrundElementOhneID[idxGrundOhneID] = GrundElement[indexG];
                             idxGrundOhneID++;
                         }
                     }
-                    for (int index = 0; index < GrundElementOhneID.length; index++)
-                    {
-                        JoinedListe[JoindListListIndex][idxList+index] = GrundElementOhneID[index];
-                    }
+                    int StartIndex = ErweitrungElement.length;
+                    System.arraycopy(GrundElementOhneID, 0, JoinedListe[JoindListListIndex], StartIndex , GrundElementOhneID.length);
                     JoindListListIndex++;
                 }
             }

@@ -10,97 +10,94 @@ public class JSONReader {
         if (LesenMoeglich("Kleidungsstuecke"))
         {
             String[][] KleidungstueckeWerte = JSONzu2Darray("Kleidungsstuecke",11);
-        }
+            // Oberteile und Unterklassen
+            // Die Oberklasse MUSS Existiren daher wird nur darin geschekt ob die Datei der Unterklasse Existirt sonst könnte es zu Fehlerhaften Daten kommen
+            if (LesenMoeglich("Oberteile"))
+            {
+                String[][] OberteileWerte = JSONjoin(JSONzu2Darray("Oberteile",5),0,KleidungstueckeWerte,10);
+                if (LesenMoeglich("Hemd"))
+                {
+                    String[][] HemdWerte = JSONjoin(JSONzu2Darray("Hemd",5),0,OberteileWerte,10);
+                }
+                if (LesenMoeglich("Pullover"))
+                {
+                    String[][] PulloverWerte = JSONjoin(JSONzu2Darray("Pullover",6),0,OberteileWerte,10);
+                }
+                if (LesenMoeglich("Tshirts"))
+                {
+                    String[][] TshirtWerte = JSONjoin(JSONzu2Darray("Tshirts",5),0,OberteileWerte,10);
+                }
+                if (LesenMoeglich("SweatShirts"))
+                {
+                    String[][] SweatShritWerte = JSONjoin(JSONzu2Darray("SweatShirts",5),0,OberteileWerte,10);
+                }
+                if(LesenMoeglich("Polos"))
+                {
+                    String[][] PoloWerte = JSONjoin(JSONzu2Darray("Polos",6),0,OberteileWerte,10);
+                }
+                if(LesenMoeglich("Tops"))
+                {
+                    String[][] TopsWerte = JSONjoin(JSONzu2Darray("Tops",5),0,OberteileWerte,10);
+                }
+                if(LesenMoeglich("Jacken"))
+                {
+                    String[][] JackerWerte = JSONjoin(JSONzu2Darray("Jacken",6),0,OberteileWerte,10);
+                }
+            }
+            // Kopfbedckung und Unterklassen
+            if (LesenMoeglich("Kopfbedckungen"))
+            {
+                String[][] KopfbedckungWerte =  JSONjoin(JSONzu2Darray("Kopfbedeckungen",5),0,KleidungstueckeWerte,10);
+                if (LesenMoeglich("Cappen"))
+                {
+                    String[][] CappeWerte =  JSONjoin(JSONzu2Darray("Cappen",5),0,KopfbedckungWerte,10);
+                }
+                if  (LesenMoeglich("Huete"))
+                {
+                    String[][] HutWerte =  JSONjoin(JSONzu2Darray("Huete",7),0,KopfbedckungWerte,10);
+                }
+                if (LesenMoeglich("Muetzen"))
+                {
+                    String[][] MuetzenWerte =  JSONjoin(JSONzu2Darray("Muetzen",5),0,KopfbedckungWerte,10);
+                }
+                if(LesenMoeglich("Sturmhauben"))
+                {
+                    String[][] SturmhaubenWerte =  JSONjoin(JSONzu2Darray("Sturmhauben",5),0,KopfbedckungWerte,10);
+                }
+            }
+            // Unterteil und Unterklassen
+            if (LesenMoeglich("Unterteile"))
+            {
+                String[][] UnterteilWerte = JSONjoin(JSONzu2Darray("Unterteile",5),0,KleidungstueckeWerte,10);
+                if (LesenMoeglich("Hosen"))
+                {
+                    String[][] HoseWerte = JSONjoin(JSONzu2Darray("Hosen",7),0,UnterteilWerte,10);
+                }
+                if (LesenMoeglich("Roecke"))
+                {
+                    String[][] RockWerte = JSONjoin(JSONzu2Darray("Roecke",6),0,UnterteilWerte,10);
+                }
+            }
+            //Schue und Unterklassen
+            if (LesenMoeglich("Schuhe"))
+            {
+                String[][] SchuheWerte = JSONjoin(JSONzu2Darray("Schuhe",5),0,KleidungstueckeWerte,10);
 
-        // Oberteile und Unterklassen
-        // Die Oberklasse MUSS Existiren daher wird nur darin geschekt ob die Datei der Unterklasse Existirt sonst könnte es zu Fehlerhaften Daten kommen
-        if (LesenMoeglich("Oberteile"))
-        {
-            String[][] OberteileWerte = JSONzu2Darray("Oberteile",5);
-            if (LesenMoeglich("Hemd"))
-            {
-                String[][] HemdWerte = JSONzu2Darray("Hemd",5);
+                if (LesenMoeglich("Sneaker"))
+                {
+                    String[][] SneakerWerte = JSONjoin(JSONzu2Darray("Sneaker",5),0,SchuheWerte,10);
+                }
+                if (LesenMoeglich("Steifel"))
+                {
+                    String[][] SteifelWerte = JSONjoin(JSONzu2Darray("Steifel",6),0,SchuheWerte,10);
+                }
             }
-            if (LesenMoeglich("Pullover"))
+            //Kleid
+            if (LesenMoeglich("Kleid"))
             {
-                String[][] PulloverWerte = JSONzu2Darray("Pullover",6);
-            }
-            if (LesenMoeglich("Tshirts"))
-           {
-               String[][] TshirtWerte = JSONzu2Darray("Tshirts",5);
-           }
-           if (LesenMoeglich("SweatShirts"))
-           {
-               String[][] SweatShritWerte = JSONzu2Darray("SweatShirts",5);
-           }
-           if(LesenMoeglich("Polos"))
-            {
-                String[][] PoloWerte = JSONzu2Darray("Polos",6);
-            }
-            if(LesenMoeglich("Tops"))
-            {
-                String[][] TopsWerte = JSONzu2Darray("Tops",5);
-            }
-            if(LesenMoeglich("Jacken"))
-            {
-                String[][] JackerWerte = JSONzu2Darray("Jacken",6);
+                String[][] KleidWerte = JSONjoin(JSONzu2Darray("Kleid",6),0,KleidungstueckeWerte,10);
             }
         }
-        // Kopfbedckung und Unterklassen
-        if (LesenMoeglich("Kopfbedckungen"))
-        {
-            String[][] KopfbedckungWerte =  JSONzu2Darray("Kopfbedeckungen",5);
-            if (LesenMoeglich("Cappen"))
-            {
-                String[][] CappeWerte =  JSONzu2Darray("Cappen",5);
-            }
-            if  (LesenMoeglich("Huete"))
-            {
-                String[][] HutWerte =  JSONzu2Darray("Huete",7);
-            }
-            if (LesenMoeglich("Muetzen"))
-            {
-                String[][] MuetzenWerte =  JSONzu2Darray("Muetzen",5);
-            }
-            if(LesenMoeglich("Sturmhauben"))
-            {
-                String[][] SturmhaubenWerte =  JSONzu2Darray("Sturmhauben",5);
-            }
-        }
-        // Unterteil und Unterklassen
-        if (LesenMoeglich("Unterteile"))
-        {
-            String[][] UnterteilWerte = JSONzu2Darray("Unterteile",5);
-            if (LesenMoeglich("Hosen"))
-            {
-                String[][] HoseWerte = JSONzu2Darray("Hosen",7);
-            }
-            if (LesenMoeglich("Roecke"))
-            {
-                String[][] RockWerte = JSONzu2Darray("Roecke",6);
-            }
-
-
-        }
-        //Schue und Unterklassen
-        if (LesenMoeglich("Schuhe"))
-        {
-            String[][] SchuheWerte = JSONzu2Darray("Schuhe",5);
-            if (LesenMoeglich("Sneaker"))
-            {
-                String[][] SneakerWerte = JSONzu2Darray("Sneaker",5);
-            }
-            if (LesenMoeglich("Steifel"))
-            {
-                String[][] SteifelWerte = JSONzu2Darray("Steifel",6);
-            }
-        }
-        //Kleid
-        if (LesenMoeglich("Kleid"))
-        {
-            String[][] KleidWerte = JSONzu2Darray("Kleid",6);
-        }
-        // Zusammenfügen also Quasi die JOIN lodik wie in SQL
     }
 
     public String[][] JSONjoin(String[][] Grundliste,int indexIDGrundliste,String[][] Erweitrungsliste, int indexIDErweitrungsliste)

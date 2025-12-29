@@ -12,6 +12,13 @@ public class Jacke extends Oberteil
         this.FutterMaterial = FutterMaterial;
     }
 
+    public Jacke(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String verschlussArt, boolean istWasserdicht, String futterMaterial) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+        this.verschlussArt = verschlussArt;
+        this.istWasserdicht = istWasserdicht;
+        FutterMaterial = futterMaterial;
+    }
+
     public String getVerschlussArt()
     {
         return verschlussArt;

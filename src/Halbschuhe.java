@@ -10,6 +10,12 @@ public class Halbschuhe extends Schuhe
         Muster = muster;
     }
 
+    public Halbschuhe(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String solenMaterial, String verschlussTyp, String art, String muster) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, solenMaterial, verschlussTyp);
+        Art = art;
+        Muster = muster;
+    }
+
     public String getArt()
     {
         return Art;

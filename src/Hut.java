@@ -14,6 +14,14 @@ public class Hut extends Kopfbedeckung
         this.hatBand = hatBand;
     }
 
+    public Hut(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, Boolean hatSchirm, Boolean bedecktGesicht, int hoehe, String form, boolean istSteif, boolean hatBand) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, hatSchirm, bedecktGesicht);
+        Hoehe = hoehe;
+        Form = form;
+        this.istSteif = istSteif;
+        this.hatBand = hatBand;
+    }
+
     public int getHoehe()
     {
         return Hoehe;

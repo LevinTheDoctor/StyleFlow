@@ -13,6 +13,14 @@ public class Kleid extends Kleidungsstueck
         HatAermel = hatAermel;
     }
 
+    public Kleid(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String auschnitArt, String schnitt, int langeInCM, boolean hatAermel) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID);
+        AuschnitArt = auschnitArt;
+        Schnitt = schnitt;
+        LangeInCM = langeInCM;
+        HatAermel = hatAermel;
+    }
+
     public String getAuschnitArt() {
         return AuschnitArt;
     }

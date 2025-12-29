@@ -12,6 +12,13 @@ public class Stiefel extends Schuhe
         Muster = muster;
     }
 
+    public Stiefel(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String solenMaterial, String verschlussTyp, int absatzGroesse, String art, String muster) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, solenMaterial, verschlussTyp);
+        AbsatzGroesse = absatzGroesse;
+        Art = art;
+        Muster = muster;
+    }
+
     public int getAbsatzGroesse()
     {
         return AbsatzGroesse;

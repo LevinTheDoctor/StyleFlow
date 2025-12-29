@@ -8,6 +8,12 @@ public abstract class Unterteil extends Kleidungsstueck {
         this.Laenge = laenge;
     }
 
+    public Unterteil(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int laenge, int anzahlTaschen) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID);
+        Laenge = laenge;
+        AnzahlTaschen = anzahlTaschen;
+    }
+
     public int getLaenge() {
         return Laenge;
     }

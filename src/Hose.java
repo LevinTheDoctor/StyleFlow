@@ -12,6 +12,14 @@ public class Hose extends Unterteil{
         ArtDerHose = artDerHose;
     }
 
+    public Hose(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int laenge, int anzahlTaschen, Boolean hatDoppeltesKine, Boolean hatFalten, String schnitt, String artDerHose) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, laenge, anzahlTaschen);
+        HatDoppeltesKine = hatDoppeltesKine;
+        HatFalten = hatFalten;
+        Schnitt = schnitt;
+        ArtDerHose = artDerHose;
+    }
+
     public Boolean isHatDoppeltesKine() {
         return HatDoppeltesKine;
     }

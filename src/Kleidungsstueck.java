@@ -25,6 +25,20 @@ public abstract class Kleidungsstueck
         KleidungsID = KleidungsstuckAnzahl;
     }
 
+    // Konstruktior zum abrufen aus den Datein
+    public Kleidungsstueck(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID) {
+        Name = name;
+        Farbe = farbe;
+        Groesse = groesse;
+        Material = material;
+        Marke = marke;
+        Anlass = anlass;
+        Wetter = wetter;
+        BildDateiPfad = bildDateiPfad;
+        KleidungsID = kleidungsID;
+        KleidungsstuckAnzahl += 1;
+    }
+
     public String getName() {
         return Name;
     }

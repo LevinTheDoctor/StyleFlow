@@ -10,6 +10,12 @@ public class Cappe extends Kopfbedeckung
         this.VerschlussaArt = VerschlussaArt;
     }
 
+    public Cappe(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, Boolean hatSchirm, Boolean bedecktGesicht, Boolean SchrimGekruemt,String VerschlussaArt) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, hatSchirm, bedecktGesicht);
+        this.SchrimGekruemt = SchrimGekruemt;
+        this.VerschlussaArt = VerschlussaArt;
+    }
+
     public boolean isSchrimGekruemt()
     {
         return SchrimGekruemt;

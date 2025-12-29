@@ -9,6 +9,12 @@ public class Sturmhaube extends Kopfbedeckung
         AugenAusschnitsArt = augenAusschnitsArt;
     }
 
+    public Sturmhaube(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, Boolean hatSchirm, Boolean bedecktGesicht, String strickArt, String augenAusschnitsArt) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, hatSchirm, bedecktGesicht);
+        StrickArt = strickArt;
+        AugenAusschnitsArt = augenAusschnitsArt;
+    }
+
     public String getStrickArt() {
         return StrickArt;
     }

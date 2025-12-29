@@ -9,6 +9,12 @@ public class Sneaker extends Schuhe
         Technologie = technologie;
     }
 
+    public Sneaker(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String solenMaterial, String verschlussTyp, boolean colaboration, String technologie) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, solenMaterial, verschlussTyp);
+        Colaboration = colaboration;
+        Technologie = technologie;
+    }
+
     public boolean isColaboration() {
         return Colaboration;
     }

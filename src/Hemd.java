@@ -9,6 +9,12 @@ public class Hemd extends Oberteil
         KnopfMaterial = knopfMaterial;
     }
 
+    public Hemd(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String kragenArt, String knopfMaterial) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+        KragenArt = kragenArt;
+        KnopfMaterial = knopfMaterial;
+    }
+
     public String getKragenArt() {
         return KragenArt;
     }

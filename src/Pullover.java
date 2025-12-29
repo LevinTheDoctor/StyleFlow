@@ -11,6 +11,13 @@ public class Pullover extends Oberteil
         StrickArt = strickArt;
     }
 
+    public Pullover(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String ausschnitArt, String muster, String strickArt) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+        AusschnitArt = ausschnitArt;
+        Muster = muster;
+        StrickArt = strickArt;
+    }
+
     public String getAusschnitArt() {
         return AusschnitArt;
     }

@@ -11,6 +11,13 @@ public class Rock extends Unterteil{
         Art = art;
     }
 
+    public Rock(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int laenge, int anzahlTaschen, String bundDetails, int weiteInCM, String art) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, laenge, anzahlTaschen);
+        BundDetails = bundDetails;
+        WeiteInCM = weiteInCM;
+        Art = art;
+    }
+
     public String getBundDetails()
     {
         return BundDetails;

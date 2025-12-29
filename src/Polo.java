@@ -11,6 +11,13 @@ public class Polo extends Oberteil
         Muster = muster;
     }
 
+    public Polo(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String ausschnitArt, int anzahlKnopfe, String muster) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+        AusschnitArt = ausschnitArt;
+        AnzahlKnopfe = anzahlKnopfe;
+        Muster = muster;
+    }
+
     public String getAusschnitArt() {
         return AusschnitArt;
     }

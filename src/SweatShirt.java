@@ -8,6 +8,12 @@ public class SweatShirt extends Oberteil{
         this.hatTasche = hatTasche;
     }
 
+    public SweatShirt(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, boolean hatKaputze, boolean hatTasche) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+        this.hatKaputze = hatKaputze;
+        this.hatTasche = hatTasche;
+    }
+
     public boolean isHatKaputze() {
         return hatKaputze;
     }

@@ -12,6 +12,7 @@ public class Muetze extends Kopfbedeckung
         this.hatUmschlag = hatUmschlag;
     }
 
+
     public String getStrickArt() {
         return StrickArt;
     }

@@ -73,18 +73,30 @@ public class JSONReader {
                 if (LesenMoeglich("Cappen"))
                 {
                     String[][] CappeWerte =  JSONjoin(JSONzu2Darray("Cappen",5),0,KopfbedckungWerte,8);
+                    for (String[] Werte : CappeWerte){
+                        Cappe cappe = new Cappe(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Boolean.parseBoolean(Werte[9]),Boolean.parseBoolean(Werte[10]),Boolean.parseBoolean(Werte[11]),Werte[12]);
+                    }
                 }
                 if  (LesenMoeglich("Huete"))
                 {
                     String[][] HutWerte =  JSONjoin(JSONzu2Darray("Huete",7),0,KopfbedckungWerte,8);
+                    for (String[] Werte : HutWerte){
+                        Hut hut = new Hut(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Boolean.parseBoolean(Werte[9]),Boolean.parseBoolean(Werte[10]),Integer.parseInt(Werte[11]),Werte[12],Boolean.parseBoolean(Werte[13]),Boolean.parseBoolean(Werte[14]));
+                    }
                 }
                 if (LesenMoeglich("Muetzen"))
                 {
                     String[][] MuetzenWerte =  JSONjoin(JSONzu2Darray("Muetzen",5),0,KopfbedckungWerte,8);
+                    for (String[] Werte : MuetzenWerte){
+                        Muetze muetze = new Muetze(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Boolean.parseBoolean(Werte[9]),Boolean.parseBoolean(Werte[10]),Werte[11],Werte[12],Boolean.parseBoolean(Werte[13]));
+                    }
                 }
                 if(LesenMoeglich("Sturmhauben"))
                 {
                     String[][] SturmhaubenWerte =  JSONjoin(JSONzu2Darray("Sturmhauben",5),0,KopfbedckungWerte,8);
+                    for (String[] Werte : SturmhaubenWerte){
+                        Sturmhaube sturmhaube = new Sturmhaube(Werte[0], Werte[1].split(","), Werte[2], Werte[3].split(","), Werte[4], Werte[5], Werte[6], Werte[7], Integer.parseInt(Werte[8]), Boolean.parseBoolean(Werte[9]), Boolean.parseBoolean(Werte[10]), Werte[11], Werte[12]);
+                    }
                 }
             }
             // Unterteil und Unterklassen

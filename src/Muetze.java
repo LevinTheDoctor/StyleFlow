@@ -12,6 +12,12 @@ public class Muetze extends Kopfbedeckung
         this.hatUmschlag = hatUmschlag;
     }
 
+    public Muetze(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, Boolean hatSchirm, Boolean bedecktGesicht, String strickArt, String stil, Boolean hatUmschlag) {
+        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, hatSchirm, bedecktGesicht);
+        StrickArt = strickArt;
+        Stil = stil;
+        this.hatUmschlag = hatUmschlag;
+    }
 
     public String getStrickArt() {
         return StrickArt;

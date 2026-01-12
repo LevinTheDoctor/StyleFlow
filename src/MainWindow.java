@@ -13,19 +13,19 @@ public class MainWindow extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage.setTitle("StyleFlow");
+
         Group root = new Group();
         Scene scene = new Scene(root);
 
-        // Ab hier ist jedes Window gleich
+        // Ab hier ist jedes Window gleich um gleiche größe titel und icon zu haben
+        stage.setTitle("StyleFlow");
         Image icon = new Image("icon.png");
         stage.getIcons().add(icon);
         stage.setHeight(500);
         stage.setWidth(800);
-        stage.setResizable(false);
-        //Scene wird zu stage hinzu gefügt
+        //Scene wird zu stage hinzu gefuegt
         stage.setScene(scene);
-        //Stage wird sichtbar immer am ende
+        //Stage wird sichtbar immer am Ende!
         stage.show();
     }
 

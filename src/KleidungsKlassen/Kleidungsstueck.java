@@ -1,3 +1,5 @@
+package KleidungsKlassen;
+
 public abstract class Kleidungsstueck
 {
     private final String Name;

@@ -1,3 +1,5 @@
+package KleidungsKlassen;
+
 public class Jacke extends Oberteil
 {
     private final String verschlussArt;

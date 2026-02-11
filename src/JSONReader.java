@@ -1,3 +1,8 @@
+import KleidungsKlassen.Cappe;
+import KleidungsKlassen.Hut;
+import KleidungsKlassen.Jacke;
+import KleidungsKlassen.Muetze;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

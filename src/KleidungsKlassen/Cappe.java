@@ -1,3 +1,5 @@
+package KleidungsKlassen;
+
 public class Cappe extends Kopfbedeckung
 {
     private boolean SchrimGekruemt;

@@ -1,3 +1,5 @@
+package KleidungsKlassen;
+
 public class Muetze extends Kopfbedeckung
 {
     private final String StrickArt;

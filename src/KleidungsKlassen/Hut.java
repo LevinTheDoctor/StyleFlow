@@ -1,3 +1,5 @@
+package KleidungsKlassen;
+
 public class Hut extends Kopfbedeckung
 {
     private final int Hoehe;

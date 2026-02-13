@@ -1,54 +1,12 @@
 package JSONHandling;
-
+import static JSONHandling.JSONWriterHelper.*;
 import KleidungsKlassen.*;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.logging.Logger;
 
 public class JSONWriterKleidungstuecke {
-    public void Komma(PrintWriter writer, Boolean LetztesElement)
-    {
-        if (LetztesElement)
-        {
-            writer.println(",");
-        }
-        else
-        {
-            writer.println("");
-        }
-    }
-    public void WriteBoolean (PrintWriter writer,String name, Boolean Wert,Boolean LetztesElement)
-    {
-        writer.print("\""+ name +"\":" + Wert);
-        Komma(writer,LetztesElement);
-    }
 
-    public void WriteInteger (PrintWriter writer,String name, Integer Wert, Boolean LetztesElement)
-    {
-        writer.print("\""+ name +"\":" + Wert);
-        Komma(writer,LetztesElement);
-    }
-    public void WriteString (PrintWriter writer,String name, String Wert, Boolean LetztesElement)
-    {
-        writer.print("\""+ name +"\": \"" + Wert + "\"");
-        Komma(writer,LetztesElement);
-    }
-
-    public void WriteStringArray (PrintWriter writer,String name, String[] Werte, Boolean LetztesElementBool)
-    {
-        String LetztesElement = Werte[Werte.length -1];
-        writer.print("\""+ name + "\": [");
-        for (String Wert : Werte)
-        {
-            writer.print("\"" + Wert + "\"");
-            if (!Wert.equals(LetztesElement))
-            {
-                writer.print(", ");
-            }
-        }
-        writer.print("]");
-        Komma(writer,LetztesElementBool);
-    }
     // Wirklich Schreibfunktionen für die jeweiligen Kleidungsstücke
     public void KleidungsstueckWriter(Kleidungsstueck[] kleidungsstuecke)
     {

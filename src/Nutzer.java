@@ -4,10 +4,27 @@ public class Nutzer {
     private String pfadZumBild;
     private ArrayList<String> LeiblingsFarbe;
     private String Standort;
+    private static int NutzerAnzahl;
+    private final int NutzerID;
 
     public Nutzer(String pfadZumBild, String nutzername) {
         this.pfadZumBild = pfadZumBild;
         this.nutzername = nutzername;
+        NutzerAnzahl += 1;
+        NutzerID = NutzerAnzahl;
+    }
+
+    public Nutzer(String nutzername, String pfadZumBild, ArrayList<String> leiblingsFarbe, String standort) {
+        this.nutzername = nutzername;
+        this.pfadZumBild = pfadZumBild;
+        LeiblingsFarbe = leiblingsFarbe;
+        Standort = standort;
+        NutzerAnzahl += 1;
+        NutzerID = NutzerAnzahl;
+    }
+
+    public static void setNutzerAnzahl(int nutzerAnzahl) {
+        NutzerAnzahl = nutzerAnzahl;
     }
 
     public void setNutzername(String nutzername) {

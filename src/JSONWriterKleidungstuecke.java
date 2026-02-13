@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.logging.Logger;
 
-public class JSONWriter {
+public class JSONWriterKleidungstuecke {
     public void Komma(PrintWriter writer, Boolean LetztesElement)
     {
         if (LetztesElement)
@@ -82,7 +82,7 @@ public class JSONWriter {
         catch (Exception e)
         {
             // Logger da e.printStackTrace() Warungen ausgeworfen hat
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -115,7 +115,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -147,7 +147,7 @@ public class JSONWriter {
             writer.close();
         } catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -180,7 +180,7 @@ public class JSONWriter {
             writer.close();
         } catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -213,7 +213,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -246,7 +246,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -281,7 +281,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -314,7 +314,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -348,7 +348,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -380,7 +380,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -413,7 +413,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -448,7 +448,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -481,7 +481,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -514,7 +514,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -547,7 +547,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -582,7 +582,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -616,7 +616,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -649,7 +649,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -682,7 +682,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -716,7 +716,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -748,7 +748,7 @@ public class JSONWriter {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
     }
@@ -780,7 +780,7 @@ public void kleidWriter(Kleid[] kleider) {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONWriter.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }
 }

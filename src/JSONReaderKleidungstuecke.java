@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.logging.Logger;
 // Die Ganze JSON Read geschichte ist eingetlich daher verschulde das ich im abi und jetzt in der Ausbildung nur mit Datenbanken rumhantier und ich versuche quasi ein Join der JSON Datein manuel über Java ich weiß das ist nicht elgenat aber das kenne ich halt - Levin
-public class JSONReader {
+public class JSONReaderKleidungstuecke {
 
 
     // Reader Klasse nimmt ids aus allen katehgorien um mit ein string array zu erzeugen der dann von den klassen eingelsen wird
@@ -241,7 +241,7 @@ public class JSONReader {
         }
         catch (Exception e)
         {
-            Logger LOGGER = Logger.getLogger(JSONReader.class.getName());
+            Logger LOGGER = Logger.getLogger(JSONReaderKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
             return new String[0][0];
         }

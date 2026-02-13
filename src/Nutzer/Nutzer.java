@@ -1,5 +1,7 @@
+package Nutzer;
+
 import java.util.ArrayList;
-public class Nutzer {
+public class Nutzer implements INutzer {
     private String nutzername;
     private String pfadZumBild;
     private ArrayList<String> LeiblingsFarbe;
@@ -38,6 +40,16 @@ public class Nutzer {
     public void setPfadZumBild(String pfadZumBild) {
         this.pfadZumBild = pfadZumBild;
     }
+    // Leiblingsfarbe wird durch Interface hinzugefügt
+    @Override
+    public void addLeiblingsFarbe(String Farbe){
+        LeiblingsFarbe.add(Farbe);
+    }
+
+    @Override
+    public void removeLeiblingsFarbe(String Farbe){
+        LeiblingsFarbe.remove(Farbe);
+    }
 
     public ArrayList<String> getLeiblingsFarbe() {
         return LeiblingsFarbe;
@@ -45,6 +57,16 @@ public class Nutzer {
 
     public void setLeiblingsFarbe(ArrayList<String> leiblingsFarbe) {
         LeiblingsFarbe = leiblingsFarbe;
+    }
+
+    @Override
+    public void addStandort(String standort) {
+        setStandort(standort);
+    }
+    @Override
+    public void removeStandort(String standort) {
+        // Durch null setzen wird die Variable wieder leer vorher wollte ich das mit "" machen aber das war dumm
+        setStandort(null);
     }
 
     public String getStandort() {

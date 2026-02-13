@@ -8,7 +8,7 @@ public class JSONReaderKleidungstuecke {
 
 
     // Reader Klasse nimmt ids aus allen katehgorien um mit ein string array zu erzeugen der dann von den klassen eingelsen wird
-    public void StartReader(){
+    public void KleidungStartReader(){
         if (LesenMoeglich("Kleidungsstuecke"))
         {
             String[][] KleidungstueckeWerte = JSONzu2Darray("Kleidungsstuecke",11);

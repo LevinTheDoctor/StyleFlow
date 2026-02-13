@@ -33,6 +33,18 @@ public class Nutzer implements INutzer {
         this.nutzername = nutzername;
     }
 
+    public String getNutzername() {
+        return nutzername;
+    }
+
+    public static int getNutzerAnzahl() {
+        return NutzerAnzahl;
+    }
+
+    public int getNutzerID() {
+        return NutzerID;
+    }
+
     public String getPfadZumBild() {
         return pfadZumBild;
     }

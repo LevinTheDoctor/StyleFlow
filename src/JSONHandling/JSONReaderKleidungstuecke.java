@@ -1,3 +1,5 @@
+package JSONHandling;
+
 import KleidungsKlassen.*;
 
 import java.io.BufferedReader;

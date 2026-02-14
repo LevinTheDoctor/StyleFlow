@@ -92,13 +92,6 @@ public class JSONReaderKleidungstuecke {
                         Muetze muetze = new Muetze(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Boolean.parseBoolean(Werte[9]),Boolean.parseBoolean(Werte[10]),Werte[11],Werte[12],Boolean.parseBoolean(Werte[13]));
                     }
                 }
-                if(LesenMoeglich("Sturmhauben"))
-                {
-                    String[][] SturmhaubenWerte =  JSONjoin(JSONzu2Darray("Sturmhauben",5),0,KopfbedckungWerte,8);
-                    for (String[] Werte : SturmhaubenWerte){
-                        Sturmhaube sturmhaube = new Sturmhaube(Werte[0], Werte[1].split(","), Werte[2], Werte[3].split(","), Werte[4], Werte[5], Werte[6], Werte[7], Integer.parseInt(Werte[8]), Boolean.parseBoolean(Werte[9]), Boolean.parseBoolean(Werte[10]), Werte[11], Werte[12]);
-                    }
-                }
             }
             // Unterteil und Unterklassen
             if (LesenMoeglich("Unterteile"))
@@ -150,7 +143,7 @@ public class JSONReaderKleidungstuecke {
             {
                 String[][] KleidWerte = JSONjoin(JSONzu2Darray("Kleid",6),0,KleidungstueckeWerte,8);
                 for (String[] Werte : KleidWerte){
-                    Kleid kleid = new Kleid(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Integer.parseInt(Werte[11]),Boolean.parseBoolean(Werte[12]));
+                    //Kleid kleid = new Kleid(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Integer.parseInt(Werte[11]),Boolean.parseBoolean(Werte[12]));
                 }
             }
         }

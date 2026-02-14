@@ -446,38 +446,6 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void sturmhaubeWriter(Sturmhaube[] sturmhauben)
-    {
-        try
-        {
-            File SturmhaubeFile = new File("Sturmhauben.json");
-            PrintWriter writer = new PrintWriter(SturmhaubeFile);
-            writer.println("[");
-            Sturmhaube LetzteSturmhaube = sturmhauben[sturmhauben.length -1];
-            for (Sturmhaube sturmhaube : sturmhauben) {
-                writer.println("{");
-                WriteInteger(writer,"KleidungsID",sturmhaube.getKleidungsID(),false);
-                WriteString(writer,"StrickArt",sturmhaube.getStrickArt(),false);
-                WriteString(writer,"AugenAuschnittArt",sturmhaube.getAugenAusschnitsArt(),true);
-                if (sturmhaube.equals(LetzteSturmhaube))
-                {
-                    writer.println("}");
-                }
-                else
-                {
-                    writer.println("},");
-                }
-            }
-            writer.println("]");
-            writer.flush();
-            writer.close();
-        }
-        catch (Exception e)
-        {
-            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
-            LOGGER.severe(e.getMessage());
-        }
-    }
 
     public void unterteilWriter(Unterteil[] unterteile)
     {
@@ -722,10 +690,10 @@ public void kleidWriter(Kleid[] kleider) {
             Kleid LetzesKleide = kleider[kleider.length -1];
             for (Kleid kleid : kleider) {
                 writer.println("{");
-                WriteString(writer,"AuschnittArt",kleid.getAuschnitArt(),false);
-                WriteString(writer,"Schnitt",kleid.getSchnitt(),false);
-                WriteInteger(writer,"LangeInCM",kleid.getLangeInCM(),false);
-                WriteBoolean(writer,"HatArmel",kleid.isHatAermel(),true);
+                //WriteString(writer,"AuschnittArt",kleid.getAuschnitArt(),false);
+                //WriteString(writer,"Schnitt",kleid.getSchnitt(),false);
+                //WriteInteger(writer,"LangeInCM",kleid.getLangeInCM(),false);
+                //WriteBoolean(writer,"HatArmel",kleid.isHatAermel(),true);
                 if (kleid.equals(LetzesKleide))
                 {
                     writer.println("}");

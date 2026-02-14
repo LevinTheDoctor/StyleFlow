@@ -1,6 +1,6 @@
 package KleidungsKlassen;
 
-public class Jacke extends Oberteil
+public abstract class Jacke extends Oberteil
 {
     private final String verschlussArt;
     private final boolean istWasserdicht;

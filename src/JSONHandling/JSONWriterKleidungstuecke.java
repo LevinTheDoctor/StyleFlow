@@ -178,38 +178,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void SweatShirtWriter(SweatShirt[] sweatShirts)
-    {
-        try
-        {
-            File SweatShirtFile = new File("SweatShirts.json");
-            PrintWriter writer = new PrintWriter(SweatShirtFile);
-            writer.println("[");
-            SweatShirt LetztesSweatShirt = sweatShirts[sweatShirts.length -1];
-            for (SweatShirt sweatShirt : sweatShirts) {
-                writer.println("{");
-                WriteInteger(writer,"KleidungsID",sweatShirt.getKleidungsID(),false);
-                WriteBoolean(writer,"HatKapuzen",sweatShirt.isHatKaputze(),false);
-                WriteBoolean(writer,"HatTasche",sweatShirt.isHatTasche(),true);
-                if (sweatShirt.equals(LetztesSweatShirt))
-                {
-                    writer.println("}");
-                }
-                else
-                {
-                    writer.println("},");
-                }
-            }
-            writer.println("]");
-            writer.flush();
-            writer.close();
-        }
-        catch (Exception e)
-        {
-            Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
-            LOGGER.severe(e.getMessage());
-        }
-    }
+
 
     public void PoloWriter(Polo[] polos)
     {

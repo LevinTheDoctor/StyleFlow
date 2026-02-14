@@ -38,13 +38,7 @@ public class JSONReaderKleidungstuecke {
                         TShirt tShirt = new TShirt(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Werte[10],Werte[11],Werte[12]);
                     }
                 }
-                if (LesenMoeglich("SweatShirts"))
-                {
-                    String[][] SweatShritWerte = JSONjoin(JSONzu2Darray("SweatShirts",5),0,OberteileWerte,8);
-                    for (String[] Werte : SweatShritWerte){
-                        SweatShirt sweatShirt = new SweatShirt(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Werte[10],Boolean.parseBoolean(Werte[11]),Boolean.parseBoolean(Werte[12]));
-                    }
-                }
+
                 if(LesenMoeglich("Polos"))
                 {
                     String[][] PoloWerte = JSONjoin(JSONzu2Darray("Polos",6),0,OberteileWerte,8);

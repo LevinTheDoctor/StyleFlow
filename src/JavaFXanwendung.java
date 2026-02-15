@@ -1,12 +1,11 @@
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
-public class MainWindow extends Application {
+public class JavaFXanwendung extends Application {
 
     public static void main(String[] args) {
         //Hier wird das programm gestartet unten wird die Start methode von launch überladen

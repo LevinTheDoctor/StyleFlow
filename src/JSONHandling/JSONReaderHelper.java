@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 // Vorher waren diese helper erst nur in der JSON ReaderKleidundstücke nun ist es ausgekoppelt
 public class JSONReaderHelper {
 
+
+
     public static String[][] JSONjoin(String[][] Grundliste,int indexIDGrundliste,String[][] Erweitrungsliste, int indexIDErweitrungsliste)
     {
         String[][] JoinedListe = new String[Grundliste.length][Grundliste[0].length+Erweitrungsliste[0].length-1];
@@ -136,8 +138,9 @@ public class JSONReaderHelper {
     public static String[] ReadStringArray(String line)
     {
         String[] parts = line.split(":");
-        String arrayInJSON = parts[1].trim().replace(",", "").replace("[", "").replace("]", "").replace("\"", "");
-        return arrayInJSON.split(",");
+        String arrayInJSON = parts[1].trim().replace("[", "").replace("]", "").replace("\"", "");
+        // leerezeichen ignoriren
+        return arrayInJSON.split("\\s*,\\s*");
     }
 
     public static Integer ReadInteger(String line)

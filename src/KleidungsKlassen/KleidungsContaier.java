@@ -19,7 +19,7 @@ public class KleidungsContaier {
     private ArrayList<Anzug> anzugs;
     // Alle Schuhe
     private ArrayList<Schuhe> schuhe;
-    private ArrayList<HighHeel> highHeels;
+    private ArrayList<HighHeels> highHeels;
     private ArrayList<Sneaker> sneakers;
     private ArrayList<Stiefel> stiefels;
     private ArrayList<Sandalen> sandalens;
@@ -40,7 +40,7 @@ public class KleidungsContaier {
     private ArrayList<SweatshirtJacke> sweatshirtJackes;
     private ArrayList<UebergangsJacke> uebergangsJackes;
 
-    public KleidungsContaier(ArrayList<Kleidungsstueck> kleidungsstuecks, ArrayList<Kopfbedeckung> kopfbedeckungs, ArrayList<Muetze> muetze, ArrayList<Hut> huts, ArrayList<Cappe> caps, ArrayList<Unterteil> unterteils, ArrayList<Hose> hoses, ArrayList<Rock> rocks, ArrayList<Einteiler> einteilers, ArrayList<Kleid> kleids, ArrayList<Overall> overalls, ArrayList<Anzug> anzugs, ArrayList<Schuhe> schuhe, ArrayList<HighHeel> highHeels, ArrayList<Sneaker> sneakers, ArrayList<Stiefel> stiefels, ArrayList<Sandalen> sandalens, ArrayList<Halbschuhe> halbschuhes, ArrayList<Oberteil> oberteils, ArrayList<Hemd> hemds, ArrayList<Polo> polos, ArrayList<Pullover> pullovers, ArrayList<Hoodie> hoodies, ArrayList<TShirt> tshirts, ArrayList<Top> tops, ArrayList<Jacke> jackes, ArrayList<Mantel> mantels, ArrayList<WinterJacke> winterJackes, ArrayList<RegenJacke> regenJackes, ArrayList<SweatshirtJacke> sweatshirtJackes, ArrayList<UebergangsJacke> uebergangsJackes) {
+    public KleidungsContaier(ArrayList<Kleidungsstueck> kleidungsstuecks, ArrayList<Kopfbedeckung> kopfbedeckungs, ArrayList<Muetze> muetze, ArrayList<Hut> huts, ArrayList<Cappe> caps, ArrayList<Unterteil> unterteils, ArrayList<Hose> hoses, ArrayList<Rock> rocks, ArrayList<Einteiler> einteilers, ArrayList<Kleid> kleids, ArrayList<Overall> overalls, ArrayList<Anzug> anzugs, ArrayList<Schuhe> schuhe, ArrayList<HighHeels> highHeels, ArrayList<Sneaker> sneakers, ArrayList<Stiefel> stiefels, ArrayList<Sandalen> sandalens, ArrayList<Halbschuhe> halbschuhes, ArrayList<Oberteil> oberteils, ArrayList<Hemd> hemds, ArrayList<Polo> polos, ArrayList<Pullover> pullovers, ArrayList<Hoodie> hoodies, ArrayList<TShirt> tshirts, ArrayList<Top> tops, ArrayList<Jacke> jackes, ArrayList<Mantel> mantels, ArrayList<WinterJacke> winterJackes, ArrayList<RegenJacke> regenJackes, ArrayList<SweatshirtJacke> sweatshirtJackes, ArrayList<UebergangsJacke> uebergangsJackes) {
         this.kleidungsstuecks = kleidungsstuecks;
         this.kopfbedeckungs = kopfbedeckungs;
         this.muetze = muetze;
@@ -178,11 +178,11 @@ public class KleidungsContaier {
         this.schuhe = schuhe;
     }
 
-    public ArrayList<HighHeel> getHighHeels() {
+    public ArrayList<HighHeels> getHighHeels() {
         return highHeels;
     }
 
-    public void setHighHeels(ArrayList<HighHeel> highHeels) {
+    public void setHighHeels(ArrayList<HighHeels> highHeels) {
         this.highHeels = highHeels;
     }
 

@@ -4,6 +4,7 @@ public class Wetter {
     private String WetterPhaenomen;
     private Double Wind;
     private Double TempraturInGrad;
+    private String WetterName;
 
     public Wetter(String wetterPhaenomen, Double wind, Double tempraturInGrad) {
         WetterPhaenomen = wetterPhaenomen;
@@ -33,5 +34,13 @@ public class Wetter {
 
     public void setTempraturInGrad(Double tempraturInGrad) {
         TempraturInGrad = tempraturInGrad;
+    }
+
+    public String getWetterName() {
+        return WetterName;
+    }
+
+    public void setWetterName(String wetterName) {
+        WetterName = wetterName;
     }
 }

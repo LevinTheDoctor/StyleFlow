@@ -1,31 +1,21 @@
 package Wetter;
 
 public class Wetter {
-    private String WetterPhaenomen;
-    private Double Wind;
+    private String WetterLage; // Sonne, Regen, Schnne, Windig
     private Double TempraturInGrad;
-    private String WetterName;
+    private String WetterSituation;
 
     public Wetter(String wetterPhaenomen, Double wind, Double tempraturInGrad) {
-        WetterPhaenomen = wetterPhaenomen;
-        Wind = wind;
+        WetterLage = wetterPhaenomen;
         TempraturInGrad = tempraturInGrad;
     }
 
-    public String getWetterPhaenomen() {
-        return WetterPhaenomen;
+    public String getWetterLage() {
+        return WetterLage;
     }
 
-    public void setWetterPhaenomen(String wetterPhaenomen) {
-        WetterPhaenomen = wetterPhaenomen;
-    }
-
-    public Double getWind() {
-        return Wind;
-    }
-
-    public void setWind(Double wind) {
-        Wind = wind;
+    public void setWetterLage(String wetterLage) {
+        WetterLage = wetterLage;
     }
 
     public Double getTempraturInGrad() {
@@ -36,11 +26,11 @@ public class Wetter {
         TempraturInGrad = tempraturInGrad;
     }
 
-    public String getWetterName() {
-        return WetterName;
+    public String getWetterSituation() {
+        return WetterSituation;
     }
 
-    public void setWetterName(String wetterName) {
-        WetterName = wetterName;
+    public void setWetterSituation(String wetterSituation) {
+        WetterSituation = wetterSituation;
     }
 }

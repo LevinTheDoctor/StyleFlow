@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.logging.Logger;
+import Exception.KeineJsonGefundenException;
 
 // Vorher waren diese helper erst nur in der JSON ReaderKleidundstücke nun ist es ausgekoppelt
 public class JSONReaderHelper {
@@ -117,10 +118,12 @@ public class JSONReaderHelper {
     }
 
     // Überprüft, ob das Lesen der JSON-Datei Existirt wichtig für den Ersten Start
-    public static boolean LesenMoeglich(String filename)
+    public static void LesenMoeglich(String filename)
     {
         File File = new File(filename + ".json");
-        return File.exists();
+        if (!File.exists()) {
+            throw new KeineJsonGefundenException(filename);
+        }
     }
 
     // Methoden zum Parsen der Daten aus der JSON-Datei

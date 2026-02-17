@@ -2,45 +2,30 @@ package KleidungsKlassen;
 
 public class Hut extends Kopfbedeckung
 {
-    private final int Hoehe;
-    private final String Form;
-    private final boolean istSteif;
-    private final boolean hatBand;
+    private final int hoehe;
+    private final String art;
 
-    public Hut(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, int hoehe, String form, boolean istSteif, boolean hatBand)
+    public Hut(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int hoehe, String art)
     {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, true, false);
-        this.Hoehe = hoehe;
-        this.Form = form;
-        this.istSteif = istSteif;
-        this.hatBand = hatBand;
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        this.art = art;
+        this.hoehe = hoehe;
     }
 
-    public Hut(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, Boolean hatSchirm, Boolean bedecktGesicht, int hoehe, String form, boolean istSteif, boolean hatBand) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, hatSchirm, bedecktGesicht);
-        Hoehe = hoehe;
-        Form = form;
-        this.istSteif = istSteif;
-        this.hatBand = hatBand;
+    public Hut(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int hoehe, String art, int kleidungsId)
+    {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsId);
+        this.art = art;
+        this.hoehe = hoehe;
     }
 
     public int getHoehe()
     {
-        return Hoehe;
+        return hoehe;
     }
 
-    public String getForm()
+    public String getArt()
     {
-        return Form;
-    }
-
-    public boolean isIstSteif()
-    {
-        return istSteif;
-    }
-
-    public boolean isHatBand()
-    {
-        return hatBand;
+        return art;
     }
 }

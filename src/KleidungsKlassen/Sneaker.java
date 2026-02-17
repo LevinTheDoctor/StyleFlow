@@ -1,27 +1,19 @@
 package KleidungsKlassen;
 
-public class Sneaker extends Schuhe
-{
-    private final boolean Colaboration;
-    private final String Technologie;
+public class Sneaker extends Schuhe {
+    private final String technologie;
 
-    public Sneaker(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, String solenMaterial, String verschlussTyp, boolean colaboration, String technologie) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, solenMaterial, verschlussTyp);
-        Colaboration = colaboration;
-        Technologie = technologie;
+    public Sneaker(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String absatzHoehe, String verschlussArt, String technologie) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, absatzHoehe, verschlussArt);
+        this.technologie = technologie;
     }
 
-    public Sneaker(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String solenMaterial, String verschlussTyp, boolean colaboration, String technologie) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, solenMaterial, verschlussTyp);
-        Colaboration = colaboration;
-        Technologie = technologie;
-    }
-
-    public boolean isColaboration() {
-        return Colaboration;
+    public Sneaker(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, String absatzHoehe, String verschlussArt, String technologie) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, absatzHoehe, verschlussArt);
+        this.technologie = technologie;
     }
 
     public String getTechnologie() {
-        return Technologie;
+        return technologie;
     }
 }

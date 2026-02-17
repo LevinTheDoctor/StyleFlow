@@ -1,27 +1,12 @@
 package KleidungsKlassen;
 
-
 public abstract class Kopfbedeckung extends Kleidungsstueck {
-    private final Boolean HatSchirm;
-    private final Boolean BedecktGesicht;
 
-    public Kopfbedeckung(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter,String BildDateiPfad, Boolean hatSchirm, Boolean bedecktGesicht) {
-        super(name, farbe, groesse, material, marke, anlass, wetter,BildDateiPfad);
-        this.HatSchirm = hatSchirm;
-        BedecktGesicht = bedecktGesicht;
+    public Kopfbedeckung(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
     }
 
-    public Kopfbedeckung(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, Boolean hatSchirm, Boolean bedecktGesicht) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID);
-        HatSchirm = hatSchirm;
-        BedecktGesicht = bedecktGesicht;
-    }
-
-    public Boolean getHatSchirm() {
-        return HatSchirm;
-    }
-
-    public Boolean getBedecktGesicht() {
-        return BedecktGesicht;
+    public Kopfbedeckung(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID);
     }
 }

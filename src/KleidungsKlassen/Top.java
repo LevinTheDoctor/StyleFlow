@@ -1,27 +1,26 @@
 package KleidungsKlassen;
 
-public class Top extends Oberteil
-{
-    private final String AusschnitArt;
-    private final String TraegerArt;
+public class Top extends Oberteil {
+    private final String ausschnittArt;
+    private final String traegerArt;
 
-    public Top(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, int aermelLaenge, String schnitt, String ausschnitArt, String traegerArt) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, aermelLaenge, schnitt);
-        AusschnitArt = ausschnitArt;
-        TraegerArt = traegerArt;
+    public Top(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, String ausschnittArt, String traegerArt) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, aermelLaenge, schnitt);
+        this.ausschnittArt = ausschnittArt;
+        this.traegerArt = traegerArt;
     }
 
-    public Top(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String ausschnitArt, String traegerArt) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
-        AusschnitArt = ausschnitArt;
-        TraegerArt = traegerArt;
+    public Top(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String ausschnittArt, String traegerArt) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+        this.ausschnittArt = ausschnittArt;
+        this.traegerArt = traegerArt;
     }
 
-    public String getAusschnitArt() {
-        return AusschnitArt;
+    public String getAusschnittArt() {
+        return ausschnittArt;
     }
 
     public String getTraegerArt() {
-        return TraegerArt;
+        return traegerArt;
     }
 }

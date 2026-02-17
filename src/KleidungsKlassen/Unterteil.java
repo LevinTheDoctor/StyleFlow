@@ -1,27 +1,26 @@
 package KleidungsKlassen;
 
-
 public abstract class Unterteil extends Kleidungsstueck {
-    private final int Laenge;
-    private final int AnzahlTaschen;
+    private final int laenge;
+    private final int anzahlTaschen;
 
-    public Unterteil(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter,String BildDateiPfad,int laenge, int anzahlTaschen) {
-        super(name, farbe, groesse, material, marke, anlass, wetter,BildDateiPfad);
-        this.AnzahlTaschen = anzahlTaschen;
-        this.Laenge = laenge;
+    public Unterteil(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int laenge, int anzahlTaschen) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        this.laenge = laenge;
+        this.anzahlTaschen = anzahlTaschen;
     }
 
-    public Unterteil(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int laenge, int anzahlTaschen) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID);
-        Laenge = laenge;
-        AnzahlTaschen = anzahlTaschen;
+    public Unterteil(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int laenge, int anzahlTaschen) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID);
+        this.laenge = laenge;
+        this.anzahlTaschen = anzahlTaschen;
     }
 
     public int getLaenge() {
-        return Laenge;
+        return laenge;
     }
 
     public int getAnzahlTaschen() {
-        return AnzahlTaschen;
+        return anzahlTaschen;
     }
 }

@@ -2,34 +2,30 @@ package KleidungsKlassen;
 
 public class Muetze extends Kopfbedeckung
 {
-    private final String StrickArt;
-    private final String Stil;
-    private final Boolean hatUmschlag;
+    private final String strickArt;
+    private final String stil;
 
-    public Muetze(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, String strickArt, String stil, Boolean hatUmschlag)
+    public Muetze(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String stil, String strickArt)
     {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, true,false);
-        StrickArt = strickArt;
-        Stil = stil;
-        this.hatUmschlag = hatUmschlag;
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        this.stil = stil;
+        this.strickArt = strickArt;
     }
 
-    public Muetze(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, Boolean hatSchirm, Boolean bedecktGesicht, String strickArt, String stil, Boolean hatUmschlag) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, hatSchirm, bedecktGesicht);
-        StrickArt = strickArt;
-        Stil = stil;
-        this.hatUmschlag = hatUmschlag;
+    public Muetze(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String stil, String strickArt, int kleidungsId)
+    {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsId);
+        this.stil = stil;
+        this.strickArt = strickArt;
     }
 
-    public String getStrickArt() {
-        return StrickArt;
+    public String getStrickArt()
+    {
+        return strickArt;
     }
 
-    public String getStil() {
-        return Stil;
-    }
-
-    public Boolean isHatUmschlag() {
-        return hatUmschlag;
+    public String getStil()
+    {
+        return stil;
     }
 }

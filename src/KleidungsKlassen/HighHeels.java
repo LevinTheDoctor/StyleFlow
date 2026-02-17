@@ -1,24 +1,23 @@
 package KleidungsKlassen;
 
-public class HighHeels extends Schuhe
-{
-    private boolean IstOffen;
+public class HighHeels extends Schuhe {
+    private boolean istOffen;
 
-    public HighHeels(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, String solenMaterial, String verschlussTyp, boolean istOffen) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, solenMaterial, verschlussTyp);
-        IstOffen = istOffen;
+    public HighHeels(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String absatzHoehe, String verschlussArt, boolean istOffen) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, absatzHoehe, verschlussArt);
+        this.istOffen = istOffen;
     }
 
-    public HighHeels(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String solenMaterial, String verschlussTyp, boolean istOffen) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, solenMaterial, verschlussTyp);
-        IstOffen = istOffen;
+    public HighHeels(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, String absatzHoehe, String verschlussArt, boolean istOffen) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, absatzHoehe, verschlussArt);
+        this.istOffen = istOffen;
     }
 
     public boolean isIstOffen() {
-        return IstOffen;
+        return istOffen;
     }
 
     public void setIstOffen(boolean istOffen) {
-        IstOffen = istOffen;
+        this.istOffen = istOffen;
     }
 }

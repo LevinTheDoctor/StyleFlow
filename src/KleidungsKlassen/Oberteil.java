@@ -1,26 +1,26 @@
 package KleidungsKlassen;
 
 public abstract class Oberteil extends Kleidungsstueck {
-    private final int AermelLaenge;
-    private final String Schnitt;
+    private final int aermelLaenge;
+    private final String schnitt;
 
-    public Oberteil(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter,String BildDateiPfad, int aermelLaenge, String schnitt) {
-        super(name, farbe, groesse, material, marke, anlass, wetter,BildDateiPfad);
-        this.AermelLaenge = aermelLaenge;
-        this.Schnitt = schnitt;
+    public Oberteil(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        this.aermelLaenge = aermelLaenge;
+        this.schnitt = schnitt;
     }
 
-    public Oberteil(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID);
-        AermelLaenge = aermelLaenge;
-        Schnitt = schnitt;
+    public Oberteil(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID);
+        this.aermelLaenge = aermelLaenge;
+        this.schnitt = schnitt;
     }
 
     public int getAermelLaenge() {
-        return AermelLaenge;
+        return aermelLaenge;
     }
 
     public String getSchnitt() {
-        return Schnitt;
+        return schnitt;
     }
 }

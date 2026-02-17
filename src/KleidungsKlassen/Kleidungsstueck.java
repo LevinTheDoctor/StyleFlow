@@ -27,7 +27,7 @@ public abstract class Kleidungsstueck
         this.kleidungsID = gesamtAnzahl;
     }
 
-    // Konstruktor zum Abrufen aus den Dateien
+    // Konstruktor zum Abrufen aus den Dateien deshalb die ID
     public Kleidungsstueck(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID) {
         this.bezeichnung = bezeichnung;
         this.farben = farben;

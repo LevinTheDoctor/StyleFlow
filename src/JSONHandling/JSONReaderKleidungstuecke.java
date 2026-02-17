@@ -8,7 +8,7 @@ public class JSONReaderKleidungstuecke {
 
 
     // Reader Klasse nimmt ids aus allen katehgorien um mit ein string array zu erzeugen der dann von den klassen eingelsen wird
-    public void KleidungStartReader(){
+    public KleidungsContaier KleidungStartReader(){
         if (LesenMoeglich("Kleidungsstuecke"))
         {
             String[][] KleidungstueckeWerte = JSONzu2Darray("Kleidungsstuecke",11);
@@ -56,8 +56,24 @@ public class JSONReaderKleidungstuecke {
                 if(LesenMoeglich("Jacken"))
                 {
                     String[][] JackerWerte = JSONjoin(JSONzu2Darray("Jacken",6),0,OberteileWerte,8);
-                    for (String[] Werte : JackerWerte){
-                        Jacke jacke = new Jacke(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Werte[10],Werte[11],Boolean.parseBoolean(Werte[12]),Werte[13]);
+                    if(LesenMoeglich("Mantel"))
+                    {
+
+                    }
+                    if(LesenMoeglich("RegenJacke"))
+                    {
+
+                    }
+                    if(LesenMoeglich("WinterJacke")){
+
+                    }
+                    if(LesenMoeglich("SweatshirtJacke"))
+                    {
+
+                    }
+                    if(LesenMoeglich("UebergangsJacke"))
+                    {
+
                     }
                 }
             }

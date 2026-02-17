@@ -1,0 +1,69 @@
+package Logik;
+import
+
+public class ProgrammLogik {
+    public static boolean IsFarbeHelle(String FarbeInHexCode)
+    {
+        // basirend aus helligkeits fromel für RGB hab ich online gefunden
+        int[] rgb = HexZuRGB(FarbeInHexCode);
+        Double Helligkeit = 0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2];
+        if (Helligkeit > 128)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    // nimmt die substrings
+    public static int[] HexZuRGB (String FarbeInHexCode)
+    {
+        String RinHex = FarbeInHexCode.substring(0,2);
+        String GinHex = FarbeInHexCode.substring(2,4);
+        String BinHex = FarbeInHexCode.substring(4,6);
+        int R = HexZuDez(RinHex);
+        int G = HexZuDez(GinHex);
+        int B = HexZuDez(BinHex);
+        return new int[]{R,G,B};
+    }
+
+    // ich will nicht mehr das hat einfach gegangen aber ich habe es vorher nicht gefunden lol
+    public static int HexZuDez (String Hex)
+    {
+        int countDurchgaenge = 0;
+        int ValueDez = 0;
+        for (int index = Hex.length()-1; index >= 0; index--){
+            Hex.charAt(index);
+            int vauleOfHexAtChar;
+            switch (Hex.charAt(index)){
+
+                case 'A':
+                    vauleOfHexAtChar = 10;
+                    break;
+                case 'B':
+                    vauleOfHexAtChar = 11;
+                    break;
+                case 'C':
+                    vauleOfHexAtChar = 12;
+                    break;
+                case 'D':
+                    vauleOfHexAtChar = 13;
+                    break;
+                case 'E':
+                    vauleOfHexAtChar = 14;
+                    break;
+                case 'F':
+                    vauleOfHexAtChar = 15;
+                    break;
+                default:
+                    vauleOfHexAtChar = Character.getNumericValue(Hex.charAt(index));
+            }
+            ValueDez += vauleOfHexAtChar * Math.pow(16,countDurchgaenge);
+            countDurchgaenge++;
+        }
+        return ValueDez;
+    }
+}

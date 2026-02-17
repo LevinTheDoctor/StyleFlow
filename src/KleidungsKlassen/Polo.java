@@ -1,34 +1,26 @@
 package KleidungsKlassen;
 
-public class Polo extends Oberteil
-{
-    private final String AusschnitArt;
-    private final int  AnzahlKnopfe;
-    private final String Muster;
+public class Polo extends Oberteil {
+    private final String kragenArt;
+    private final int anzahlKnopfe;
 
-    public Polo(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, int aermelLaenge, String schnitt, String ausschnitArt, int anzahlKnopfe, String muster) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, aermelLaenge, schnitt);
-        AusschnitArt = ausschnitArt;
-        AnzahlKnopfe = anzahlKnopfe;
-        Muster = muster;
+    public Polo(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, String kragenArt, int anzahlKnopfe) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, aermelLaenge, schnitt);
+        this.kragenArt = kragenArt;
+        this.anzahlKnopfe = anzahlKnopfe;
     }
 
-    public Polo(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String ausschnitArt, int anzahlKnopfe, String muster) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
-        AusschnitArt = ausschnitArt;
-        AnzahlKnopfe = anzahlKnopfe;
-        Muster = muster;
+    public Polo(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String kragenArt, int anzahlKnopfe) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+        this.kragenArt = kragenArt;
+        this.anzahlKnopfe = anzahlKnopfe;
     }
 
-    public String getAusschnitArt() {
-        return AusschnitArt;
+    public String getKragenArt() {
+        return kragenArt;
     }
 
     public int getAnzahlKnopfe() {
-        return AnzahlKnopfe;
-    }
-
-    public String getMuster() {
-        return Muster;
+        return anzahlKnopfe;
     }
 }

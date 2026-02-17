@@ -1,72 +1,58 @@
 package KleidungsKlassen;
 
-import java.util.ArrayList;
+public abstract class Einteiler extends Kleidungsstueck {
+    private String ausschnittArt;
+    private String weite;
+    private int laenge;
+    private boolean hatAermel;
 
-public abstract class Einteiler extends Kleidungsstueck{
-    private String AuschnitArt;
-    private String Weite;
-    private int Laenge;
-    private boolean HatAermel;
-
-    public Einteiler(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, String auschnitArt, String weite, int laenge, boolean hatAermel) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad);
-        AuschnitArt = auschnitArt;
-        Weite = weite;
-        Laenge = laenge;
-        HatAermel = hatAermel;
+    // Konstruktor für neue Kleidungsstücke
+    public Einteiler(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String ausschnittArt, String weite, int laenge, boolean hatAermel) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        this.ausschnittArt = ausschnittArt;
+        this.weite = weite;
+        this.laenge = laenge;
+        this.hatAermel = hatAermel;
     }
 
-    public Einteiler(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String auschnitArt, String weite, int laenge, boolean hatAermel) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID);
-        AuschnitArt = auschnitArt;
-        Weite = weite;
-        Laenge = laenge;
-        HatAermel = hatAermel;
+    // Konstruktor zum Abrufen aus Dateien
+    public Einteiler(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, String ausschnittArt, String weite, int laenge, boolean hatAermel) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID);
+        this.ausschnittArt = ausschnittArt;
+        this.weite = weite;
+        this.laenge = laenge;
+        this.hatAermel = hatAermel;
     }
 
-    public Einteiler(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, String auschnitArt,int laenge, boolean hatAermel) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad);
-        AuschnitArt = auschnitArt;
-        Laenge = laenge;
-        HatAermel = hatAermel;
+    public String getAusschnittArt() {
+        return ausschnittArt;
     }
 
-    public Einteiler(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String auschnitArt,int laenge, boolean hatAermel) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID);
-        AuschnitArt = auschnitArt;
-        Laenge = laenge;
-        HatAermel = hatAermel;
-    }
-
-    public String getAuschnitArt() {
-        return AuschnitArt;
-    }
-
-    public void setAuschnitArt(String auschnitArt) {
-        AuschnitArt = auschnitArt;
+    public void setAusschnittArt(String ausschnittArt) {
+        this.ausschnittArt = ausschnittArt;
     }
 
     public String getWeite() {
-        return Weite;
+        return weite;
     }
 
     public void setWeite(String weite) {
-        Weite = weite;
+        this.weite = weite;
     }
 
     public int getLaenge() {
-        return Laenge;
+        return laenge;
     }
 
     public void setLaenge(int laenge) {
-        Laenge = laenge;
+        this.laenge = laenge;
     }
 
     public boolean isHatAermel() {
-        return HatAermel;
+        return hatAermel;
     }
 
     public void setHatAermel(boolean hatAermel) {
-        HatAermel = hatAermel;
+        this.hatAermel = hatAermel;
     }
 }

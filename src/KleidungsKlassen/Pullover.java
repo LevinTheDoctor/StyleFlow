@@ -1,34 +1,26 @@
 package KleidungsKlassen;
 
-public class Pullover extends Oberteil
-{
-    private final String AusschnitArt;
-    private final String Muster;
-    private final String StrickArt;
+public class Pullover extends Oberteil {
+    private final String ausschnittArt;
+    private final String strickArt;
 
-    public Pullover(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, int aermelLaenge, String schnitt, String ausschnitArt, String muster, String strickArt) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, aermelLaenge, schnitt);
-        AusschnitArt = ausschnitArt;
-        Muster = muster;
-        StrickArt = strickArt;
+    public Pullover(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, String ausschnittArt, String strickArt) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, aermelLaenge, schnitt);
+        this.ausschnittArt = ausschnittArt;
+        this.strickArt = strickArt;
     }
 
-    public Pullover(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String ausschnitArt, String muster, String strickArt) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
-        AusschnitArt = ausschnitArt;
-        Muster = muster;
-        StrickArt = strickArt;
+    public Pullover(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String ausschnittArt, String strickArt) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+        this.ausschnittArt = ausschnittArt;
+        this.strickArt = strickArt;
     }
 
-    public String getAusschnitArt() {
-        return AusschnitArt;
-    }
-
-    public String getMuster() {
-        return Muster;
+    public String getAusschnittArt() {
+        return ausschnittArt;
     }
 
     public String getStrickArt() {
-        return StrickArt;
+        return strickArt;
     }
 }

@@ -2,82 +2,105 @@ package KleidungsKlassen;
 
 public abstract class Kleidungsstueck
 {
-    private final String Name;
-    private final String[] Farbe;
-    private final String Groesse;
-    private final String[] Material;
-    private final String Marke;
-    private final String Anlass;
-    private final String Wetter;
-    private final String BildDateiPfad;
-    private final int KleidungsID;
-    private static int KleidungsstuckAnzahl;
+    private final String bezeichnung;
+    private final String[] farben;
+    private final String wettereignung;
+    private final String bedecktesKoerperteil;
+    private final String bildDateiPfad;
+    private final int kleidungsID;
+    private static int anzahlProKlasse; // muss noch definiert werden
+    private static int gesamtAnzahl;
 
+    private String[] material;
+    private String[] style;
+    private String marke;
+    private String anmerkung;
 
-    public Kleidungsstueck(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter,String bildDateiPfad) {
-        Name = name;
-        Farbe = farbe;
-        Groesse = groesse;
-        Material = material;
-        Marke = marke;
-        Anlass = anlass;
-        Wetter = wetter;
-        BildDateiPfad = bildDateiPfad;
-        KleidungsstuckAnzahl += 1;
-        KleidungsID = KleidungsstuckAnzahl;
+    // Konstruktor für neue Kleidungsstücke
+    public Kleidungsstueck(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad) {
+        this.bezeichnung = bezeichnung;
+        this.farben = farben;
+        this.bedecktesKoerperteil = bedecktesKoerperteil;
+        this.wettereignung = wettereignung;
+        this.bildDateiPfad = bildDateiPfad;
+        gesamtAnzahl += 1;
+        this.kleidungsID = gesamtAnzahl;
     }
 
-    // Konstruktior zum abrufen aus den Datein
-    public Kleidungsstueck(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID) {
-        Name = name;
-        Farbe = farbe;
-        Groesse = groesse;
-        Material = material;
-        Marke = marke;
-        Anlass = anlass;
-        Wetter = wetter;
-        BildDateiPfad = bildDateiPfad;
-        KleidungsID = kleidungsID;
-        KleidungsstuckAnzahl += 1;
+    // Konstruktor zum Abrufen aus den Dateien
+    public Kleidungsstueck(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID) {
+        this.bezeichnung = bezeichnung;
+        this.farben = farben;
+        this.bedecktesKoerperteil = bedecktesKoerperteil;
+        this.wettereignung = wettereignung;
+        this.bildDateiPfad = bildDateiPfad;
+        this.kleidungsID = kleidungsID;
+        gesamtAnzahl += 1;
     }
 
-    public String getName() {
-        return Name;
+    // Setter für optionale Felder
+    public void setMarke(String marke) {
+        this.marke = marke;
     }
 
-    public String[] getFarbe() {
-        return Farbe;
+    public void setStyle(String[] style) {
+        this.style = style;
     }
-    public String getGroesse() {
-        return Groesse;
+
+    public void setMaterial(String[] material) {
+        this.material = material;
+    }
+
+    public void setAnmerkung(String anmerkung) {
+        this.anmerkung = anmerkung;
+    }
+
+    // Getter
+    public String getBezeichnung() {
+        return bezeichnung;
+    }
+
+    public String[] getFarben() {
+        return farben;
     }
 
     public String[] getMaterial() {
-        return Material;
+        return material;
     }
 
     public String getMarke() {
-        return Marke;
+        return marke;
     }
 
-    public String getAnlass() {
-        return Anlass;
+    public String[] getStyle() {
+        return style;
     }
 
-    public String getWetter() {
-        return Wetter;
+    public String getBedecktesKoerperteil() {
+        return bedecktesKoerperteil;
+    }
+
+    public String getWettereignung() {
+        return wettereignung;
     }
 
     public String getBildDateiPfad() {
-        return BildDateiPfad;
+        return bildDateiPfad;
+    }
+
+    public String getAnmerkung() {
+        return anmerkung;
     }
 
     public int getKleidungsID() {
-        return KleidungsID;
+        return kleidungsID;
     }
 
-    public static int getKleidungsstuckAnzahl() {
-        return KleidungsstuckAnzahl;
+    public static int getGesamtAnzahl() {
+        return gesamtAnzahl;
+    }
+
+    public static int getAnzahlProKlasse() {
+        return anzahlProKlasse;
     }
 }
-

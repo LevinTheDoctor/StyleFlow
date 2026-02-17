@@ -1,38 +1,26 @@
 package KleidungsKlassen;
 
-public class Stiefel extends Schuhe
-{
-    private final int AbsatzGroesse;
-    private final String Art;
-    private final String Muster;
+public class Stiefel extends Schuhe {
+    private final String art;
+    private final String muster;
 
-    public Stiefel(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, String solenMaterial, String verschlussTyp, int absatzGroesse, String art, String muster)
-    {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, solenMaterial, verschlussTyp);
-        AbsatzGroesse = absatzGroesse;
-        Art = art;
-        Muster = muster;
+    public Stiefel(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String absatzHoehe, String verschlussArt, String art, String muster) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, absatzHoehe, verschlussArt);
+        this.art = art;
+        this.muster = muster;
     }
 
-    public Stiefel(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String solenMaterial, String verschlussTyp, int absatzGroesse, String art, String muster) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, solenMaterial, verschlussTyp);
-        AbsatzGroesse = absatzGroesse;
-        Art = art;
-        Muster = muster;
+    public Stiefel(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, String absatzHoehe, String verschlussArt, String art, String muster) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, absatzHoehe, verschlussArt);
+        this.art = art;
+        this.muster = muster;
     }
 
-    public int getAbsatzGroesse()
-    {
-        return AbsatzGroesse;
+    public String getArt() {
+        return art;
     }
 
-    public String getArt()
-    {
-        return Art;
-    }
-
-    public String getMuster()
-    {
-        return Muster;
+    public String getMuster() {
+        return muster;
     }
 }

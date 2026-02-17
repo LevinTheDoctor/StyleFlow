@@ -1,35 +1,36 @@
 package KleidungsKlassen;
 
-public class Cappe extends Kopfbedeckung
+public class Cap extends Kopfbedeckung
 {
-    private boolean SchrimGekruemt;
-    private final String VerschlussaArt;
+    private boolean schirmGekruemmt;
+    private final String verschlussArt;
 
-    public Cappe(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, Boolean bedecktGesicht, Boolean SchrimGekruemt,String VerschlussaArt)
+    public Cap(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, boolean schirmGekruemmt, String verschlussArt)
     {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, true, bedecktGesicht);
-        this.SchrimGekruemt = SchrimGekruemt;
-        this.VerschlussaArt = VerschlussaArt;
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        this.schirmGekruemmt = schirmGekruemmt;
+        this.verschlussArt = verschlussArt;
     }
 
-    public Cappe(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, Boolean hatSchirm, Boolean bedecktGesicht, Boolean SchrimGekruemt,String VerschlussaArt) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, hatSchirm, bedecktGesicht);
-        this.SchrimGekruemt = SchrimGekruemt;
-        this.VerschlussaArt = VerschlussaArt;
+    public Cap(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, boolean schirmGekruemmt, String verschlussArt, int kleidungsID)
+    {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID);
+        this.schirmGekruemmt = schirmGekruemmt;
+        this.verschlussArt = verschlussArt;
     }
 
-    public boolean isSchrimGekruemt()
+    public void setSchirmGekruemmt(boolean schirmGekruemmt)
     {
-        return SchrimGekruemt;
+        this.schirmGekruemmt = schirmGekruemmt;
     }
 
-    public void setSchrimGekruemt(boolean schrimGekruemt)
+    public boolean isSchirmGekruemmt()
     {
-        SchrimGekruemt = schrimGekruemt;
+        return schirmGekruemmt;
     }
 
-    public String getVerschlussaArt()
+    public String getVerschlussArt()
     {
-        return VerschlussaArt;
+        return verschlussArt;
     }
 }

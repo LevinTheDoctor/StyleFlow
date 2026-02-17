@@ -1,39 +1,33 @@
 package KleidungsKlassen;
 
-public abstract class Jacke extends Oberteil
-{
+public abstract class Jacke extends Oberteil {
     private final String verschlussArt;
     private final boolean istWasserdicht;
-    private final String FutterMaterial;
+    private final String futterMaterial;
 
-    public Jacke(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, int aermelLaenge, String schnitt, String verschlussArt, boolean istWasserdicht,String FutterMaterial)
-    {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, aermelLaenge, schnitt);
+    public Jacke(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, String verschlussArt, boolean istWasserdicht, String futterMaterial) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, aermelLaenge, schnitt);
         this.verschlussArt = verschlussArt;
         this.istWasserdicht = istWasserdicht;
-        this.FutterMaterial = FutterMaterial;
+        this.futterMaterial = futterMaterial;
     }
 
-    public Jacke(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String verschlussArt, boolean istWasserdicht, String futterMaterial) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+    public Jacke(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String verschlussArt, boolean istWasserdicht, String futterMaterial) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
         this.verschlussArt = verschlussArt;
         this.istWasserdicht = istWasserdicht;
-        FutterMaterial = futterMaterial;
+        this.futterMaterial = futterMaterial;
     }
 
-    public String getVerschlussArt()
-    {
+    public String getVerschlussArt() {
         return verschlussArt;
     }
 
-    public boolean isIstWasserdicht()
-    {
+    public boolean isIstWasserdicht() {
         return istWasserdicht;
     }
 
-    public String getFutterMaterial()
-    {
-        return FutterMaterial;
+    public String getFutterMaterial() {
+        return futterMaterial;
     }
-
 }

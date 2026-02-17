@@ -1,26 +1,26 @@
 package KleidungsKlassen;
 
-
 public abstract class Schuhe extends Kleidungsstueck {
-    private final String SolenMaterial;
-    private final String VerschlussTyp;
-    public Schuhe(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter,String BildDateiPfad,String solenMaterial, String verschlussTyp) {
-        super(name, farbe, groesse, material, marke, anlass, wetter,BildDateiPfad);
-        SolenMaterial = solenMaterial;
-        VerschlussTyp = verschlussTyp;
+    private final String absatzHoehe;
+    private final String verschlussArt;
+
+    public Schuhe(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String absatzHoehe, String verschlussArt) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        this.absatzHoehe = absatzHoehe;
+        this.verschlussArt = verschlussArt;
     }
 
-    public Schuhe(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, String solenMaterial, String verschlussTyp) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID);
-        SolenMaterial = solenMaterial;
-        VerschlussTyp = verschlussTyp;
+    public Schuhe(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, String absatzHoehe, String verschlussArt) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID);
+        this.absatzHoehe = absatzHoehe;
+        this.verschlussArt = verschlussArt;
     }
 
-    public String getSolenMaterial() {
-        return SolenMaterial;
+    public String getAbsatzHoehe() {
+        return absatzHoehe;
     }
 
-    public String getVerschlussTyp() {
-        return VerschlussTyp;
+    public String getVerschlussArt() {
+        return verschlussArt;
     }
 }

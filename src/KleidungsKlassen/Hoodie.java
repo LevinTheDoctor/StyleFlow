@@ -1,24 +1,23 @@
 package KleidungsKlassen;
 
-public class Hoodie extends Oberteil
-{
-    private boolean HatTasche;
+public class Hoodie extends Oberteil {
+    private boolean hatTasche;
 
-    public Hoodie(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, int aermelLaenge, String schnitt, boolean hatTasche) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, aermelLaenge, schnitt);
-        HatTasche = hatTasche;
+    public Hoodie(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, boolean hatTasche) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, aermelLaenge, schnitt);
+        this.hatTasche = hatTasche;
     }
 
-    public Hoodie(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, boolean hatTasche) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
-        HatTasche = hatTasche;
+    public Hoodie(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, boolean hatTasche) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
+        this.hatTasche = hatTasche;
     }
 
     public boolean isHatTasche() {
-        return HatTasche;
+        return hatTasche;
     }
 
     public void setHatTasche(boolean hatTasche) {
-        HatTasche = hatTasche;
+        this.hatTasche = hatTasche;
     }
 }

@@ -1,37 +1,19 @@
 package KleidungsKlassen;
 
-public class Rock extends Unterteil{
-    private final String BundDetails;
-    private final int WeiteInCM;
-    private final String Art;
+public class Rock extends Unterteil {
+    private final String art;
 
-    public Rock(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String BildDateiPfad, int laenge, int anzahlTaschen, String bundDetails, int weiteInCM, String art)
-    {
-        super(name, farbe, groesse, material, marke, anlass, wetter, BildDateiPfad, laenge, anzahlTaschen);
-        BundDetails = bundDetails;
-        WeiteInCM = weiteInCM;
-        Art = art;
+    public Rock(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int laenge, int anzahlTaschen, String art) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, laenge, anzahlTaschen);
+        this.art = art;
     }
 
-    public Rock(String name, String[] farbe, String groesse, String[] material, String marke, String anlass, String wetter, String bildDateiPfad, int kleidungsID, int laenge, int anzahlTaschen, String bundDetails, int weiteInCM, String art) {
-        super(name, farbe, groesse, material, marke, anlass, wetter, bildDateiPfad, kleidungsID, laenge, anzahlTaschen);
-        BundDetails = bundDetails;
-        WeiteInCM = weiteInCM;
-        Art = art;
+    public Rock(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int laenge, int anzahlTaschen, String art) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, laenge, anzahlTaschen);
+        this.art = art;
     }
 
-    public String getBundDetails()
-    {
-        return BundDetails;
-    }
-
-    public int getWeiteInCM()
-    {
-        return WeiteInCM;
-    }
-
-    public String getArt()
-    {
-        return Art;
+    public String getArt() {
+        return art;
     }
 }

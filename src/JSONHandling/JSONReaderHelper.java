@@ -23,12 +23,12 @@ public class JSONReaderHelper {
                     Start = i;
                 }
             }
-            else // Sonst wirds durch gelaufen bis die nachste { kommt
+            else
             {
                 if(Zeilen.get(i).contains("{"))
                 {
                     Start2 = i;
-                    break; // nach zweiter wert zuweisung brichti die schleife ab weil man alles wichtige hat
+                    break; // nach zweiter wert zuweisung bricht die schleife ab weil man alles wichtige hat
                 }
 
             }
@@ -70,63 +70,90 @@ public class JSONReaderHelper {
         return JoinedListe;
     }
 
-    public static String[][] JSONzu2Darray(String Filename)
+    // Überprüft, ob das Lesen der JSON-Datei Existirt wichtig für den Ersten Start
+    public static String[][] LesenSafe(String filename)
     {
-        try(BufferedReader Reader = new BufferedReader(new FileReader(Filename + ".json")))
-        {
-            String line;
-            StringBuilder Content = new StringBuilder();
-            int ZeileAnzahl = 0;
-            while ((line = Reader.readLine()) != null)
-            {
-                Content.append(line).append("\n");
-                ZeileAnzahl++;
-            }
-
-            String[] AlleZeilen = Content.toString().split("\n");
-            ArrayList<String> ZeilenArrayList = new ArrayList<>(Arrays.asList(AlleZeilen));
-            int ZeilenProEintrag = berechneZeilenProEintrag(ZeilenArrayList);
-            int Anzahl = (ZeileAnzahl-2) / ZeilenProEintrag;
-            int JSONIndex = 2;
-            String[][] Werte = new String[Anzahl][ZeilenProEintrag-2];
-            for (int indexAnzahl = 0; indexAnzahl < Anzahl; indexAnzahl++)
-            {
-                for (int zeile = 0; zeile < ZeilenProEintrag-2; zeile++)
-                {
-                    String Typ = JSONerkenneTyp(AlleZeilen[JSONIndex+zeile]);
-                    switch (Typ){
-                        case "ARRAY":
-                            Werte[indexAnzahl][zeile] = String.join(",",ReadStringArray(AlleZeilen[JSONIndex+zeile]));
-                            break;
-                        case "BOOLEAN":
-                            if(ReadBoolean(AlleZeilen[JSONIndex+zeile]))
-                            {
-                                Werte[indexAnzahl][zeile] ="true";
-                            }
-                            else
-                            {
-                                Werte[indexAnzahl][zeile] ="false";
-                            }
-
-                            break;
-                        case "STRING":
-                            Werte[indexAnzahl][zeile] = ReadString(AlleZeilen[JSONIndex+zeile]);
-                            break;
-                        case "INTEGER":
-                            Werte[indexAnzahl][zeile] = ReadInteger(AlleZeilen[JSONIndex+zeile]).toString();
-                            break;
-                    }
-
-                }
-                JSONIndex += ZeilenProEintrag;
-            }
-            return Werte;
+        try{
+            return JSONzu2Darray(filename); // Historisch angewachsene unsprunglich gab es die Funktion lesen so ist es nur wegen einer eigene exception drin
         }
-        catch (Exception e)
+        catch(KeineJsonGefundenException e){
+            System.out.println("Datei nicht gefunden, überspringe: " + filename);
+            return null;
+        }
+
+    }
+
+    // Hier ist Lesen Möglich nur zum Vergleich finde das ist besser wenn es keine Vorgabe gab mit exceptions
+    public static boolean LesenMögliche(String filename)
+    {
+        File File = new File(filename + ".json");
+        return File.exists();
+    }
+
+    public static String[][] JSONzu2Darray(String Filename) throws KeineJsonGefundenException
+    {
+        if (!LesenMögliche(Filename))
         {
-            Logger LOGGER = Logger.getLogger(JSONReaderKleidungstuecke.class.getName());
-            LOGGER.severe(e.getMessage());
-            return new String[0][0];
+            throw new KeineJsonGefundenException(Filename);
+        }
+        else
+        {
+            try(BufferedReader Reader = new BufferedReader(new FileReader(Filename + ".json")))
+            {
+                String line;
+                StringBuilder Content = new StringBuilder();
+                int ZeileAnzahl = 0;
+                while ((line = Reader.readLine()) != null)
+                {
+                    Content.append(line).append("\n");
+                    ZeileAnzahl++;
+                }
+
+                String[] AlleZeilen = Content.toString().split("\n");
+                ArrayList<String> ZeilenArrayList = new ArrayList<>(Arrays.asList(AlleZeilen));
+                int ZeilenProEintrag = berechneZeilenProEintrag(ZeilenArrayList);
+                int Anzahl = (ZeileAnzahl-2) / ZeilenProEintrag;
+                int JSONIndex = 2;
+                String[][] Werte = new String[Anzahl][ZeilenProEintrag-2];
+                for (int indexAnzahl = 0; indexAnzahl < Anzahl; indexAnzahl++)
+                {
+                    for (int zeile = 0; zeile < ZeilenProEintrag-2; zeile++)
+                    {
+                        String Typ = JSONerkenneTyp(AlleZeilen[JSONIndex+zeile]);
+                        switch (Typ){
+                            case "ARRAY":
+                                Werte[indexAnzahl][zeile] = String.join(",",ReadStringArray(AlleZeilen[JSONIndex+zeile]));
+                                break;
+                            case "BOOLEAN":
+                                if(ReadBoolean(AlleZeilen[JSONIndex+zeile]))
+                                {
+                                    Werte[indexAnzahl][zeile] ="true";
+                                }
+                                else
+                                {
+                                    Werte[indexAnzahl][zeile] ="false";
+                                }
+
+                                break;
+                            case "STRING":
+                                Werte[indexAnzahl][zeile] = ReadString(AlleZeilen[JSONIndex+zeile]);
+                                break;
+                            case "INTEGER":
+                                Werte[indexAnzahl][zeile] = ReadInteger(AlleZeilen[JSONIndex+zeile]).toString();
+                                break;
+                        }
+
+                    }
+                    JSONIndex += ZeilenProEintrag;
+                }
+                return Werte;
+            }
+            catch (Exception e)
+            {
+                Logger LOGGER = Logger.getLogger(JSONReaderKleidungstuecke.class.getName());
+                LOGGER.severe(e.getMessage());
+                return new String[0][0];
+            }
         }
     }
 
@@ -148,14 +175,6 @@ public class JSONReaderHelper {
         return "INTEGER";
     }
 
-    // Überprüft, ob das Lesen der JSON-Datei Existirt wichtig für den Ersten Start
-    public static void LesenMoeglich(String filename)
-    {
-        File File = new File(filename + ".json");
-        if (!File.exists()) {
-            throw new KeineJsonGefundenException(filename);
-        }
-    }
 
     // Methoden zum Parsen der Daten aus der JSON-Datei
     public static boolean ReadBoolean(String line)

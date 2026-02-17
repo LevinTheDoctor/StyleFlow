@@ -4,10 +4,38 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.logging.Logger;
 import Exception.KeineJsonGefundenException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 // Vorher waren diese helper erst nur in der JSON ReaderKleidundstücke nun ist es ausgekoppelt
 public class JSONReaderHelper {
 
+    public static int berechneZeilenProEintrag(ArrayList<String> Zeilen){
+        int Start = -1; // Minus 1 weil 0 ein möglicher statrt wert ist wichtig für die if abfrage
+        int Start2= 0;
+
+        for (int i = 0; i < Zeilen.size(); i++)
+        {
+            if (Start==-1) // ist ja nur bei ersten mal -1
+            {
+                if(Zeilen.get(i).contains("{"))
+                {
+                    Start = i;
+                }
+            }
+            else // Sonst wirds durch gelaufen bis die nachste { kommt
+            {
+                if(Zeilen.get(i).contains("{"))
+                {
+                    Start2 = i;
+                    break; // nach zweiter wert zuweisung brichti die schleife ab weil man alles wichtige hat
+                }
+
+            }
+        }
+
+        return Start2 - Start;
+    }
 
 
     public static String[][] JSONjoin(String[][] Grundliste,int indexIDGrundliste,String[][] Erweitrungsliste, int indexIDErweitrungsliste)
@@ -42,7 +70,7 @@ public class JSONReaderHelper {
         return JoinedListe;
     }
 
-    public static String[][] JSONzu2Darray(String Filename, Integer ZeilenProEintrag)
+    public static String[][] JSONzu2Darray(String Filename)
     {
         try(BufferedReader Reader = new BufferedReader(new FileReader(Filename + ".json")))
         {
@@ -54,8 +82,11 @@ public class JSONReaderHelper {
                 Content.append(line).append("\n");
                 ZeileAnzahl++;
             }
-            int Anzahl = (ZeileAnzahl-2) / ZeilenProEintrag;
+
             String[] AlleZeilen = Content.toString().split("\n");
+            ArrayList<String> ZeilenArrayList = new ArrayList<>(Arrays.asList(AlleZeilen));
+            int ZeilenProEintrag = berechneZeilenProEintrag(ZeilenArrayList);
+            int Anzahl = (ZeileAnzahl-2) / ZeilenProEintrag;
             int JSONIndex = 2;
             String[][] Werte = new String[Anzahl][ZeilenProEintrag-2];
             for (int indexAnzahl = 0; indexAnzahl < Anzahl; indexAnzahl++)

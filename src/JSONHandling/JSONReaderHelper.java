@@ -84,7 +84,7 @@ public class JSONReaderHelper {
     }
 
     // Hier ist Lesen Möglich nur zum Vergleich finde das ist besser wenn es keine Vorgabe gab mit exceptions
-    public static boolean LesenMögliche(String filename)
+    public static boolean LesenMoeglich(String filename)
     {
         File File = new File(filename + ".json");
         return File.exists();
@@ -92,7 +92,7 @@ public class JSONReaderHelper {
 
     public static String[][] JSONzu2Darray(String Filename) throws KeineJsonGefundenException
     {
-        if (!LesenMögliche(Filename))
+        if (!LesenMoeglich(Filename))
         {
             throw new KeineJsonGefundenException(Filename);
         }

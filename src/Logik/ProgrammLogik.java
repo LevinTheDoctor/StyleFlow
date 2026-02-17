@@ -1,5 +1,4 @@
 package Logik;
-import
 
 public class ProgrammLogik {
     public static boolean IsFarbeHelle(String FarbeInHexCode)

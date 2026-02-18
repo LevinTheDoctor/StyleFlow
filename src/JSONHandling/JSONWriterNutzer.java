@@ -2,18 +2,19 @@ package JSONHandling;
 import static JSONHandling.JSONWriterHelper.*;
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import Nutzer.Nutzer;
 
 public class JSONWriterNutzer {
-    public void  NutzerWriter(Nutzer[] nutzer)
+    public void  NutzerWriter(ArrayList<Nutzer> nutzer)
     {
         try
         {
             File NutzerFile = new File("Nutzer.json");
             PrintWriter writer = new PrintWriter(NutzerFile);
             writer.println("[");
-            Nutzer LetzerNutzer = nutzer[nutzer.length-1];
+            int i = 0;
             for (Nutzer indexnutzer : nutzer)
             {
                 writer.println("{");
@@ -22,13 +23,14 @@ public class JSONWriterNutzer {
                 WriteStringArray(writer,"LeiblingsFarbe",indexnutzer.getLeiblingsFarbe().toArray(new String[0]), false);
                 WriteString(writer,"Standort",indexnutzer.getStandort(),false);
                 WriteInteger(writer,"NutzerID",indexnutzer.getNutzerID(),true);
-                if (indexnutzer.equals(LetzerNutzer))
+                if (i == nutzer.size()-1)
                 {
                     writer.println("}");
                 } else
                 {
                     writer.println("},");
                 }
+                i++;
             }
             writer.println("]");
             writer.flush();

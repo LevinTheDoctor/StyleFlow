@@ -19,14 +19,7 @@ public class ProgrammLogik {
         // basierend auf helligkeitsformel für RGB hab ich online gefunden http://www.fseitz.de/blog/index.php?/archives/112-Helligkeit-von-Farben-des-RGB-Farbraums-berechnen.html
         int[] rgb = HexZuRGB(FarbeInHexCode);
         Double Helligkeit = Math.sqrt(0.299 * Math.pow(rgb[0],2) + 0.587 * Math.pow(rgb[1],2) + 0.114 * Math.pow(rgb[2],2));
-        if (Helligkeit > 128)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Helligkeit > 128;
     }
 
 
@@ -50,6 +43,7 @@ public class ProgrammLogik {
         for (int index = Hex.length()-1; index >= 0; index--){
             Hex.charAt(index);
             int vauleOfHexAtChar;
+            // mit map
             switch (Hex.charAt(index)){
 
                 case 'A':

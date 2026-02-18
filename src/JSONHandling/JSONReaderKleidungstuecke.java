@@ -94,7 +94,7 @@ public class JSONReaderKleidungstuecke {
                     kleiderJSON.add(new Kleid(Inhalt));
                 }
                 for (String[] Inhalt : KlassenStringAusJSONStringListe("Overall",EinteilerJoined)) {
-                    overallJSON.add(Overall(Inhalt));
+                    overallJSON.add(new Overall(Inhalt));
                 }
                 einteilerJSON.addAll(kleiderJSON);
                 einteilerJSON.addAll(overallJSON);
@@ -162,9 +162,6 @@ public class JSONReaderKleidungstuecke {
                 if (Jacke != null) {
                     // Hier joinen wir Jacke mit dem bereits fertigen OberteilJoined
                     String[][] JackeJoined = JSONjoin(Jacke, 0, OberteilJoined, 5);
-                    for (String[] string : JackeJoined) {
-                        jackeJSON.add(new Jacke(string));
-                    }
                     for (String[] Inhalt : KlassenStringAusJSONStringListe("Mantel", JackeJoined)) {
                         mantelJSON.add(new Mantel(Inhalt));
                     }

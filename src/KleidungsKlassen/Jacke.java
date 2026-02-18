@@ -3,7 +3,7 @@ package KleidungsKlassen;
 public abstract class Jacke extends Oberteil {
     private final String verschlussArt;
     private final boolean istWasserdicht;
-    private final String futterMaterial;
+    private String futterMaterial;
 
     public Jacke(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, String verschlussArt, boolean istWasserdicht, String futterMaterial) {
         super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, aermelLaenge, schnitt);
@@ -12,12 +12,18 @@ public abstract class Jacke extends Oberteil {
         this.futterMaterial = futterMaterial;
     }
 
-    public Jacke(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String verschlussArt, boolean istWasserdicht, String futterMaterial) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
-        this.verschlussArt = verschlussArt;
-        this.istWasserdicht = istWasserdicht;
+    public Jacke(String[] StringAusJson) {
+        super(StringAusJson);
+        this.verschlussArt = StringAusJson[8];
+        this.istWasserdicht = Boolean.parseBoolean(StringAusJson[9]);
+        this.futterMaterial = StringAusJson[10];
+    }
+
+
+    public void setFutterMaterial(String futterMaterial) {
         this.futterMaterial = futterMaterial;
     }
+
 
     public String getVerschlussArt() {
         return verschlussArt;

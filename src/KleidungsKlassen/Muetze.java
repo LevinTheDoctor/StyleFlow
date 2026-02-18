@@ -12,12 +12,13 @@ public class Muetze extends Kopfbedeckung
         this.strickArt = strickArt;
     }
 
-    public Muetze(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String stil, String strickArt, int kleidungsId)
+    public Muetze(String[] StringAusJson)
     {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsId);
-        this.stil = stil;
-        this.strickArt = strickArt;
+        super(StringAusJson);
+        this.stil = StringAusJson[6];
+        this.strickArt = StringAusJson[7];
     }
+
 
     public String getStrickArt()
     {

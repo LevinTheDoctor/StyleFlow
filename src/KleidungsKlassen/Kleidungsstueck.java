@@ -2,15 +2,15 @@ package KleidungsKlassen;
 
 public abstract class Kleidungsstueck
 {
-    private final String bezeichnung;
-    private final String[] farben;
-    private final String wettereignung;
+	private final String bezeichnung;
     private final String bedecktesKoerperteil;
-    private final String bildDateiPfad;
     private final int kleidungsID;
     private static int anzahlProKlasse; // muss noch definiert werden
     private static int gesamtAnzahl;
 
+    private String[] farben;
+    private String wettereignung;
+    private String bildDateiPfad;
     private String[] material;
     private String[] style;
     private String marke;
@@ -27,7 +27,7 @@ public abstract class Kleidungsstueck
         this.kleidungsID = gesamtAnzahl;
     }
 
-    // Konstruktor zum Abrufen aus den Dateien deshalb die ID
+    // Konstruktor zum Abrufen aus den Dateien
     public Kleidungsstueck(String [] StringAusJson) {
         this.bezeichnung = StringAusJson[0];
         this.farben = StringAusJson[1].split(",");
@@ -37,8 +37,21 @@ public abstract class Kleidungsstueck
         this.kleidungsID = Integer.parseInt(StringAusJson[5]);
         gesamtAnzahl += 1;
     }
+    
 
     // Setter für optionale Felder
+    public void setFarben(String[] farben) {
+        this.farben = farben;
+    }
+
+    public void setWettereignung(String wettereignung) {
+        this.wettereignung = wettereignung;
+    }
+
+    public void setBildDateiPfad(String bildDateiPfad) {
+        this.bildDateiPfad = bildDateiPfad;
+    }
+    
     public void setMarke(String marke) {
         this.marke = marke;
     }

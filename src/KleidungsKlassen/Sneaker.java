@@ -8,10 +8,11 @@ public class Sneaker extends Schuhe {
         this.technologie = technologie;
     }
 
-    public Sneaker(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, String absatzHoehe, String verschlussArt, String technologie) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, absatzHoehe, verschlussArt);
-        this.technologie = technologie;
+    public Sneaker(String[] StringAusJson) {
+        super(StringAusJson);
+        this.technologie = StringAusJson[8];
     }
+
 
     public String getTechnologie() {
         return technologie;

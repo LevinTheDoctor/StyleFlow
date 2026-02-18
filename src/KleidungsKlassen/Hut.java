@@ -3,20 +3,20 @@ package KleidungsKlassen;
 public class Hut extends Kopfbedeckung
 {
     private int hoehe;
-    private final String art;
+    private final String artHut;
 
-    public Hut(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int hoehe, String art)
+    public Hut(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int hoehe, String artHut)
     {
         super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
         this.hoehe = hoehe;
-        this.art = art;
+        this.artHut = artHut;
     }
 
     public Hut(String[] StringAusJson)
     {
         super(StringAusJson);
         this.hoehe = Integer.parseInt(StringAusJson[6]);
-        this.art = StringAusJson[7];
+        this.artHut = StringAusJson[7];
     }
 
 
@@ -30,8 +30,8 @@ public class Hut extends Kopfbedeckung
         return hoehe;
     }
 
-    public String getArt()
+    public String getArtHut()
     {
-        return art;
+        return artHut;
     }
 }

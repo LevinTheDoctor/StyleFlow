@@ -3,13 +3,6 @@ package Logik;
 import KleidungsKlassen.Kleidungsstueck;
 
 public class ProgrammLogik {
-    public static Kleidungsstueck[] FilterKleidungsstueck (String Art, String Farben, String Marke){
-
-    }
-
-    public static Kleidungsstueck[] FilterKleidungsstueck  (String Art, String Farben){
-
-    }
 
     // Verschieben von Bild zu Inventory und Json Speicher in Inventory
 

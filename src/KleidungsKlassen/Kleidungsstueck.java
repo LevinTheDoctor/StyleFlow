@@ -28,13 +28,13 @@ public abstract class Kleidungsstueck
     }
 
     // Konstruktor zum Abrufen aus den Dateien deshalb die ID
-    public Kleidungsstueck(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID) {
-        this.bezeichnung = bezeichnung;
-        this.farben = farben;
-        this.bedecktesKoerperteil = bedecktesKoerperteil;
-        this.wettereignung = wettereignung;
-        this.bildDateiPfad = bildDateiPfad;
-        this.kleidungsID = kleidungsID;
+    public Kleidungsstueck(String [] StringAusJson) {
+        this.bezeichnung = StringAusJson[0];
+        this.farben = StringAusJson[1].split(",");
+        this.bedecktesKoerperteil = StringAusJson[2];
+        this.wettereignung = StringAusJson[3];
+        this.bildDateiPfad = StringAusJson[4];
+        this.kleidungsID = Integer.parseInt(StringAusJson[5]);
         gesamtAnzahl += 1;
     }
 

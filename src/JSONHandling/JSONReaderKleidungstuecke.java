@@ -1,161 +1,193 @@
 package JSONHandling;
 
 import KleidungsKlassen.*;
+
+import java.util.ArrayList;
+
 import static JSONHandling.JSONReaderHelper.*;
 
 // Die Ganze JSON Read geschichte ist eingetlich daher verschulde das ich im abi und jetzt in der Ausbildung nur mit Datenbanken rumhantier und ich versuche quasi ein Join der JSON Datein manuel über Java ich weiß das ist nicht elgenat aber das kenne ich halt - Levin
 public class JSONReaderKleidungstuecke {
 
-
     // Reader Klasse nimmt ids aus allen katehgorien um mit ein string array zu erzeugen der dann von den klassen eingelsen wird
-    public KleidungsContaier KleidungStartReader(){
-        if (LesenMoeglich("Kleidungsstuecke"))
-        {
-            String[][] KleidungstueckeWerte = JSONzu2Darray("Kleidungsstuecke",11);
-            // Oberteile und Unterklassen
-            // Die Oberklasse MUSS Existiren daher wird nur darin geschekt ob die Datei der Unterklasse Existirt sonst könnte es zu Fehlerhaften Daten kommen
-            if (LesenMoeglich("Oberteile"))
-            {
-                String[][] OberteileWerte = JSONjoin(JSONzu2Darray("Oberteile",5),0,KleidungstueckeWerte,8);
-                if (LesenMoeglich("Hemd"))
-                {
-                    String[][] HemdWerte = JSONjoin(JSONzu2Darray("Hemd",5),0,OberteileWerte,8);
-                    for (String[] Werte : HemdWerte){
-                        Hemd hemd = new Hemd(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Werte[10],Werte[11],Werte[12]);
-                    }
+    public static KleidungsContainer ReadKleidungsJSON() {
+        ArrayList<Kleidungsstueck> kleidungsstueckeJSON = new ArrayList<>();
+
+        ArrayList<Kopfbedeckung> kopfbedeckungeJSON = new ArrayList<>();
+        ArrayList<Muetze> muetzeJSON = new ArrayList<>();
+        ArrayList<Hut> hueteJSON = new ArrayList<>();
+        ArrayList<Cap> capsJSON = new ArrayList<>();
+
+        ArrayList<Unterteil> unterteileJSON = new ArrayList<>();
+        ArrayList<Hose> hosenJSON = new ArrayList<>();
+        ArrayList<Rock>  roeckeJSON = new ArrayList<>();
+
+        ArrayList<Schuhe> schuheJSON = new ArrayList<>();
+        ArrayList<HighHeels>  highheelsJSON = new ArrayList<>();
+        ArrayList<Sneaker> sneakerJSON = new ArrayList<>();
+        ArrayList<Stiefel> stiefelJSON = new ArrayList<>();
+        ArrayList<Sandalen> sandalenJSON = new ArrayList<>();
+        ArrayList<Halbschuhe> halbschuheJSON = new ArrayList<>();
+
+        ArrayList<Oberteil> oberteileJSON = new ArrayList<>();
+        ArrayList<Hemd> hemdJSON = new ArrayList<>();
+        ArrayList<Polo> poloJSON = new ArrayList<>();
+        ArrayList<Pullover> pulloverJSON = new ArrayList<>();
+        ArrayList<Hoodie> hoodieJSON = new ArrayList<>();
+        ArrayList<TShirt> tShirtJSON = new ArrayList<>();
+        ArrayList<Top> topJSON = new ArrayList<>();
+
+        ArrayList<Jacke> jackeJSON = new ArrayList<>();
+        ArrayList<Mantel>  mantelJSON = new ArrayList<>();
+        ArrayList<WinterJacke> winterjackeJSON = new ArrayList<>();
+        ArrayList<RegenJacke> regenjackeJSON = new ArrayList<>();
+        ArrayList<SweatshirtJacke> sweatshirtjackeJSON = new ArrayList<>();
+        ArrayList<UebergangsJacke> uebergangsJackeJSON = new ArrayList<>();
+
+        String[][] Kleidungsstuecke = LesenSafe("Kleidungsstueck");
+        if (Kleidungsstuecke != null) {
+            String[][] Kopfbedckungen = LesenSafe("Kopfbedeckung");
+            if (Kopfbedckungen != null) {
+                String[][] KopfbdeckungJoined = JSONjoin(Kopfbedckungen,0,Kleidungsstuecke,5);
+                for (String[] string : Kopfbedckungen) {
+                    kopfbedeckungeJSON.add(Kopfbedckungen(string));
                 }
-                if (LesenMoeglich("Pullover"))
-                {
-                    String[][] PulloverWerte = JSONjoin(JSONzu2Darray("Pullover",6),0,OberteileWerte,8);
-                    for (String[] Werte : PulloverWerte){
-                        Pullover pullover = new Pullover(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Werte[10],Werte[11],Werte[12],Werte[13]);
-                    }
+                for(String[] Inhalt : KlassenStringAusJSONStringListe("Muetze",KopfbdeckungJoined)){
+                    muetzeJSON.add(Muetze(Inhalt));
                 }
-                if (LesenMoeglich("Tshirts"))
-                {
-                    String[][] TshirtWerte = JSONjoin(JSONzu2Darray("Tshirts",5),0,OberteileWerte,8);
-                    for (String[] Werte : TshirtWerte){
-                        TShirt tShirt = new TShirt(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Werte[10],Werte[11],Werte[12]);
-                    }
+                for(String[] Inhalt : KlassenStringAusJSONStringListe("Huete",KopfbdeckungJoined)){
+                    hueteJSON.add(Hut(Inhalt))
                 }
-
-                if(LesenMoeglich("Polos"))
-                {
-                    String[][] PoloWerte = JSONjoin(JSONzu2Darray("Polos",6),0,OberteileWerte,8);
-                    for (String[] Werte : PoloWerte){
-                        Polo polo = new Polo(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Werte[10],Werte[11],Integer.parseInt(Werte[12]),Werte[13]);
-                    }
+                for(String[] Inhalt : KlassenStringAusJSONStringListe("Caps",KopfbdeckungJoined)){
+                    capsJSON.add(Cap(Inhalt));
                 }
-                if(LesenMoeglich("Tops"))
-                {
-                    String[][] TopsWerte = JSONjoin(JSONzu2Darray("Tops",5),0,OberteileWerte,8);
-                    for (String[] Werte : TopsWerte){
-                        Top top = new Top(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Werte[10],Werte[11],Werte[12]);
-                    }
+            } else{
+                kopfbedeckungeJSON = null;
+                muetzeJSON = null;
+                hueteJSON = null;
+                capsJSON = null;
+            }
+            String[][] Unterteil = LesenSafe("Unterteil");
+            if (Unterteil != null) {
+                String[][] UnterteilJoined = JSONjoin(Unterteil,0,Kleidungsstuecke,5);
+                for (String[] string : UnterteilJoined) {
+                    unterteileJSON.add(Unterteil(string));
                 }
-                if(LesenMoeglich("Jacken"))
-                {
-                    String[][] JackerWerte = JSONjoin(JSONzu2Darray("Jacken",6),0,OberteileWerte,8);
-                    if(LesenMoeglich("Mantel"))
-                    {
-
-                    }
-                    if(LesenMoeglich("RegenJacke"))
-                    {
-
-                    }
-                    if(LesenMoeglich("WinterJacke")){
-
-                    }
-                    if(LesenMoeglich("SweatshirtJacke"))
-                    {
-
-                    }
-                    if(LesenMoeglich("UebergangsJacke"))
-                    {
-
-                    }
+                for(String[] Inhalt : KlassenStringAusJSONStringListe("Hosen",UnterteilJoined)) {
+                    hosenJSON.add(Hose(Inhalt));
+                }
+                for(String[] Inhalt : KlassenStringAusJSONStringListe("Rocke",UnterteilJoined)) {
+                    roeckeJSON.add(Rock(Inhalt));
+                }
+            }else{
+                unterteileJSON = null;
+                hosenJSON = null;
+                roeckeJSON = null;
+            }
+            String[][] Schuhe = LesenSafe("Schuhe");
+            if (Schuhe != null) {
+                String[][] SchuheJoined = JSONjoin(Schuhe, 0, Kleidungsstuecke, 5);
+                for (String[] string : SchuheJoined) {
+                    schuheJSON.add(new Schuhe(string));
+                }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("HighHeels", SchuheJoined)) {
+                    highheelsJSON.add(new HighHeels(Inhalt));
+                }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("Sneaker", SchuheJoined)) {
+                    sneakerJSON.add(new Sneaker(Inhalt));
+                }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("Stiefel", SchuheJoined)) {
+                    stiefelJSON.add(new Stiefel(Inhalt));
+                }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("Sandalen", SchuheJoined)) {
+                    sandalenJSON.add(new Sandalen(Inhalt));
+                }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("Halbschuhe", SchuheJoined)) {
+                    halbschuheJSON.add(new Halbschuhe(Inhalt));
                 }
             }
-            // Kopfbedckung und Unterklassen
-            if (LesenMoeglich("Kopfbedckungen"))
-            {
-                String[][] KopfbedckungWerte =  JSONjoin(JSONzu2Darray("Kopfbedeckungen",5),0,KleidungstueckeWerte,8);
-                if (LesenMoeglich("Cappen"))
-                {
-                    String[][] CappeWerte =  JSONjoin(JSONzu2Darray("Cappen",5),0,KopfbedckungWerte,8);
-                    for (String[] Werte : CappeWerte){
-                        Cappe cappe = new Cappe(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Boolean.parseBoolean(Werte[9]),Boolean.parseBoolean(Werte[10]),Boolean.parseBoolean(Werte[11]),Werte[12]);
-                    }
-                }
-                if  (LesenMoeglich("Huete"))
-                {
-                    String[][] HutWerte =  JSONjoin(JSONzu2Darray("Huete",7),0,KopfbedckungWerte,8);
-                    for (String[] Werte : HutWerte){
-                        Hut hut = new Hut(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Boolean.parseBoolean(Werte[9]),Boolean.parseBoolean(Werte[10]),Integer.parseInt(Werte[11]),Werte[12],Boolean.parseBoolean(Werte[13]),Boolean.parseBoolean(Werte[14]));
-                    }
-                }
-                if (LesenMoeglich("Muetzen"))
-                {
-                    String[][] MuetzenWerte =  JSONjoin(JSONzu2Darray("Muetzen",5),0,KopfbedckungWerte,8);
-                    for (String[] Werte : MuetzenWerte){
-                        Muetze muetze = new Muetze(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Boolean.parseBoolean(Werte[9]),Boolean.parseBoolean(Werte[10]),Werte[11],Werte[12],Boolean.parseBoolean(Werte[13]));
-                    }
-                }
+            else{
+                schuheJSON = null;
+                highheelsJSON = null;
+                sneakerJSON = null;
+                stiefelJSON = null;
+                sandalenJSON = null;
+                halbschuheJSON = null;
             }
-            // Unterteil und Unterklassen
-            if (LesenMoeglich("Unterteile"))
-            {
-                String[][] UnterteilWerte = JSONjoin(JSONzu2Darray("Unterteile",5),0,KleidungstueckeWerte,8);
-                if (LesenMoeglich("Hosen"))
-                {
-                    String[][] HoseWerte = JSONjoin(JSONzu2Darray("Hosen",7),0,UnterteilWerte,8);
-                    for (String[] Werte : HoseWerte){
-                        Hose hose = new Hose(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Integer.parseInt(Werte[10]),Boolean.parseBoolean(Werte[11]),Boolean.parseBoolean(Werte[12]),Werte[13],Werte[14]);
-                    }
+            String[][] Oberteile = LesenSafe("Oberteil");
+            if (Oberteile != null) {
+                String[][] OberteilJoined = JSONjoin(Oberteile, 0, Kleidungsstuecke, 5);
+                for (String[] string : OberteilJoined) {
+                    oberteileJSON.add(new Oberteil(string));
                 }
-                if (LesenMoeglich("Roecke"))
-                {
-                    String[][] RockWerte = JSONjoin(JSONzu2Darray("Roecke",6),0,UnterteilWerte,8);
-                    for (String[] Werte : RockWerte){
-                        Rock rock = new Rock(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Integer.parseInt(Werte[9]),Integer.parseInt(Werte[10]),Werte[11],Integer.parseInt(Werte[12]),Werte[13]);
-                    }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("Hemd", OberteilJoined)) {
+                    hemdJSON.add(new Hemd(Inhalt));
                 }
-            }
-            //Schue und Unterklassen
-            if (LesenMoeglich("Schuhe"))
-            {
-                String[][] SchuheWerte = JSONjoin(JSONzu2Darray("Schuhe",5),0,KleidungstueckeWerte,8);
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("Polo", OberteilJoined)) {
+                    poloJSON.add(new Polo(Inhalt));
+                }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("Pullover", OberteilJoined)) {
+                    pulloverJSON.add(new Pullover(Inhalt));
+                }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("Hoodie", OberteilJoined)) {
+                    hoodieJSON.add(new Hoodie(Inhalt));
+                }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("TShirt", OberteilJoined)) {
+                    tShirtJSON.add(new TShirt(Inhalt));
+                }
+                for (String[] Inhalt : KlassenStringAusJSONStringListe("Top", OberteilJoined)) {
+                    topJSON.add(new Top(Inhalt));
+                }
 
-                if (LesenMoeglich("Sneaker"))
-                {
-                    String[][] SneakerWerte = JSONjoin(JSONzu2Darray("Sneaker",5),0,SchuheWerte,8);
-                    for (String[] Werte : SneakerWerte){
-                        Sneaker sneaker = new Sneaker(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Boolean.parseBoolean(Werte[11]),Werte[12]);
+
+                String[][] Jacke = LesenSafe("Jacke");
+                if (Jacke != null) {
+                    // Hier joinen wir Jacke mit dem bereits fertigen OberteilJoined
+                    String[][] JackeJoined = JSONjoin(Jacke, 0, OberteilJoined, 5);
+                    for (String[] string : JackeJoined) {
+                        jackeJSON.add(new Jacke(string));
                     }
-                }
-                if (LesenMoeglich("Steifel"))
-                {
-                    String[][] SteifelWerte = JSONjoin(JSONzu2Darray("Steifel",6),0,SchuheWerte,8);
-                    for (String[] Werte : SteifelWerte){
-                        Stiefel stiefel = new Stiefel(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Integer.parseInt(Werte[11]),Werte[12],Werte[13]);
+                    for (String[] Inhalt : KlassenStringAusJSONStringListe("Mantel", JackeJoined)) {
+                        mantelJSON.add(new Mantel(Inhalt));
                     }
-                }
-                if (LesenMoeglich("Halbschuhe")){
-                    String[][] HalbschuheWerte = JSONjoin(JSONzu2Darray("Halbschuhe",5),0,SchuheWerte,8);
-                    for (String[] Werte : HalbschuheWerte){
-                        Halbschuhe halbschuhe = new Halbschuhe(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Werte[11],Werte[12]);
+                    for (String[] Inhalt : KlassenStringAusJSONStringListe("WinterJacke", JackeJoined)) {
+                        winterjackeJSON.add(new WinterJacke(Inhalt));
                     }
+                    for (String[] Inhalt : KlassenStringAusJSONStringListe("RegenJacke", JackeJoined)) {
+                        regenjackeJSON.add(new RegenJacke(Inhalt));
+                    }
+                    for (String[] Inhalt : KlassenStringAusJSONStringListe("SweatshirtJacke", JackeJoined)) {
+                        sweatshirtjackeJSON.add(new SweatshirtJacke(Inhalt));
+                    }
+                    for (String[] Inhalt : KlassenStringAusJSONStringListe("UebergangsJacke", JackeJoined)) {
+                        uebergangsJackeJSON.add(new UebergangsJacke(Inhalt));
+                    }
+                }else{
+                    oberteileJSON = null;
+                    hemdJSON = null;
+                    poloJSON = null;
+                    pulloverJSON = null;
+                    hoodieJSON = null;
+                    tShirtJSON = null;
+                    topJSON = null;
+                    jackeJSON = null;
+                    mantelJSON = null;
+                    winterjackeJSON = null;
+                    regenjackeJSON = null;
+                    sweatshirtjackeJSON = null;
+                    uebergangsJackeJSON = null;
                 }
+            }else{
+                jackeJSON = null;
+                mantelJSON = null;
+                winterjackeJSON = null;
+                regenjackeJSON = null;
+                sweatshirtjackeJSON = null;
+                uebergangsJackeJSON = null;
             }
-            //Kleid
-            if (LesenMoeglich("Kleid"))
-            {
-                String[][] KleidWerte = JSONjoin(JSONzu2Darray("Kleid",6),0,KleidungstueckeWerte,8);
-                for (String[] Werte : KleidWerte){
-                    //Kleid kleid = new Kleid(Werte[0],Werte[1].split(","),Werte[2],Werte[3].split(","),Werte[4],Werte[5],Werte[6],Werte[7],Integer.parseInt(Werte[8]),Werte[9],Werte[10],Integer.parseInt(Werte[11]),Boolean.parseBoolean(Werte[12]));
-                }
-            }
+            return KleidungsContainer(kleidungsstueckeJSON,kopfbedeckungeJSON,muetzeJSON,hueteJSON,capsJSON,unterteileJSON,hosensJSON,roeckeJSON,schuheJSON,highheelsJSON,sneakerJSON,stiefelJSON,sandalenJSON,halbschuheJSON,oberteileJSON,hemdJSON,poloJSON,pulloverJSON,hoodieJSON,tShirtJSON,topJSON,jackeJSON,mantelJSON,winterjackeJSON,regenjackeJSON,sweatshirtjackeJSON,uebergangsJackeJSON);
+        } else {
+          return null;
         }
     }
 }

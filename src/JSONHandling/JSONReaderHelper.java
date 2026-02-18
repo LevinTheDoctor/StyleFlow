@@ -10,6 +10,19 @@ import java.util.Arrays;
 // Vorher waren diese helper erst nur in der JSON ReaderKleidundstücke nun ist es ausgekoppelt
 public class JSONReaderHelper {
 
+
+    public static String[][] KlassenStringAusJSONStringListe(String Filename, String[][] VererbteDaten){
+        String[][] KlasseAusJson = LesenSafe(Filename);
+        if(KlasseAusJson != null)
+        {
+            return JSONjoin(KlasseAusJson,0,VererbteDaten,5);
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public static int berechneZeilenProEintrag(ArrayList<String> Zeilen){
         int Start = -1; // Minus 1 weil 0 ein möglicher statrt wert ist wichtig für die if abfrage
         int Start2= 0;

@@ -6,7 +6,7 @@ public abstract class Kopfbedeckung extends Kleidungsstueck {
         super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
     }
 
-    public Kopfbedeckung(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID);
+    public Kopfbedeckung(String[] StringAusJson) {
+        super(StringAusJson);
     }
 }

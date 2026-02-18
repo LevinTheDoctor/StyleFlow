@@ -8,10 +8,11 @@ public class TShirt extends Oberteil {
         this.ausschnittArt = ausschnittArt;
     }
 
-    public TShirt(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String ausschnittArt) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
-        this.ausschnittArt = ausschnittArt;
+    public TShirt(String[] StringAusJson) {
+        super(StringAusJson);
+        this.ausschnittArt = StringAusJson[8];
     }
+
 
     public String getAusschnittArt() {
         return ausschnittArt;

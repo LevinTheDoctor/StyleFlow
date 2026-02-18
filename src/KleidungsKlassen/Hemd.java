@@ -2,25 +2,31 @@ package KleidungsKlassen;
 
 public class Hemd extends Oberteil {
     private final String kragenArt;
-    private final boolean hatMuster;
+    private String muster;
 
-    public Hemd(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, String kragenArt, boolean hatMuster) {
+    public Hemd(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, String kragenArt, String muster) {
         super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, aermelLaenge, schnitt);
         this.kragenArt = kragenArt;
-        this.hatMuster = hatMuster;
+        this.muster = muster;
     }
 
-    public Hemd(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int kleidungsID, int aermelLaenge, String schnitt, String kragenArt, boolean hatMuster) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID, aermelLaenge, schnitt);
-        this.kragenArt = kragenArt;
-        this.hatMuster = hatMuster;
+    public Hemd(String[] StringAusJson) {
+        super(StringAusJson);
+        this.kragenArt = StringAusJson[8];
+        this.muster = StringAusJson[9];
     }
+
+
+    public void setMuster(String muster) {
+        this.muster = muster;
+    }
+
 
     public String getKragenArt() {
         return kragenArt;
     }
 
-    public boolean isHatMuster() {
-        return hatMuster;
+    public String getMuster() {
+        return muster;
     }
 }

@@ -12,17 +12,19 @@ public class Cap extends Kopfbedeckung
         this.verschlussArt = verschlussArt;
     }
 
-    public Cap(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, boolean schirmGekruemmt, String verschlussArt, int kleidungsID)
+    public Cap(String[] StringAusJson)
     {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, kleidungsID);
-        this.schirmGekruemmt = schirmGekruemmt;
-        this.verschlussArt = verschlussArt;
+        super(StringAusJson);
+        this.schirmGekruemmt = Boolean.parseBoolean(StringAusJson[6]);
+        this.verschlussArt = StringAusJson[7];
     }
+
 
     public void setSchirmGekruemmt(boolean schirmGekruemmt)
     {
         this.schirmGekruemmt = schirmGekruemmt;
     }
+
 
     public boolean isSchirmGekruemmt()
     {

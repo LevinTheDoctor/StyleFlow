@@ -5,15 +5,15 @@ public class Hose extends Unterteil {
     private String weite;
     private String waschung;
     private String besonderheiten;
-    private final String artDerHose;
+    private final String artHose;
 
-    public Hose(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int laenge, int anzahlTaschen, boolean hatLoecher, String weite, String waschung, String besonderheiten, String artDerHose) {
+    public Hose(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int laenge, int anzahlTaschen, boolean hatLoecher, String weite, String waschung, String besonderheiten, String artHose) {
         super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, laenge, anzahlTaschen);
         this.hatLoecher = hatLoecher;
         this.weite = weite;
         this.waschung = waschung;
         this.besonderheiten = besonderheiten;
-        this.artDerHose = artDerHose;
+        this.artHose = artHose;
     }
 
     public Hose(String[] StringAusJson) {
@@ -22,7 +22,7 @@ public class Hose extends Unterteil {
         this.weite = StringAusJson[9];
         this.waschung = StringAusJson[10];
         this.besonderheiten = StringAusJson[11];
-        this.artDerHose = StringAusJson[12];
+        this.artHose = StringAusJson[12];
     }
 
 
@@ -59,7 +59,7 @@ public class Hose extends Unterteil {
         return besonderheiten;
     }
 
-    public String getArtDerHose() {
-        return artDerHose;
+    public String getArtHose() {
+        return artHose;
     }
 }

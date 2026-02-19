@@ -1,20 +1,20 @@
 package KleidungsKlassen;
 
 public class Rock extends Unterteil {
-    private final String art;
+    private final String artRock;
 
-    public Rock(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int laenge, int anzahlTaschen, String art) {
+    public Rock(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int laenge, int anzahlTaschen, String artRock) {
         super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, laenge, anzahlTaschen);
-        this.art = art;
+        this.artRock = artRock;
     }
 
     public Rock(String[] StringAusJson) {
         super(StringAusJson);
-        this.art = StringAusJson[8];
+        this.artRock = StringAusJson[8];
     }
 
 
-    public String getArt() {
-        return art;
+    public String getArtRock() {
+        return artRock;
     }
 }

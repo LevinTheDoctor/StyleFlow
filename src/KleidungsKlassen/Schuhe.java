@@ -2,7 +2,7 @@ package KleidungsKlassen;
 
 public abstract class Schuhe extends Kleidungsstueck {
     private String absatzHoehe;
-    private final String verschlussArt;
+    private String verschlussArt;
 
     public Schuhe(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String absatzHoehe, String verschlussArt) {
         super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
@@ -19,6 +19,10 @@ public abstract class Schuhe extends Kleidungsstueck {
 
     public void setAbsatzHoehe(String absatzHoehe) {
         this.absatzHoehe = absatzHoehe;
+    }
+
+    public void setVerschlussArt(String verschlussArt) {
+        this.verschlussArt = verschlussArt;
     }
 
 

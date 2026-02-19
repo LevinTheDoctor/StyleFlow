@@ -219,7 +219,7 @@ public class JSONWriterKleidungstuecke {
                 writer.println("{");
                 WriteInteger(writer,"ID",indexkleidungsstuck.getKleidungsID(),false);
                 WriteInteger(writer,"hoehe",indexkleidungsstuck.getHoehe(),false);
-                WriteString(writer,"Art",indexkleidungsstuck.getArt(),true);
+                WriteString(writer,"Art",indexkleidungsstuck.getArtHut(),true);
                 if (i == Huetes.size()-1)
                 {
                     writer.println("}");
@@ -252,7 +252,7 @@ public class JSONWriterKleidungstuecke {
             {
                 writer.println("{");
                 WriteInteger(writer,"ID",indexkleidungsstuck.getKleidungsID(),false);
-                WriteBoolean(writer,"SchirmGekruemt",indexkleidungsstuck.isSchirmGekruemmt(),false);
+                WriteBoolean(writer,"SchirmGekruemt",indexkleidungsstuck.isIstSchirmGekruemmt(),false);
                 WriteString(writer,"VerschlussArt",indexkleidungsstuck.getVerschlussArt(),true);
                 if (i == Caps.size()-1)
                 {
@@ -323,7 +323,7 @@ public class JSONWriterKleidungstuecke {
                 WriteString(writer,"Weite",indexkleidungsstuck.getWeite(),false);
                 WriteString(writer,"Waschung",indexkleidungsstuck.getWaschung(),false);
                 WriteString(writer,"Besonderheiten",indexkleidungsstuck.getBesonderheiten(),false);
-                WriteString(writer,"artDerHose",indexkleidungsstuck.getArtDerHose(),true);
+                WriteString(writer,"artDerHose",indexkleidungsstuck.getArtHose(),true);
                 if (i == Hosen.size()-1)
                 {
                     writer.println("}");
@@ -355,7 +355,7 @@ public class JSONWriterKleidungstuecke {
             {
                 writer.println("{");
                 WriteInteger(writer,"ID",indexkleidungsstuck.getKleidungsID(),false);
-                WriteString(writer,"art",indexkleidungsstuck.getArt(),true);
+                WriteString(writer,"art",indexkleidungsstuck.getArtRock(),true);
                 if (i == Rock.size()-1)
                 {
                     writer.println("}");

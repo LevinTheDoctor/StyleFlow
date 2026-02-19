@@ -12,6 +12,7 @@ public class JSONWriterKleidungstuecke {
     public void JSONWrite(KleidungsContainer AlleKleidungsStuecke) {
         if (AlleKleidungsStuecke == null) return;
 
+        // 1. Basis & Kopfbedeckungen
         if (AlleKleidungsStuecke.getKleidungsstuecke() != null)
             KleidungstueckWriter(AlleKleidungsStuecke.getKleidungsstuecke());
 

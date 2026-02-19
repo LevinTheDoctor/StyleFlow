@@ -2,33 +2,33 @@ package KleidungsKlassen;
 
 public class Cap extends Kopfbedeckung
 {
-    private boolean schirmGekruemmt;
+    private boolean istSchirmGekruemmt;
     private final String verschlussArt;
 
-    public Cap(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, boolean schirmGekruemmt, String verschlussArt)
+    public Cap(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, boolean istSchirmGekruemmt, String verschlussArt)
     {
         super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
-        this.schirmGekruemmt = schirmGekruemmt;
+        this.istSchirmGekruemmt = istSchirmGekruemmt;
         this.verschlussArt = verschlussArt;
     }
 
     public Cap(String[] StringAusJson)
     {
         super(StringAusJson);
-        this.schirmGekruemmt = Boolean.parseBoolean(StringAusJson[6]);
+        this.istSchirmGekruemmt = Boolean.parseBoolean(StringAusJson[6]);
         this.verschlussArt = StringAusJson[7];
     }
 
 
-    public void setSchirmGekruemmt(boolean schirmGekruemmt)
+    public void setSchirmGekruemmt(boolean istSchirmGekruemmt)
     {
-        this.schirmGekruemmt = schirmGekruemmt;
+        this.istSchirmGekruemmt = istSchirmGekruemmt;
     }
 
 
-    public boolean isSchirmGekruemmt()
+    public boolean isIstSchirmGekruemmt()
     {
-        return schirmGekruemmt;
+        return istSchirmGekruemmt;
     }
 
     public String getVerschlussArt()

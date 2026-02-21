@@ -10,14 +10,19 @@ public class JSONReaderNutzer {
     {
        String [][] NutzerList = LesenSafe("Nutzer");
        ArrayList<Nutzer> nutzerArrayList = new ArrayList<Nutzer>();
-       if (NutzerList.length != 0)
-       {
-           for (String[] nutzer : NutzerList){
-               nutzerArrayList.add(new Nutzer(nutzer));
+       if(NutzerList != null){
+           if (NutzerList.length != 0)
+           {
+               for (String[] nutzer : NutzerList){
+                   nutzerArrayList.add(new Nutzer(nutzer));
+               }
+               return nutzerArrayList;
+           }else{
+               return null;
            }
-           return nutzerArrayList;
        }else{
            return null;
        }
+
     }
 }

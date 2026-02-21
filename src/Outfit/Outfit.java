@@ -31,7 +31,6 @@ public class Outfit implements IOutfit {
 
     public Outfit(String [] JSONString,KleidungsContainer kleidungsContainer){
         this.id = Integer.parseInt(JSONString[0]);
-        int i = 1;
         if (Integer.parseInt(JSONString[1]) != 0){
             this.kopfbedeckung = GetKopfbedeckungByID(Integer.parseInt(JSONString[1]),kleidungsContainer.getKopfbedeckungen());
         }

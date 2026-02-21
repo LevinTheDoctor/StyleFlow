@@ -29,22 +29,24 @@ public class Outfit {
     }
 
     public Outfit(String [] JSONString,KleidungsContainer kleidungsContainer){
-        if(JSONString.length >=4){
-            this.id = Integer.parseInt(JSONString[0]);
+        this.id = Integer.parseInt(JSONString[0]);
+        int i = 1;
+        if (Integer.parseInt(JSONString[1]) != 0){
             this.kopfbedeckung = GetKopfbedeckungByID(Integer.parseInt(JSONString[1]),kleidungsContainer.getKopfbedeckungen());
+        }
+        if(JSONString.length == 5){
             this.oberteil = GetOberteilByID(Integer.parseInt(JSONString[2]),kleidungsContainer.getOberteile());
             this.unterteil = GetUnterteilByID(Integer.parseInt(JSONString[3]),kleidungsContainer.getUnterteile());
             this.schuhe = GetSchuheByID(Integer.parseInt(JSONString[4]),kleidungsContainer.getSchuhe());
-        }else{
-            this.id = Integer.parseInt(JSONString[0]);
-            this.einteiler = GetEinteilerByID(Integer.parseInt(JSONString[1]),kleidungsContainer.getEinteiler());
-            this.schuhe = GetSchuheByID(Integer.parseInt(JSONString[2]),kleidungsContainer.getSchuhe());
+        }else
+        {
+            this.einteiler = GetEinteilerByID(Integer.parseInt(JSONString[2]),kleidungsContainer.getEinteiler());
+            this.schuhe = GetSchuheByID(Integer.parseInt(JSONString[3]),kleidungsContainer.getSchuhe());
 
         }
         gesamtAnzahl += 1;
 
     }
-
 
     public static int getGesamtAnzahl() {
         return gesamtAnzahl;

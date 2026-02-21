@@ -1,9 +1,10 @@
 package Outfit;
 
 import KleidungsKlassen.*;
+
 import static KleidungsKlassen.KleidungsHelper.*;
 
-public class Outfit {
+public class Outfit implements IOutfit {
     private Kopfbedeckung kopfbedeckung;
     private Oberteil oberteil;
     private Unterteil unterteil;
@@ -94,5 +95,30 @@ public class Outfit {
 
     public void setSchuhe(Schuhe schuhe) {
         this.schuhe = schuhe;
+    }
+
+    @Override
+    public void addKopfbeckung(Kopfbedeckung kopfbedeckung) {
+        setKopfbedeckung(kopfbedeckung);
+    }
+
+    @Override
+    public void addOberteil(Oberteil oberteil) {
+        setOberteil(oberteil);
+    }
+
+    @Override
+    public void addUnterteil(Unterteil unterteil) {
+        setUnterteil(unterteil);
+    }
+
+    @Override
+    public void addSchuhe(Schuhe schuhe) {
+        setSchuhe(schuhe);
+    }
+
+    @Override
+    public void addEinteiler(Einteiler einteiler) {
+        setEinteiler(einteiler);
     }
 }

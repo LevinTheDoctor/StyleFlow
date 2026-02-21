@@ -28,7 +28,6 @@ public class Nutzer implements INutzer {
         this.Standort = NutzerStringArray[3];
         this.LeiblingsFarbe = new ArrayList<>(Arrays.asList(NutzerStringArray[4].split(",")));;
         NutzerAnzahl += 1;
-
     }
 
     public static void setNutzerAnzahl(int nutzerAnzahl) {

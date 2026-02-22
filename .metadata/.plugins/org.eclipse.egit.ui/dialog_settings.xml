@@ -35,4 +35,11 @@
 		<item key="DIALOG_HEIGHT" value="628"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 	</section>
+	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="286"/>
+		<item key="DIALOG_Y_ORIGIN" value="457"/>
+		<item key="DIALOG_WIDTH" value="620"/>
+		<item key="DIALOG_HEIGHT" value="290"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
 </section>

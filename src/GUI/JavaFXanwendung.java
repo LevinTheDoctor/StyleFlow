@@ -1,10 +1,10 @@
-package ui;
+package GUI;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class JavaFXanwendung extends Application {
@@ -17,7 +17,7 @@ public class JavaFXanwendung extends Application {
     @Override
     public void start(Stage stage) {
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("FXML/Main.fxml"));
             Scene scene = new Scene(root);
 
             // Ab hier ist jedes Window gleich um gleiche größe titel und icon zu haben

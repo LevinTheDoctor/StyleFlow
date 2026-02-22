@@ -54,9 +54,9 @@
                         <Button layoutX="203.0" layoutY="31.0" mnemonicParsing="false" text="Pfad" />
                         <TextField layoutX="30.0" layoutY="74.0" />
                         <Label layoutX="30.0" layoutY="57.0" text="Bezeichung" />
-                        <Label layoutX="429.0" layoutY="36.0" text="Art" />
+                        <Label layoutX="421.0" layoutY="59.0" text="Klediungsstück Art" />
                         <Label layoutX="35.0" layoutY="100.0" text="Farbe" />
-                        <ComboBox layoutX="423.0" layoutY="53.0" prefWidth="150.0" />
+                        <ComboBox layoutX="423.0" layoutY="74.0" prefWidth="150.0" />
                         <Button layoutX="520.0" layoutY="298.0" mnemonicParsing="false" text="Weiter" />
                         <Button layoutX="203.0" layoutY="117.0" mnemonicParsing="false" text="+" />
                         <Label layoutX="251.0" layoutY="122.0" text="Farben:" />
@@ -64,7 +64,7 @@
                         <Label layoutX="31.0" layoutY="287.0" text="Temperatur Bereich" />
                         <ComboBox layoutX="34.0" layoutY="304.0" prefWidth="150.0" />
                         <Label layoutX="226.0" layoutY="287.0" text="WetterLage" />
-                        <ComboBox layoutX="226.0" layoutY="304.0" prefWidth="150.0" />
+                        <ComboBox layoutX="216.0" layoutY="304.0" prefWidth="150.0" />
                         <ComboBox layoutX="30.0" layoutY="251.0" prefWidth="150.0" />
                         <TextField layoutX="31.0" layoutY="160.0" />
                         <Label layoutX="36.0" layoutY="143.0" text="Material" />
@@ -72,13 +72,13 @@
                         <Label layoutX="252.0" layoutY="165.0" text="Material:" />
                         <TextField layoutX="211.0" layoutY="74.0" />
                         <Label layoutX="214.0" layoutY="57.0" text="Anmerkung" />
-                        <TextField layoutX="219.0" layoutY="251.0" />
+                        <TextField layoutX="212.0" layoutY="251.0" />
                         <Label layoutX="222.0" layoutY="234.0" text="Marke" />
                         <TextField layoutX="31.0" layoutY="203.0" />
                         <Label layoutX="36.0" layoutY="186.0" text="style" />
                         <Button layoutX="204.0" layoutY="203.0" mnemonicParsing="false" text="+" />
                         <Label layoutX="252.0" layoutY="208.0" text="style" />
-                  <ColorPicker layoutX="26.0" layoutY="118.0" />
+                  <ColorPicker layoutX="36.0" layoutY="118.0" />
                     </children></AnchorPane>
             </content>
         </Tab>
@@ -95,7 +95,7 @@
                         <Label layoutX="201.0" layoutY="14.0" text="Farbe" />
                         <Button layoutX="526.0" layoutY="30.0" mnemonicParsing="false" text="Suche" />
                         <ComboBox layoutX="34.0" layoutY="30.0" prefWidth="150.0" />
-                        <Label layoutX="34.0" layoutY="14.0" text="Art" />
+                        <Label layoutX="34.0" layoutY="14.0" text="Klediungstück Art" />
                         <ComboBox layoutX="367.0" layoutY="30.0" prefWidth="150.0" />
                         <Label layoutX="367.0" layoutY="14.0" text="Marke (Optional)" />
                         <Button layoutX="451.0" layoutY="317.0" mnemonicParsing="false" text="Zu Outfit Hinzufügen" />

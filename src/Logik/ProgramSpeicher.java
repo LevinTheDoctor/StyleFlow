@@ -16,6 +16,7 @@ public class ProgramSpeicher {
 
 
     private static void AddKleidungstueckToSchrank(Kleidungsstueck ks) {
+        if (ks == null) return;
         Schrank.getKleidungsstuecke().add(ks);
         if (ks instanceof Kopfbedeckung kb)
         {
@@ -69,13 +70,40 @@ public class ProgramSpeicher {
         }else if (ks instanceof Unterteil ut)
         {
             Schrank.getUnterteile().add(ut);
-
+            if (ut instanceof Hose Ho)
+            {
+                Schrank.getHosen().add(Ho);
+            }else if(ut instanceof Rock Ro)
+            {
+                Schrank.getRoecke().add(Ro);
+            }
         }else if (ks instanceof Einteiler et)
         {
             Schrank.getEinteiler().add(et);
+            if (et instanceof Kleid K){
+                Schrank.getKleider().add(K);
+            }else if (et instanceof Overall O)
+            {
+                Schrank.getOveralls().add(O);
+            }
         }else if (ks instanceof Schuhe s)
         {
             Schrank.getSchuhe().add(s);
+            if (s instanceof HighHeels hi)
+            {
+                Schrank.getHighHeels().add(hi);
+            } else if (s instanceof Sneaker sne)
+            {
+                Schrank.getSneakers().add(sne);
+            } else if (s instanceof Stiefel Stief)
+            {
+                Schrank.getStiefel().add(Stief);
+            } else if (s instanceof Sandalen AlmanLouboutin){
+                Schrank.getSandalen().add(AlmanLouboutin);
+            } else if (s instanceof Halbschuhe hsch)
+            {
+                Schrank.getHalbschuhe().add(hsch);
+            }
         }
     }
 

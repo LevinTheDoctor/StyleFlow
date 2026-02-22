@@ -1,5 +1,5 @@
 package KleidungsKlassen;
-import static Logik.ProgrammLogik.BildBewegen;
+import static Logik.BildHelper.BildBewegen;
 
 public abstract class Kleidungsstueck
 {

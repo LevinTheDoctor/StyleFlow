@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -23,8 +24,8 @@
                         <Button layoutX="516.0" layoutY="316.0" mnemonicParsing="false" text="Weiter" />
                         <ChoiceBox layoutX="121.0" layoutY="39.0" prefWidth="150.0" />
                         <Label layoutX="285.0" layoutY="43.0" text="Temperatur" />
-                        <Label layoutX="32.0" layoutY="91.0" text="Farben" />
-                        <ChoiceBox layoutX="121.0" layoutY="87.0" prefWidth="150.0" />
+                        <Label layoutX="39.0" layoutY="83.0" text="Farben" />
+                        <ChoiceBox layoutX="121.0" layoutY="78.0" prefWidth="150.0" />
                     </children></AnchorPane>
             </content>
         </Tab>
@@ -54,7 +55,6 @@
                         <TextField layoutX="30.0" layoutY="74.0" />
                         <Label layoutX="30.0" layoutY="57.0" text="Bezeichung" />
                         <Label layoutX="429.0" layoutY="36.0" text="Art" />
-                        <TextField layoutX="30.0" layoutY="117.0" />
                         <Label layoutX="35.0" layoutY="100.0" text="Farbe" />
                         <ComboBox layoutX="423.0" layoutY="53.0" prefWidth="150.0" />
                         <Button layoutX="520.0" layoutY="298.0" mnemonicParsing="false" text="Weiter" />
@@ -78,6 +78,7 @@
                         <Label layoutX="36.0" layoutY="186.0" text="style" />
                         <Button layoutX="204.0" layoutY="203.0" mnemonicParsing="false" text="+" />
                         <Label layoutX="252.0" layoutY="208.0" text="style" />
+                  <ColorPicker layoutX="26.0" layoutY="118.0" />
                     </children></AnchorPane>
             </content>
         </Tab>
@@ -109,12 +110,17 @@
                     <children>
                         <ImageView fitHeight="182.0" fitWidth="199.0" layoutX="370.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
                         <Button layoutX="255.0" layoutY="87.0" mnemonicParsing="false" text="Durchsuchen" />
-                        <Label layoutX="23.0" layoutY="91.0" text="Pfad" />
+                        <Label layoutX="23.0" layoutY="91.0" text="Bild Pfad" />
                         <TextField layoutX="79.0" layoutY="87.0" prefHeight="26.0" prefWidth="169.0" />
                         <Label layoutX="23.0" layoutY="50.0" text="Name" />
                         <TextField layoutX="79.0" layoutY="46.0" prefHeight="26.0" prefWidth="267.0" />
                         <Label layoutX="23.0" layoutY="131.0" text="Standort" />
                         <TextField layoutX="79.0" layoutY="127.0" prefHeight="26.0" prefWidth="268.0" />
+                  <ColorPicker layoutX="95.0" layoutY="171.0" />
+                  <Label layoutX="23.0" layoutY="177.0" text="Colopicker" />
+                  <Label layoutX="283.0" layoutY="176.0" text="Lieblingsfarben:" />
+                  <Button layoutX="506.0" layoutY="321.0" mnemonicParsing="false" text="Anlegen" />
+                  <Button layoutX="248.0" layoutY="171.0" mnemonicParsing="false" text="+" />
                     </children>
                 </AnchorPane>
             </content>

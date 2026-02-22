@@ -1,12 +1,16 @@
 package Logik;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class ProgrammLogik {
+public class BildHelper {
+
+    public static String BildRichtigerPfad(String RelativerPfad)
+    {
+        return Paths.get(System.getProperty("user.dir"),RelativerPfad).toString();
+    }
 
     // Verschieben von Bild zu Inventory und Json Speicher in Inventory
     public static String BildBewegen(String BildPfadString)

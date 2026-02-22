@@ -1,10 +1,38 @@
 package Logik;
 
-import KleidungsKlassen.Kleidungsstueck;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-public class ProgrammLogik {
+public class BildHelper {
+
+    public static String BildRichtigerPfad(String RelativerPfad)
+    {
+        return Paths.get(System.getProperty("user.dir"),RelativerPfad).toString();
+    }
 
     // Verschieben von Bild zu Inventory und Json Speicher in Inventory
+    public static String BildBewegen(String BildPfadString)
+    {
+       Path OrginalBildPfad = Paths.get(BildPfadString);
+       String BildName = OrginalBildPfad.getFileName().toString();
+       Path ProgrammPfad = Paths.get(System.getProperty("user.dir"), "Inventory");
+       Path PfadMitBild = Paths.get(ProgrammPfad.toString(), BildName);
+        try {
+            // wenn ordner nicht existir
+            if (!Files.exists(ProgrammPfad))
+            {
+                Files.createDirectories(ProgrammPfad);
+            }
+            Files.copy(OrginalBildPfad, PfadMitBild);
+        } catch (IOException e) {
+            // ist von intellij weil copy ne exception schmeist
+            throw new RuntimeException(e);
+        }
+        //relativer pfad so das es auch auf anderen computern gefunden werden kann
+        return "Inventory/" + BildName;
+    }
 
 
     public static boolean IsFarbeHell(String FarbeInHexCode)

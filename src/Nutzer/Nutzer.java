@@ -1,6 +1,8 @@
 package Nutzer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Nutzer implements INutzer {
     private String nutzername;
     private String pfadZumBild;
@@ -9,20 +11,23 @@ public class Nutzer implements INutzer {
     private static int NutzerAnzahl;
     private final int NutzerID;
 
-    public Nutzer(String pfadZumBild, String nutzername) {
-        this.pfadZumBild = pfadZumBild;
+
+    public Nutzer(String nutzername, String pfadZumBild, String[] leiblingsFarbe, String standort) {
         this.nutzername = nutzername;
+        this.pfadZumBild = pfadZumBild;
+        LeiblingsFarbe = new ArrayList<>(Arrays.asList(leiblingsFarbe));
+        Standort = standort;
         NutzerAnzahl += 1;
         NutzerID = NutzerAnzahl;
     }
 
-    public Nutzer(String nutzername, String pfadZumBild, ArrayList<String> leiblingsFarbe, String standort) {
-        this.nutzername = nutzername;
-        this.pfadZumBild = pfadZumBild;
-        LeiblingsFarbe = leiblingsFarbe;
-        Standort = standort;
+    public Nutzer(String[] NutzerStringArray){
+        this.NutzerID = Integer.parseInt(NutzerStringArray[0]);
+        this.nutzername = NutzerStringArray[1];
+        this.pfadZumBild = NutzerStringArray[2];
+        this.Standort = NutzerStringArray[3];
+        this.LeiblingsFarbe = new ArrayList<>(Arrays.asList(NutzerStringArray[4].split(",")));;
         NutzerAnzahl += 1;
-        NutzerID = NutzerAnzahl;
     }
 
     public static void setNutzerAnzahl(int nutzerAnzahl) {

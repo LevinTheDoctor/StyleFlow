@@ -3,17 +3,24 @@ package JSONHandling;
 import static JSONHandling.JSONReaderHelper.*;
 import Nutzer.Nutzer;
 
+import java.util.ArrayList;
+
 public class JSONReaderNutzer {
-    public Nutzer[] NutzerStartReader()
+    public ArrayList<Nutzer> NutzerStartReader()
     {
-       if (LesenMoeglich("Nutzer"))
-       {
-           //Stand in werte
-           Nutzer[] nutzer = new Nutzer[2];
-          return nutzer;
-       }
-       else
-       {
+       String [][] NutzerList = LesenSafe("Nutzer");
+       ArrayList<Nutzer> nutzerArrayList = new ArrayList<Nutzer>();
+       if(NutzerList != null){
+           if (NutzerList.length != 0)
+           {
+               for (String[] nutzer : NutzerList){
+                   nutzerArrayList.add(new Nutzer(nutzer));
+               }
+               return nutzerArrayList;
+           }else{
+               return null;
+           }
+       }else{
            return null;
        }
 

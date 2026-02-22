@@ -1,4 +1,5 @@
 package KleidungsKlassen;
+import static Logik.BildHelper.BildBewegen;
 
 public abstract class Kleidungsstueck
 {
@@ -22,7 +23,7 @@ public abstract class Kleidungsstueck
         this.farben = farben;
         this.bedecktesKoerperteil = bedecktesKoerperteil;
         this.wettereignung = wettereignung;
-        this.bildDateiPfad = bildDateiPfad;
+        this.bildDateiPfad = BildBewegen(bildDateiPfad);
         gesamtAnzahl += 1;
         this.kleidungsID = gesamtAnzahl;
     }

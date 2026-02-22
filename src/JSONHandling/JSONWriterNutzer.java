@@ -18,11 +18,12 @@ public class JSONWriterNutzer {
             for (Nutzer indexnutzer : nutzer)
             {
                 writer.println("{");
+                WriteInteger(writer,"NutzerID",indexnutzer.getNutzerID(),false);
                 WriteString(writer,"nutzername",indexnutzer.getNutzername(),false);
                 WriteString(writer,"pfadZumBild",indexnutzer.getPfadZumBild(),false);
-                WriteStringArray(writer,"LeiblingsFarbe",indexnutzer.getLeiblingsFarbe().toArray(new String[0]), false);
                 WriteString(writer,"Standort",indexnutzer.getStandort(),false);
-                WriteInteger(writer,"NutzerID",indexnutzer.getNutzerID(),true);
+                WriteStringArray(writer,"LeiblingsFarbe",indexnutzer.getLeiblingsFarbe().toArray(new String[0]), true);
+
                 if (i == nutzer.size()-1)
                 {
                     writer.println("}");

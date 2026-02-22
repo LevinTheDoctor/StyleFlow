@@ -22,7 +22,8 @@ public class Outfit implements IOutfit {
         id = getGesamtAnzahl();
     }
 
-    public Outfit(Einteiler einteiler, Schuhe schuhe) {
+    public Outfit(Kopfbedeckung kopfbedeckung, Einteiler einteiler, Schuhe schuhe) {
+        this.kopfbedeckung = kopfbedeckung;
         this.einteiler = einteiler;
         this.schuhe = schuhe;
         gesamtAnzahl += 1;

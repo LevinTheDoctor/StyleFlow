@@ -27,8 +27,12 @@
 			<item value="1"/>
 		</list>
 		<list key="textArray">
-			<item value="pul"/>
+			<item value="pull"/>
 			<item value="pull "/>
 		</list>
+	</section>
+	<section name="ImportExportAction">
+		<section name="ImportExportWizard.dialogBounds">
+		</section>
 	</section>
 </section>

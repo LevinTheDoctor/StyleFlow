@@ -132,6 +132,10 @@ public class ProgramSpeicher {
         return Schrank;
     }
 
+    public static void setSchrank(KleidungsContainer schrank) {
+        Schrank = schrank;
+    }
+
     public static ArrayList<Outfit> getOutfitListe() {
         return outfitListe;
     }

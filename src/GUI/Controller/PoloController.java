@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class PoloController extends BasisController {
 
     @FXML private ComboBox<String> kragenArtComboBox;
@@ -66,12 +68,7 @@ public class PoloController extends BasisController {
         neuesPolo.setMaterial(basisVorauswahl.getMaterial());
         neuesPolo.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Polo> polosListe = new ArrayList<>();
-        polosListe.add(neuesPolo);
-        container.setPolos(polosListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
+        AddKleidungsstueckToSchrank(neuesPolo);
         zeigeDialog("Polo wurde erfolgreich gespeichert!");
     }
 }

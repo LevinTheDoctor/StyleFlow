@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class EinteilerController extends BasisController {
 
     @FXML private ComboBox<String> artEinteilerComboBox;
@@ -82,11 +84,7 @@ public class EinteilerController extends BasisController {
                 neuesKleid.setMaterial(basisVorauswahl.getMaterial());
                 neuesKleid.setStyle(basisVorauswahl.getStyle());
 
-                KleidungsContainer container = new KleidungsContainer();
-                ArrayList<Kleid> kleiderListe = new ArrayList<>();
-                kleiderListe.add(neuesKleid);
-                container.setKleider(kleiderListe);
-                new JSONWriterKleidungstuecke().JSONWrite(container);
+                AddKleidungsstueckToSchrank(neuesKleid);
                 zeigeDialog("Kleid wurde erfolgreich gespeichert!");
             }
             case "Overall" -> {
@@ -106,12 +104,7 @@ public class EinteilerController extends BasisController {
                 neuerOverall.setMaterial(basisVorauswahl.getMaterial());
                 neuerOverall.setStyle(basisVorauswahl.getStyle());
 
-                KleidungsContainer container = new KleidungsContainer();
-                ArrayList<Overall> overallsListe = new ArrayList<>();
-                overallsListe.add(neuerOverall);
-                container.setOveralls(overallsListe);
-                new JSONWriterKleidungstuecke().JSONWrite(container);
-                zeigeDialog("Overall wurde erfolgreich gespeichert!");
+                AddKleidungsstueckToSchrank(neuerOverall);
             }
         }
     }

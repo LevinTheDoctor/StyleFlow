@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class SandalenController extends BasisController {
 
     @FXML private CheckBox istOffenCheckBox;
@@ -64,12 +66,6 @@ public class SandalenController extends BasisController {
         neueSandalen.setMaterial(basisVorauswahl.getMaterial());
         neueSandalen.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Sandalen> sandalenListe = new ArrayList<>();
-        sandalenListe.add(neueSandalen);
-        container.setSandalen(sandalenListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Sandalen wurden erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neueSandalen);
     }
 }

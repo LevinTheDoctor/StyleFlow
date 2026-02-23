@@ -1,21 +1,14 @@
 package GUI.Controller;
-
 import JSONHandling.JSONReaderKleidungstuecke;
 import KleidungsKlassen.KleidungsContainer;
 import KleidungsKlassen.Kleidungsstueck;
-import Logik.FilterLogik;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import Logik.FilterLogik;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
 
 public class MainController extends BasisController {
@@ -24,12 +17,20 @@ public class MainController extends BasisController {
     @FXML private ComboBox<String> bedecktesKoerperteilComboBox;
     @FXML private ComboBox<String> temperaturComboBox;
     @FXML private ComboBox<String> wetterLageComboBox;
-    @FXML private TextField        bezeichnungTextField;
-    @FXML private TextField        anmerkungTextField;
-    @FXML private TextField        markeTextField;
-    @FXML private TextField        bildPfadTextField;
-    @FXML private ColorPicker      farbeColorPicker;
-    @FXML private Button           weiterButton;
+    @FXML private TextField bezeichnungTextField;
+    @FXML private TextField anmerkungTextField;
+    @FXML private TextField markeTextField;
+    @FXML private TextField bildPfadTextField;
+    @FXML private TextField MatriealTF;
+    @FXML private TextField StyleTF;
+    @FXML private ColorPicker farbeColorPicker;
+    @FXML private Button weiterButton;
+    @FXML private Button StyleButton;
+    @FXML private Button MaterialButton;
+    @FXML private Button FarbenButton;
+    @FXML private Label FarbenArray;
+    @FXML private Label MaterialArray;
+    @FXML private Label StyleArray;
 
     // Kleidungstücke Suchen
     @FXML private ComboBox<String> sucheKleidungsArtComboBox;
@@ -44,6 +45,11 @@ public class MainController extends BasisController {
     @FXML private Button           zuOutfitButton;
 
     private final ObservableList<Kleidungsstueck> sucheErgebnisListe = FXCollections.observableArrayList();
+
+    // Farben, Material und Style können mehrfach hinzugefügt werden
+    private ArrayList<String> gewaehlteFarben = new ArrayList<>();
+    private ArrayList<String> gewaehlteMaterialien = new ArrayList<>();
+    private ArrayList<String> gewaehlteStyles = new ArrayList<>();
 
     // Farben, Material und Style können mehrfach hinzugefügt werden
     private final ArrayList<String> farbenListe   = new ArrayList<>();
@@ -64,15 +70,7 @@ public class MainController extends BasisController {
         befuelleComboBox(wetterLageComboBox,
                 "Sonnig", "Bewölkt", "Regnerisch", "Schnee", "Windig"
         );
-        befuelleComboBox(sucheKleidungsArtComboBox,
-                "Schuhe", "Oberteil", "Unterteil", "Kopfbedeckung", "Einteiler"
-        );
-        sucheMarkeComboBox.setEditable(true);
-        konfiguriereSucheTableView();
-        // Beim Start alle Kleidungsstücke anzeigen (ohne Filter)
-        handleSuche();
     }
-
     private void konfiguriereSucheTableView() {
         if (sucheSpalteBezeichnung == null) return;
         sucheSpalteBezeichnung.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getBezeichnung()));
@@ -163,23 +161,33 @@ public class MainController extends BasisController {
     // + Button für Farben
     @FXML
     private void handleFarbeHinzufuegen() {
+        // Wir holen den Wert vom ColorPicker
         String farbe = farbeColorPicker.getValue().toString();
         if (!farbenListe.contains(farbe)) {
             farbenListe.add(farbe);
-            zeigeDialog("Farbe hinzugefügt: " + farbe);
+            // Wir setzen den Text in das Label "FarbenArray"
+            FarbenArray.setText(String.join(", ", farbenListe));
         }
     }
 
-    // + Button für Material
     @FXML
     private void handleMaterialHinzufuegen() {
-        // Material aus TextField lesen (aus Main.fxml)
+        String material = MatriealTF.getText();
+        if (material != null && !material.isBlank()) {
+            materialListe.add(material);
+            MaterialArray.setText(String.join(", ", materialListe));
+            MatriealTF.clear(); // Feld danach leeren ist benutzerfreundlicher
+        }
     }
 
-    // + Button für Style
     @FXML
     private void handleStyleHinzufuegen() {
-        // Style aus TextField lesen (aus Main.fxml)
+        String style = StyleTF.getText();
+        if (style != null && !style.isBlank()) {
+            styleListe.add(style);
+            StyleArray.setText(String.join(", ", styleListe));
+            StyleTF.clear();
+        }
     }
 
     @FXML

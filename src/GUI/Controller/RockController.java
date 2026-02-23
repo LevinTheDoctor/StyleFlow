@@ -9,6 +9,8 @@ import javafx.scene.control.ComboBox;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class RockController extends BasisController {
 
     @FXML private ComboBox<String> artRockComboBox;
@@ -55,12 +57,6 @@ public class RockController extends BasisController {
         neuerRock.setMaterial(basisVorauswahl.getMaterial());
         neuerRock.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Rock> roeckeListe = new ArrayList<>();
-        roeckeListe.add(neuerRock);
-        container.setRoecke(roeckeListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Rock wurde erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neuerRock);
     }
 }

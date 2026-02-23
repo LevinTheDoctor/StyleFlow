@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class HutController extends BasisController {
 
     @FXML private ComboBox<String> artHutComboBox;
@@ -64,12 +66,6 @@ public class HutController extends BasisController {
         neuerHut.setMaterial(basisVorauswahl.getMaterial());
         neuerHut.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Hut> hueteListe = new ArrayList<>();
-        hueteListe.add(neuerHut);
-        container.setHuete(hueteListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Hut wurde erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neuerHut);
     }
 }

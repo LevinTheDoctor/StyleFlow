@@ -1,8 +1,7 @@
 package GUI.Controller;
 
 import JSONHandling.JSONWriterKleidungstuecke;
-import KleidungsKlassen.Jacke;
-import KleidungsKlassen.KleidungsContainer;
+import KleidungsKlassen.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -10,10 +9,13 @@ import javafx.scene.control.ComboBox;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class JackeController extends BasisController {
 
     @FXML private ComboBox<String> verschlussArtComboBox;
     @FXML private ComboBox<String> futterMaterialComboBox;
+    @FXML private ComboBox<String> jackenArtComboBox;
     @FXML private CheckBox wasserdichtCheckBox;
     @FXML private Button speichernButton;
 
@@ -29,6 +31,10 @@ public class JackeController extends BasisController {
         befuelleComboBox(futterMaterialComboBox,
                 "Polyester", "Fleece", "Baumwolle", "Kein Futter"
         );
+        befuelleComboBox(jackenArtComboBox,
+                "Mantel","WinterJacke","RegenJacke","SweatshirtJacke","UebergangsJacke"
+                );
+
     }
 
     public void setVorauswahl(BasisVorauswahl basisVorauswahl, int aermelLaenge, String schnitt) {
@@ -44,31 +50,106 @@ public class JackeController extends BasisController {
             zeigeDialog("Bitte alle Felder ausfüllen.");
             return;
         }
+        String ArtDerJack = jackenArtComboBox.getValue();
+        switch (ArtDerJack) {
+            case "Mantel":
+                Mantel neuerMantel = new Mantel(
+                        basisVorauswahl.getBezeichnung(),
+                        basisVorauswahl.getFarben(),
+                        basisVorauswahl.getBedecktesKoerperteil(),
+                        basisVorauswahl.getWetterLage(),
+                        basisVorauswahl.getBildPfad(),
+                        aermelLaenge,
+                        schnitt,
+                        verschlussArtComboBox.getValue(),
+                        wasserdichtCheckBox.isSelected(),
+                        futterMaterialComboBox.getValue()
+                );
+                neuerMantel.setMarke(basisVorauswahl.getMarke());
+                neuerMantel.setAnmerkung(basisVorauswahl.getAnmerkung());
+                neuerMantel.setMaterial(basisVorauswahl.getMaterial());
+                neuerMantel.setStyle(basisVorauswahl.getStyle());
 
-        Jacke neueJacke = new Jacke(
-                basisVorauswahl.getBezeichnung(),
-                basisVorauswahl.getFarben(),
-                basisVorauswahl.getBedecktesKoerperteil(),
-                basisVorauswahl.getWetterLage(),
-                basisVorauswahl.getBildPfad(),
-                aermelLaenge,
-                schnitt,
-                verschlussArtComboBox.getValue(),
-                wasserdichtCheckBox.isSelected(),
-                futterMaterialComboBox.getValue()
-        );
+                AddKleidungsstueckToSchrank(neuerMantel);
+                break;
+            case "WinterJacke":
+                WinterJacke neueWinterJacke = new WinterJacke(
+                        basisVorauswahl.getBezeichnung(),
+                        basisVorauswahl.getFarben(),
+                        basisVorauswahl.getBedecktesKoerperteil(),
+                        basisVorauswahl.getWetterLage(),
+                        basisVorauswahl.getBildPfad(),
+                        aermelLaenge,
+                        schnitt,
+                        verschlussArtComboBox.getValue(),
+                        wasserdichtCheckBox.isSelected(),
+                        futterMaterialComboBox.getValue()
+                );
+                neueWinterJacke.setMarke(basisVorauswahl.getMarke());
+                neueWinterJacke.setAnmerkung(basisVorauswahl.getAnmerkung());
+                neueWinterJacke.setMaterial(basisVorauswahl.getMaterial());
+                neueWinterJacke.setStyle(basisVorauswahl.getStyle());
 
-        neueJacke.setMarke(basisVorauswahl.getMarke());
-        neueJacke.setAnmerkung(basisVorauswahl.getAnmerkung());
-        neueJacke.setMaterial(basisVorauswahl.getMaterial());
-        neueJacke.setStyle(basisVorauswahl.getStyle());
+                AddKleidungsstueckToSchrank(neueWinterJacke);
+                break;
+            case "RegenJacke":
+                RegenJacke neueRegenJacke = new RegenJacke(
+                        basisVorauswahl.getBezeichnung(),
+                        basisVorauswahl.getFarben(),
+                        basisVorauswahl.getBedecktesKoerperteil(),
+                        basisVorauswahl.getWetterLage(),
+                        basisVorauswahl.getBildPfad(),
+                        aermelLaenge,
+                        schnitt,
+                        verschlussArtComboBox.getValue(),
+                        futterMaterialComboBox.getValue()
+                );
+                neueRegenJacke.setMarke(basisVorauswahl.getMarke());
+                neueRegenJacke.setAnmerkung(basisVorauswahl.getAnmerkung());
+                neueRegenJacke.setMaterial(basisVorauswahl.getMaterial());
+                neueRegenJacke.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Jacke> jackenListe = new ArrayList<>();
-        jackenListe.add(neueJacke);
-        container.setJacken(jackenListe);
+                AddKleidungsstueckToSchrank(neueRegenJacke);
+                break;
+            case "SweatshirtJacke":
+                SweatshirtJacke neueSweatshirtJacke = new SweatshirtJacke(
+                        basisVorauswahl.getBezeichnung(),
+                        basisVorauswahl.getFarben(),
+                        basisVorauswahl.getBedecktesKoerperteil(),
+                        basisVorauswahl.getWetterLage(),
+                        basisVorauswahl.getBildPfad(),
+                        aermelLaenge,
+                        schnitt,
+                        verschlussArtComboBox.getValue(),
+                        wasserdichtCheckBox.isSelected(),
+                        futterMaterialComboBox.getValue()
+                );
+                neueSweatshirtJacke.setMarke(basisVorauswahl.getMarke());
+                neueSweatshirtJacke.setAnmerkung(basisVorauswahl.getAnmerkung());
+                neueSweatshirtJacke.setMaterial(basisVorauswahl.getMaterial());
+                neueSweatshirtJacke.setStyle(basisVorauswahl.getStyle());
+                AddKleidungsstueckToSchrank(neueSweatshirtJacke);
+                break;
+            case "UebergangsJacke":
+                UebergangsJacke neueUebergangsJacke = new UebergangsJacke(
+                        basisVorauswahl.getBezeichnung(),
+                        basisVorauswahl.getFarben(),
+                        basisVorauswahl.getBedecktesKoerperteil(),
+                        basisVorauswahl.getWetterLage(),
+                        basisVorauswahl.getBildPfad(),
+                        aermelLaenge,
+                        schnitt,
+                        verschlussArtComboBox.getValue(),
+                        wasserdichtCheckBox.isSelected(),
+                        futterMaterialComboBox.getValue()
+                );
+                neueUebergangsJacke.setMarke(basisVorauswahl.getMarke());
+                neueUebergangsJacke.setAnmerkung(basisVorauswahl.getAnmerkung());
+                neueUebergangsJacke.setMaterial(basisVorauswahl.getMaterial());
+                neueUebergangsJacke.setStyle(basisVorauswahl.getStyle());
+                AddKleidungsstueckToSchrank(neueUebergangsJacke);
+                break;
+        }
 
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Jacke wurde erfolgreich gespeichert!");
     }
 }

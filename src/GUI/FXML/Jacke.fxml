@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.JackeController">
    <children>
       <Label layoutX="39.0" layoutY="40.0" text="Jacke">
@@ -21,5 +20,7 @@
       <ComboBox fx:id="futterMaterialComboBox" layoutX="39.0" layoutY="157.0" prefWidth="150.0" />
       <CheckBox fx:id="wasserdichtCheckBox" layoutX="38.0" layoutY="200.0" mnemonicParsing="false" text="Ist Wasserdicht" />
       <Button fx:id="speichernButton" layoutX="513.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleSpeichern" text="Speichern" />
+      <Label layoutX="39.0" layoutY="226.0" text="Art Der Jacke" />
+      <ComboBox fx:id="jackenArtComboBox" layoutX="38.0" layoutY="243.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

@@ -52,6 +52,14 @@ public abstract class BasisController {
         return true;
     }
 
+    protected boolean validiereBildPfad(String bildPfad) {
+        if (bildPfad == null || bildPfad.isBlank()) {
+            zeigeDialog("Bitte einen Bildpfad angeben.");
+            return false;
+        }
+        return true;
+    }
+
     protected void befuelleComboBox(ComboBox<String> comboBox, String... werte) {
         comboBox.getItems().addAll(werte);
     }

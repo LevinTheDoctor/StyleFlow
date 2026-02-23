@@ -8,13 +8,25 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Main.fxml"));
-        stage.setTitle("Kleidungsverwaltung");
-        stage.setScene(new Scene(root));
-        stage.show();
+        try {
+            var url = getClass().getResource("/GUI/FXML/Main.fxml");
+            System.out.println("FXML URL: " + url); // Zeigt ob die Datei gefunden wird
+
+            Parent root = FXMLLoader.load(url);
+            stage.setTitle("Kleidungsverwaltung");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     public static void main(String[] args) {
-        launch(args);
+        try {
+            launch(args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -6,15 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.HighHeelsController">
    <children>
       <Label layoutX="23.0" layoutY="14.0" text="High Heels">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Button layoutX="528.0" layoutY="323.0" mnemonicParsing="false" text="Weiter" />
-      <CheckBox layoutX="23.0" layoutY="60.0" mnemonicParsing="false" text="Offene High Heels" />
-      <Button layoutX="508.0" layoutY="323.0" mnemonicParsing="false" text="Speichern" />
+      <CheckBox fx:id="istOffenCheckBox" layoutX="23.0" layoutY="60.0" mnemonicParsing="false" text="Offene High Heels" />
+      <Button fx:id="speichernButton" layoutX="508.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleSpeichern" text="Speichern" />
    </children>
 </AnchorPane>

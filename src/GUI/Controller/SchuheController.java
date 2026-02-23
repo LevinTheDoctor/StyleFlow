@@ -48,13 +48,30 @@ public class SchuheController extends BasisController {
 
         if (fxmlPfad == null) return;
 
-        StiefelController next = ladeFxmlMitController(fxmlPfad, weiterButton);
-        if (next != null) {
-            next.setVorauswahl(
-                    basisVorauswahl,
-                    absatzHoeheComboBox.getValue(),
-                    verschlussArtComboBox.getValue()
-            );
+        String absatzHoehe = absatzHoeheComboBox.getValue();
+        String verschlussArt = verschlussArtComboBox.getValue();
+
+        switch (artDerSchuheComboBox.getValue()) {
+            case "Halbschuhe" -> {
+                HalbschuheController next = ladeFxmlMitController(fxmlPfad, weiterButton);
+                if (next != null) next.setVorauswahl(basisVorauswahl, absatzHoehe, verschlussArt);
+            }
+            case "High Heels" -> {
+                HighHeelsController next = ladeFxmlMitController(fxmlPfad, weiterButton);
+                if (next != null) next.setVorauswahl(basisVorauswahl, absatzHoehe, verschlussArt);
+            }
+            case "Sandalen" -> {
+                SandalenController next = ladeFxmlMitController(fxmlPfad, weiterButton);
+                if (next != null) next.setVorauswahl(basisVorauswahl, absatzHoehe, verschlussArt);
+            }
+            case "Sneaker" -> {
+                SneakerController next = ladeFxmlMitController(fxmlPfad, weiterButton);
+                if (next != null) next.setVorauswahl(basisVorauswahl, absatzHoehe, verschlussArt);
+            }
+            case "Stiefel" -> {
+                StiefelController next = ladeFxmlMitController(fxmlPfad, weiterButton);
+                if (next != null) next.setVorauswahl(basisVorauswahl, absatzHoehe, verschlussArt);
+            }
         }
     }
 }

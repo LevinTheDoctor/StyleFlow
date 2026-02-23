@@ -163,3 +163,16 @@ org.eclipse.core.runtime.CoreException: Launch configuration New_configuration r
 
 !ENTRY org.eclipse.jdt.launching 4 107 2026-02-22 22:12:42.427
 !MESSAGE Launch configuration New_configuration references non-existing project StyleFlow.
+!SESSION 2026-02-23 10:39:19.141 -----------------------------------------------
+eclipse.buildId=4.38.0.20251204-0849
+java.version=21.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=aarch64, WS=cocoa, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/patrizianolle/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch aarch64 -product org.eclipse.epp.package.java.product -keyring /Users/patrizianolle/.eclipse_keyring
+
+!ENTRY ch.qos.logback.classic 1 0 2026-02-23 10:39:22.663
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2026-02-23 10:39:32.603
+!MESSAGE Logback config file: /Users/patrizianolle/git/StyleFlow/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.101.20251017-1242.xml

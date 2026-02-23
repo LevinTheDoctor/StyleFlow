@@ -15,7 +15,10 @@ public class BildHelper {
     // Verschieben von Bild zu Inventory und Json Speicher in Inventory
     public static String BildBewegen(String BildPfadString)
     {
-       Path OrginalBildPfad = Paths.get(BildPfadString);
+        if (BildPfadString == null || BildPfadString.isBlank()) {
+            return "";
+        }
+        Path OrginalBildPfad = Paths.get(BildPfadString);
        String BildName = OrginalBildPfad.getFileName().toString();
        Path ProgrammPfad = Paths.get(System.getProperty("user.dir"), "Inventory");
        Path PfadMitBild = Paths.get(ProgrammPfad.toString(), BildName);

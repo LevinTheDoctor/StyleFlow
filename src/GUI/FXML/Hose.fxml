@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.HoseController">
    <children>
       <Label layoutX="23.0" layoutY="14.0" text="Hose">
          <font>
@@ -16,14 +16,14 @@
          </font>
       </Label>
       <Label layoutX="23.0" layoutY="51.0" text="Art der Hose" />
-      <ComboBox layoutX="23.0" layoutY="76.0" prefWidth="150.0" />
+      <ComboBox fx:id="artHoseComboBox" layoutX="23.0" layoutY="76.0" prefWidth="150.0" />
+      <CheckBox fx:id="hatLoecherCheckBox" layoutX="244.0" layoutY="80.0" mnemonicParsing="false" text="Hat Löcher" />
       <Label layoutX="23.0" layoutY="114.0" text="Waschung" />
-      <ComboBox layoutX="23.0" layoutY="139.0" prefWidth="150.0" />
-      <Button layoutX="508.0" layoutY="323.0" mnemonicParsing="false" text="Speichern" />
+      <ComboBox fx:id="waschungComboBox" layoutX="23.0" layoutY="139.0" prefWidth="150.0" />
       <Label layoutX="23.0" layoutY="182.0" text="Weite" />
-      <ComboBox layoutX="23.0" layoutY="207.0" prefWidth="150.0" />
+      <ComboBox fx:id="weiteComboBox" layoutX="23.0" layoutY="207.0" prefWidth="150.0" />
       <Label layoutX="23.0" layoutY="255.0" text="Besonderheiten" />
-      <TextField layoutX="24.0" layoutY="280.0" />
-      <CheckBox layoutX="244.0" layoutY="80.0" mnemonicParsing="false" text="Hat Löcher" />
+      <TextField fx:id="besonderheitenTextField" layoutX="24.0" layoutY="280.0" />
+      <Button fx:id="speichernButton" layoutX="508.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleSpeichern" text="Speichern" />
    </children>
 </AnchorPane>

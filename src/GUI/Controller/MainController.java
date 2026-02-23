@@ -147,6 +147,17 @@ public class MainController extends BasisController {
         if (c.getOberteile() != null) alle.addAll(c.getOberteile());
         return alle;
     }
+
+    @FXML
+    private void handleZuOutfitHinzufuegen() {
+        Kleidungsstueck ausgewaehlt = sucheTableView.getSelectionModel().getSelectedItem();
+        if (ausgewaehlt == null) {
+            zeigeDialog("Bitte zuerst ein Kleidungsstück aus der Liste auswählen.");
+            return;
+        }
+        zeigeDialog("Zu Outfit hinzufügen: " + ausgewaehlt.getBezeichnung() + " – (Outfit-Logik noch nicht implementiert)");
+    }
+
     // + Button für Farben
     @FXML
     private void handleFarbeHinzufuegen() {

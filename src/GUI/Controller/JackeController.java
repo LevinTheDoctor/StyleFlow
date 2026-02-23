@@ -14,6 +14,7 @@ public class JackeController extends BasisController {
 
     @FXML private ComboBox<String> verschlussArtComboBox;
     @FXML private ComboBox<String> futterMaterialComboBox;
+    @FXML private ComboBox<String> jackenArtComboBox;
     @FXML private CheckBox wasserdichtCheckBox;
     @FXML private Button speichernButton;
 
@@ -29,6 +30,10 @@ public class JackeController extends BasisController {
         befuelleComboBox(futterMaterialComboBox,
                 "Polyester", "Fleece", "Baumwolle", "Kein Futter"
         );
+        befuelleComboBox(jackenArtComboBox,
+                "Mantel","WinterJacke","RegenJacke","SweatshirtJacke","UebergangsJacke"
+                );
+
     }
 
     public void setVorauswahl(BasisVorauswahl basisVorauswahl, int aermelLaenge, String schnitt) {
@@ -45,30 +50,9 @@ public class JackeController extends BasisController {
             return;
         }
 
-        Jacke neueJacke = new Jacke(
-                basisVorauswahl.getBezeichnung(),
-                basisVorauswahl.getFarben(),
-                basisVorauswahl.getBedecktesKoerperteil(),
-                basisVorauswahl.getWetterLage(),
-                basisVorauswahl.getBildPfad(),
-                aermelLaenge,
-                schnitt,
-                verschlussArtComboBox.getValue(),
-                wasserdichtCheckBox.isSelected(),
-                futterMaterialComboBox.getValue()
-        );
 
-        neueJacke.setMarke(basisVorauswahl.getMarke());
-        neueJacke.setAnmerkung(basisVorauswahl.getAnmerkung());
-        neueJacke.setMaterial(basisVorauswahl.getMaterial());
-        neueJacke.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Jacke> jackenListe = new ArrayList<>();
-        jackenListe.add(neueJacke);
-        container.setJacken(jackenListe);
 
-        new JSONWriterKleidungstuecke().JSONWrite(container);
         zeigeDialog("Jacke wurde erfolgreich gespeichert!");
     }
 }

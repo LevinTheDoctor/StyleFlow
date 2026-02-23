@@ -36,7 +36,7 @@ public class ProgramSpeicher {
     }
 
 
-    private static void AddKleidungsstueckToSchrank(Kleidungsstueck ks) {
+    public static void AddKleidungsstueckToSchrank(Kleidungsstueck ks) {
         if (ks == null) return;
         Schrank.getKleidungsstuecke().add(ks);
         if (ks instanceof Kopfbedeckung kb)

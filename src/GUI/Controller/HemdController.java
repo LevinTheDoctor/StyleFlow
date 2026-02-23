@@ -9,6 +9,8 @@ import javafx.scene.control.ComboBox;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class HemdController extends BasisController {
 
     @FXML private ComboBox<String> kragenArtComboBox;
@@ -60,12 +62,6 @@ public class HemdController extends BasisController {
         neuesHemd.setMaterial(basisVorauswahl.getMaterial());
         neuesHemd.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Hemd> hemdenListe = new ArrayList<>();
-        hemdenListe.add(neuesHemd);
-        container.setHemden(hemdenListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Hemd wurde erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neuesHemd);
     }
 }

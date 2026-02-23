@@ -9,6 +9,8 @@ import javafx.scene.control.ComboBox;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class HalbschuheController extends BasisController {
 
     @FXML private ComboBox<String> artComboBox;
@@ -60,12 +62,6 @@ public class HalbschuheController extends BasisController {
         neueHalbschuhe.setMaterial(basisVorauswahl.getMaterial());
         neueHalbschuhe.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Halbschuhe> halbschuheListe = new ArrayList<>();
-        halbschuheListe.add(neueHalbschuhe);
-        container.setHalbschuhe(halbschuheListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Halbschuhe wurden erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neueHalbschuhe);
     }
 }

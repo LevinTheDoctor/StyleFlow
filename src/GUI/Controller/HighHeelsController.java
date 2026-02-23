@@ -9,6 +9,8 @@ import javafx.scene.control.CheckBox;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class HighHeelsController extends BasisController {
 
     @FXML private CheckBox istOffenCheckBox;
@@ -48,12 +50,6 @@ public class HighHeelsController extends BasisController {
         neueHighHeels.setMaterial(basisVorauswahl.getMaterial());
         neueHighHeels.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<HighHeels> highHeelsListe = new ArrayList<>();
-        highHeelsListe.add(neueHighHeels);
-        container.setHighHeels(highHeelsListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("High Heels wurden erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neueHighHeels);
     }
 }

@@ -9,6 +9,8 @@ import javafx.scene.control.ComboBox;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class StiefelController extends BasisController {
 
     @FXML private ComboBox<String> artDerStiefelComboBox;
@@ -64,12 +66,6 @@ public class StiefelController extends BasisController {
         neuerStiefel.setMaterial(basisVorauswahl.getMaterial());
         neuerStiefel.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Stiefel> stiefelListe = new ArrayList<>();
-        stiefelListe.add(neuerStiefel);
-        container.setStiefel(stiefelListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Stiefel wurde erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neuerStiefel);
     }
 }

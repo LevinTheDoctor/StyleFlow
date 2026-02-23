@@ -10,6 +10,8 @@ import javafx.scene.control.ComboBox;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class CapController extends BasisController {
 
     @FXML private ComboBox<String> verschlussArtComboBox;
@@ -52,12 +54,6 @@ public class CapController extends BasisController {
         neueCap.setMaterial(basisVorauswahl.getMaterial());
         neueCap.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Cap> capsListe = new ArrayList<>();
-        capsListe.add(neueCap);
-        container.setCaps(capsListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Cap wurde erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neueCap);
     }
 }

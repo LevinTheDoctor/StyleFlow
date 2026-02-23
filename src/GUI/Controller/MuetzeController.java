@@ -9,6 +9,8 @@ import javafx.scene.control.ComboBox;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class MuetzeController extends BasisController {
 
     @FXML private ComboBox<String> stilComboBox;
@@ -54,12 +56,6 @@ public class MuetzeController extends BasisController {
         neueMuetze.setMaterial(basisVorauswahl.getMaterial());
         neueMuetze.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Muetze> muetzenListe = new ArrayList<>();
-        muetzenListe.add(neueMuetze);
-        container.setMuetzen(muetzenListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Mütze wurde erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neueMuetze);
     }
 }

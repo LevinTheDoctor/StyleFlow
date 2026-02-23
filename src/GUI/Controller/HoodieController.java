@@ -9,6 +9,8 @@ import javafx.scene.control.CheckBox;
 
 import java.util.ArrayList;
 
+import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
+
 public class HoodieController extends BasisController {
 
     @FXML private CheckBox hatTascheCheckBox;
@@ -48,12 +50,6 @@ public class HoodieController extends BasisController {
         neuerHoodie.setMaterial(basisVorauswahl.getMaterial());
         neuerHoodie.setStyle(basisVorauswahl.getStyle());
 
-        KleidungsContainer container = new KleidungsContainer();
-        ArrayList<Hoodie> hoodiesListe = new ArrayList<>();
-        hoodiesListe.add(neuerHoodie);
-        container.setHoodies(hoodiesListe);
-
-        new JSONWriterKleidungstuecke().JSONWrite(container);
-        zeigeDialog("Hoodie wurde erfolgreich gespeichert!");
+        AddKleidungsstueckToSchrank(neuerHoodie);
     }
 }

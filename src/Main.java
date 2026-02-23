@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -9,12 +10,15 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         try {
-            var url = getClass().getResource("/GUI/FXML/Main.fxml");
-            System.out.println("FXML URL: " + url); // Zeigt ob die Datei gefunden wird
+            Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Main.fxml"));
+            Scene scene = new Scene(root);
 
-            Parent root = FXMLLoader.load(url);
-            stage.setTitle("Kleidungsverwaltung");
-            stage.setScene(new Scene(root));
+            stage.setTitle("StyleFlow");
+            Image icon = new Image("icon.png");
+            stage.getIcons().add(icon);
+            stage.setHeight(500);
+            stage.setWidth(800);
+            stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

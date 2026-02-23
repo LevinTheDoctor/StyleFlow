@@ -323,8 +323,8 @@ public class FilterLogik {
     }
 }
 
-//Beispiele
-//FilterLogik filter = new FilterLogik();
-//filter.addFilter("farbe", "rot");
-//filter.addFilter("wettereignung", "Sommer");
-//filter.clearFilter();  // alle Filter löschen
+// Beispiele:
+// FilterLogik filter = new FilterLogik();
+// filter.addFilter("farbe", "rot");
+// filter.addFilter("wettereignung", "Sommer");
+// filter.clearFilter();  // alle Filter löschen

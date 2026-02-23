@@ -1,10 +1,21 @@
 package GUI.Controller;
 
+import JSONHandling.JSONReaderKleidungstuecke;
+import KleidungsKlassen.KleidungsContainer;
+import KleidungsKlassen.Kleidungsstueck;
+import Logik.FilterLogik;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 public class MainController extends BasisController {
@@ -19,6 +30,20 @@ public class MainController extends BasisController {
     @FXML private TextField        bildPfadTextField;
     @FXML private ColorPicker      farbeColorPicker;
     @FXML private Button           weiterButton;
+
+    // Kleidungstücke Suchen
+    @FXML private ComboBox<String> sucheKleidungsArtComboBox;
+    @FXML private ColorPicker      sucheFarbeColorPicker;
+    @FXML private ComboBox<String> sucheMarkeComboBox;
+    @FXML private Button           sucheButton;
+    @FXML private TableView<Kleidungsstueck> sucheTableView;
+    @FXML private TableColumn<Kleidungsstueck, String> sucheSpalteBezeichnung;
+    @FXML private TableColumn<Kleidungsstueck, String> sucheSpalteArt;
+    @FXML private TableColumn<Kleidungsstueck, String> sucheSpalteMarke;
+    @FXML private TableColumn<Kleidungsstueck, String> sucheSpalteFarbe;
+    @FXML private Button           zuOutfitButton;
+
+    private final ObservableList<Kleidungsstueck> sucheErgebnisListe = FXCollections.observableArrayList();
 
     // Farben, Material und Style können mehrfach hinzugefügt werden
     private final ArrayList<String> farbenListe   = new ArrayList<>();
@@ -39,6 +64,100 @@ public class MainController extends BasisController {
         befuelleComboBox(wetterLageComboBox,
                 "Sonnig", "Bewölkt", "Regnerisch", "Schnee", "Windig"
         );
+        befuelleComboBox(sucheKleidungsArtComboBox,
+                "Schuhe", "Oberteil", "Unterteil", "Kopfbedeckung", "Einteiler"
+        );
+        sucheMarkeComboBox.setEditable(true);
+        konfiguriereSucheTableView();
+        // Beim Start alle Kleidungsstücke anzeigen (ohne Filter)
+        handleSuche();
+    }
+
+    private void konfiguriereSucheTableView() {
+        if (sucheSpalteBezeichnung == null) return;
+        sucheSpalteBezeichnung.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getBezeichnung()));
+        sucheSpalteArt.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getClass().getSimpleName()));
+        sucheSpalteMarke.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getMarke() != null ? cell.getValue().getMarke() : ""));
+        sucheSpalteFarbe.setCellValueFactory(cell -> {
+            String[] f = cell.getValue().getFarben();
+            if (f != null && f.length > 0) {
+                return new SimpleStringProperty(String.join(", ", f));
+            }
+            return new SimpleStringProperty("");
+        });
+        sucheTableView.setItems(sucheErgebnisListe);
+    }
+
+    @FXML
+    private void handleSuche() {
+        KleidungsContainer container = JSONReaderKleidungstuecke.ReadKleidungsJSON();
+        if (container == null) {
+            zeigeDialog("Keine Kleidungsdaten gefunden.");
+            sucheErgebnisListe.clear();
+            return;
+        }
+        ArrayList<Kleidungsstueck> alle = sammleAlleKleidungsstuecke(container);
+        FilterLogik filterLogik = new FilterLogik();
+
+        String art = sucheKleidungsArtComboBox.getValue();
+        if (art != null && !art.isBlank()) {
+            String bedecktesKoerperteil = mapArtZuBedecktesKoerperteil(art);
+            if (bedecktesKoerperteil != null) {
+                filterLogik.addFilter("bedeckteskoerperteil", bedecktesKoerperteil);
+            }
+        }
+        Color farbe = sucheFarbeColorPicker.getValue();
+        if (farbe != null && !farbe.equals(Color.WHITE)) {
+            filterLogik.addFilter("farben", farbeToString(farbe));
+        }
+        String marke = sucheMarkeComboBox.getValue();
+        if (marke != null && !marke.isBlank()) {
+            filterLogik.addFilter("marke", marke.trim());
+        }
+
+        ArrayList<Kleidungsstueck> ergebnis = filterLogik.anwenden(alle);
+        sucheErgebnisListe.clear();
+        sucheErgebnisListe.addAll(ergebnis);
+        zeigeDialog("Gefunden: " + ergebnis.size() + " Kleidungsstück(e).");
+    }
+
+    private String mapArtZuBedecktesKoerperteil(String art) {
+        return switch (art) {
+            case "Schuhe" -> "Füße";
+            case "Oberteil" -> "Oberkörper";
+            case "Unterteil" -> "Unterkörper";
+            case "Kopfbedeckung" -> "Kopf";
+            case "Einteiler" -> "Ganzkörper";
+            default -> null;
+        };
+    }
+
+    private String farbeToString(Color c) {
+        if (c == null) return "";
+        int r = (int) (c.getRed() * 255);
+        int g = (int) (c.getGreen() * 255);
+        int b = (int) (c.getBlue() * 255);
+        return String.format("0x%02x%02x%02x%02x", r, g, b, 255);
+    }
+
+    private ArrayList<Kleidungsstueck> sammleAlleKleidungsstuecke(KleidungsContainer c) {
+        ArrayList<Kleidungsstueck> alle = new ArrayList<>();
+        if (c.getKopfbedeckungen() != null) alle.addAll(c.getKopfbedeckungen());
+        if (c.getUnterteile() != null) alle.addAll(c.getUnterteile());
+        if (c.getEinteiler() != null) alle.addAll(c.getEinteiler());
+        if (c.getSchuhe() != null) alle.addAll(c.getSchuhe());
+        if (c.getOberteile() != null) alle.addAll(c.getOberteile());
+        return alle;
+    }
+
+    @FXML
+    private void handleZuOutfitHinzufuegen() {
+        Kleidungsstueck ausgewaehlt = sucheTableView.getSelectionModel().getSelectedItem();
+        if (ausgewaehlt == null) {
+            zeigeDialog("Bitte zuerst ein Kleidungsstück aus der Liste auswählen.");
+            return;
+        }
+        zeigeDialog("Zu Outfit hinzufügen: " + ausgewaehlt.getBezeichnung() + " – (Outfit-Logik noch nicht implementiert)");
     }
 
     // + Button für Farben

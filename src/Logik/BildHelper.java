@@ -23,31 +23,31 @@ public class BildHelper {
        Path ProgrammPfad = Paths.get(System.getProperty("user.dir"), "Inventory");
        Path PfadMitBild = Paths.get(ProgrammPfad.toString(), BildName);
         try {
-            // wenn ordner nicht existir
+            // wenn Ordner nicht existiert
             if (!Files.exists(ProgrammPfad))
             {
                 Files.createDirectories(ProgrammPfad);
             }
             Files.copy(OrginalBildPfad, PfadMitBild);
         } catch (IOException e) {
-            // ist von intellij weil copy ne exception schmeist
+            // ist von IntelliJ, weil copy eine Exception wirft
             throw new RuntimeException(e);
         }
-        //relativer pfad so das es auch auf anderen computern gefunden werden kann
+        // relativer Pfad, sodass es auch auf anderen Computern gefunden werden kann
         return "Inventory/" + BildName;
     }
 
 
     public static boolean IsFarbeHell(String FarbeInHexCode)
     {
-        // basierend auf helligkeitsformel für RGB hab ich online gefunden http://www.fseitz.de/blog/index.php?/archives/112-Helligkeit-von-Farben-des-RGB-Farbraums-berechnen.html
+        // basierend auf Helligkeitsformel für RGB, die ich online gefunden habe: http://www.fseitz.de/blog/index.php?/archives/112-Helligkeit-von-Farben-des-RGB-Farbraums-berechnen.html
         int[] rgb = HexZuRGB(FarbeInHexCode);
         Double Helligkeit = Math.sqrt(0.299 * Math.pow(rgb[0],2) + 0.587 * Math.pow(rgb[1],2) + 0.114 * Math.pow(rgb[2],2));
         return Helligkeit > 128;
     }
 
 
-    // nimmt die substrings
+    // nimmt die Substrings
     public static int[] HexZuRGB (String FarbeInHexCode)
     {
         String RinHex = FarbeInHexCode.substring(0,2);
@@ -59,7 +59,7 @@ public class BildHelper {
         return new int[]{R,G,B};
     }
 
-    // ich will nicht mehr das hat einfach gegangen aber ich habe es vorher nicht gefunden lol
+    // ich will nicht mehr – das hat einfach funktioniert, aber ich habe es vorher nicht gefunden
     public static int HexZuDez (String Hex)
     {
         int countDurchgaenge = 0;

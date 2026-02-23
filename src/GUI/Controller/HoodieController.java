@@ -1,0 +1,59 @@
+package GUI.Controller;
+
+import JSONHandling.JSONWriterKleidungstuecke;
+import KleidungsKlassen.Hoodie;
+import KleidungsKlassen.KleidungsContainer;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+
+import java.util.ArrayList;
+
+public class HoodieController extends BasisController {
+
+    @FXML private CheckBox hatTascheCheckBox;
+    @FXML private Button speichernButton;
+
+    private BasisVorauswahl basisVorauswahl;
+    private int aermelLaenge;
+    private String schnitt;
+
+    @FXML
+    public void initialize() {
+        // Hoodie hat nur die Kangaroo-Tasche Checkbox
+    }
+
+    public void setVorauswahl(BasisVorauswahl basisVorauswahl, int aermelLaenge, String schnitt) {
+        this.basisVorauswahl = basisVorauswahl;
+        this.aermelLaenge = aermelLaenge;
+        this.schnitt = schnitt;
+    }
+
+    @FXML
+    private void handleSpeichern() {
+        if (!validiereBildPfad(basisVorauswahl.getBildPfad())) return;
+        Hoodie neuerHoodie = new Hoodie(
+                basisVorauswahl.getBezeichnung(),
+                basisVorauswahl.getFarben(),
+                basisVorauswahl.getBedecktesKoerperteil(),
+                basisVorauswahl.getWetterLage(),
+                basisVorauswahl.getBildPfad(),
+                aermelLaenge,
+                schnitt,
+                hatTascheCheckBox.isSelected()
+        );
+
+        neuerHoodie.setMarke(basisVorauswahl.getMarke());
+        neuerHoodie.setAnmerkung(basisVorauswahl.getAnmerkung());
+        neuerHoodie.setMaterial(basisVorauswahl.getMaterial());
+        neuerHoodie.setStyle(basisVorauswahl.getStyle());
+
+        KleidungsContainer container = new KleidungsContainer();
+        ArrayList<Hoodie> hoodiesListe = new ArrayList<>();
+        hoodiesListe.add(neuerHoodie);
+        container.setHoodies(hoodiesListe);
+
+        new JSONWriterKleidungstuecke().JSONWrite(container);
+        zeigeDialog("Hoodie wurde erfolgreich gespeichert!");
+    }
+}

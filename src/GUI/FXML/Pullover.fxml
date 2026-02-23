@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.PulloverController">
    <children>
       <Label layoutX="43.0" layoutY="34.0" text="Pullover">
          <font>
@@ -15,9 +15,9 @@
          </font>
       </Label>
       <Label layoutX="43.0" layoutY="62.0" text="Art des Auschnitts" />
-      <ComboBox layoutX="43.0" layoutY="87.0" prefWidth="150.0" />
+      <ComboBox fx:id="ausschnittArtComboBox" layoutX="43.0" layoutY="87.0" prefWidth="150.0" />
       <Label layoutX="43.0" layoutY="127.0" text="Art des Stricks" />
-      <ComboBox layoutX="43.0" layoutY="151.0" prefWidth="150.0" />
-      <Button layoutX="517.0" layoutY="348.0" mnemonicParsing="false" text="Speichern" />
+      <ComboBox fx:id="strickArtComboBox" layoutX="43.0" layoutY="151.0" prefWidth="150.0" />
+      <Button fx:id="speichernButton" layoutX="517.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleSpeichern" text="Speichern" />
    </children>
 </AnchorPane>

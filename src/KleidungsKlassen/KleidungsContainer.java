@@ -52,6 +52,40 @@ public class KleidungsContainer {
     private ArrayList<SweatshirtJacke> sweatshirtJacken;
     private ArrayList<UebergangsJacke> uebergangsJacken;
 
+    /** Standard-Konstruktor für leere Container (z.B. beim Hinzufügen einzelner Kleidungsstücke). */
+    public KleidungsContainer() {
+        this.kleidungsstuecke = new ArrayList<>();
+        this.kopfbedeckungen = new ArrayList<>();
+        this.muetzen = new ArrayList<>();
+        this.huete = new ArrayList<>();
+        this.caps = new ArrayList<>();
+        this.unterteile = new ArrayList<>();
+        this.hosen = new ArrayList<>();
+        this.roecke = new ArrayList<>();
+        this.einteiler = new ArrayList<>();
+        this.kleider = new ArrayList<>();
+        this.overalls = new ArrayList<>();
+        this.schuhe = new ArrayList<>();
+        this.highHeels = new ArrayList<>();
+        this.sneakers = new ArrayList<>();
+        this.stiefel = new ArrayList<>();
+        this.sandalen = new ArrayList<>();
+        this.halbschuhe = new ArrayList<>();
+        this.oberteile = new ArrayList<>();
+        this.hemden = new ArrayList<>();
+        this.polos = new ArrayList<>();
+        this.pullover = new ArrayList<>();
+        this.hoodies = new ArrayList<>();
+        this.tshirts = new ArrayList<>();
+        this.tops = new ArrayList<>();
+        this.jacken = new ArrayList<>();
+        this.maentel = new ArrayList<>();
+        this.winterJacken = new ArrayList<>();
+        this.regenJacken = new ArrayList<>();
+        this.sweatshirtJacken = new ArrayList<>();
+        this.uebergangsJacken = new ArrayList<>();
+    }
+
     public KleidungsContainer(ArrayList<Kleidungsstueck> kleidungsstuecke, 
                              ArrayList<Kopfbedeckung> kopfbedeckungen, 
                              ArrayList<Muetze> muetzen, 

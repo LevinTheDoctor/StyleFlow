@@ -37,6 +37,7 @@ public class StiefelController extends BasisController {
 
     @FXML
     private void handleSpeichern() {
+        if (!validiereBildPfad(basisVorauswahl.getBildPfad())) return;
         if (!validiereComboBoxen(artDerStiefelComboBox, musterComboBox)) {
             zeigeDialog("Bitte alle Felder ausfüllen.");
             return;

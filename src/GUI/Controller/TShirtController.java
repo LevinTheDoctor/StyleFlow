@@ -1,13 +1,9 @@
 package GUI.Controller;
 
-import JSONHandling.JSONWriterKleidungstuecke;
-import KleidungsKlassen.KleidungsContainer;
 import KleidungsKlassen.TShirt;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-
-import java.util.ArrayList;
 
 import static Logik.ProgramSpeicher.AddKleidungsstueckToSchrank;
 

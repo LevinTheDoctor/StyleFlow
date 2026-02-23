@@ -7,7 +7,7 @@ import Exception.KeineJsonGefundenException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// Vorher waren diese helper erst nur in der JSON ReaderKleidundstücke nun ist es ausgekoppelt
+// Vorher waren diese Helper nur in der JSON ReaderKleidungstuecke, nun sind sie ausgekoppelt
 public class JSONReaderHelper {
 
 
@@ -24,12 +24,12 @@ public class JSONReaderHelper {
     }
 
     public static int berechneZeilenProEintrag(ArrayList<String> Zeilen){
-        int Start = -1; // Minus 1 weil 0 ein möglicher statrt wert ist wichtig für die if abfrage
+        int Start = -1; // Minus 1, weil 0 ein möglicher Startwert ist – wichtig für die if-Abfrage
         int Start2= 0;
 
         for (int i = 0; i < Zeilen.size(); i++)
         {
-            if (Start==-1) // ist ja nur bei ersten mal -1
+            if (Start==-1) // ist ja nur beim ersten Mal -1
             {
                 if(Zeilen.get(i).contains("{"))
                 {
@@ -41,7 +41,7 @@ public class JSONReaderHelper {
                 if(Zeilen.get(i).contains("{"))
                 {
                     Start2 = i;
-                    break; // nach zweiter wert zuweisung bricht die schleife ab weil man alles wichtige hat
+                    break; // nach zweiter Wertzuweisung bricht die Schleife ab, weil man alles Wichtige hat
                 }
 
             }
@@ -83,11 +83,11 @@ public class JSONReaderHelper {
         return JoinedListe;
     }
 
-    // Überprüft, ob das Lesen der JSON-Datei Existirt wichtig für den Ersten Start
+    // Überprüft, ob das Lesen der JSON-Datei existiert – wichtig für den ersten Start
     public static String[][] LesenSafe(String filename)
     {
         try{
-            return JSONzu2Darray(filename); // Historisch angewachsene unsprunglich gab es die Funktion lesen so ist es nur wegen einer eigene exception drin
+            return JSONzu2Darray(filename); // Historisch angewachsen – ursprünglich gab es die Funktion lesen, so ist es nur wegen einer eigenen Exception drin
         }
         catch(KeineJsonGefundenException e){
             System.out.println("Datei nicht gefunden, überspringe: " + filename);
@@ -96,7 +96,7 @@ public class JSONReaderHelper {
 
     }
 
-    // Hier ist Lesen Möglich nur zum Vergleich finde das ist besser wenn es keine Vorgabe gab mit exceptions
+    // Hier ist Lesen möglich – nur zum Vergleich; ich finde, das ist besser, wenn es keine Vorgabe gab, mit Exceptions
     public static boolean LesenMoeglich(String filename)
     {
         File File = new File(filename + ".json");
@@ -170,7 +170,7 @@ public class JSONReaderHelper {
         }
     }
 
-    //Herraus finde Daten Typ JSON
+    // Herausfinden des Datentyps aus JSON
     public static String JSONerkenneTyp(String Wert) {
         String WertZugeschnitten = Wert.substring(Wert.indexOf(":") + 1).trim().replace(",", "");
         if (WertZugeschnitten.startsWith("[") && WertZugeschnitten.endsWith("]")) {
@@ -205,7 +205,7 @@ public class JSONReaderHelper {
     {
         String[] parts = line.split(":");
         String arrayInJSON = parts[1].trim().replace("[", "").replace("]", "").replace("\"", "");
-        // leerezeichen ignoriren
+        // Leerzeichen ignorieren
         return arrayInJSON.split("\\s*,\\s*");
     }
 

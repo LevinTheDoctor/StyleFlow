@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 import static JSONHandling.JSONReaderHelper.*;
 
-// Die Ganze JSON Read geschichte ist eingetlich daher verschulde das ich im abi und jetzt in der Ausbildung nur mit Datenbanken rumhantier und ich versuche quasi ein Join der JSON Datein manuel über Java ich weiß das ist nicht elgenat aber das kenne ich halt - Levin
+// Die ganze JSON-Read-Geschichte ist eigentlich daher verschuldet, dass ich im Abi und jetzt in der Ausbildung nur mit Datenbanken rumhantiere und ich versuche quasi einen Join der JSON-Dateien manuell über Java – ich weiß, das ist nicht elegant, aber das kenne ich halt – Levin
 public class JSONReaderKleidungstuecke {
 
-    // Reader Klasse nimmt ids aus allen katehgorien um mit ein string array zu erzeugen der dann von den klassen eingelsen wird
+    // Reader-Klasse nimmt IDs aus allen Kategorien, um ein String-Array zu erzeugen, der dann von den Klassen eingelesen wird
     public static KleidungsContainer ReadKleidungsJSON() {
         ArrayList<Kleidungsstueck> kleidungsstueckeJSON = new ArrayList<>();
 
@@ -160,7 +160,7 @@ public class JSONReaderKleidungstuecke {
 
                 String[][] Jacke = LesenSafe("Jacke");
                 if (Jacke != null) {
-                    // Hier joinen wir Jacke mit dem bereits fertigen OberteilJoined
+                    // Hier joinen wir Jacke mit den bereits fertigen OberteilJoined-Daten
                     String[][] JackeJoined = JSONjoin(Jacke, 0, OberteilJoined, 5);
                     for (String[] Inhalt : KlassenStringAusJSONStringListe("Mantel", JackeJoined)) {
                         mantelJSON.add(new Mantel(Inhalt));

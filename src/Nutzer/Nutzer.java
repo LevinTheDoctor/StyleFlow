@@ -57,7 +57,7 @@ public class Nutzer implements INutzer {
     public void setPfadZumBild(String pfadZumBild) {
         this.pfadZumBild = pfadZumBild;
     }
-    // Leiblingsfarbe wird durch Interface hinzugefügt
+    // Lieblingsfarbe wird durch Interface hinzugefügt
     @Override
     public void addLeiblingsFarbe(String Farbe){
         LeiblingsFarbe.add(Farbe);
@@ -82,7 +82,7 @@ public class Nutzer implements INutzer {
     }
     @Override
     public void removeStandort(String standort) {
-        // Durch null setzen wird die Variable wieder leer vorher wollte ich das mit "" machen aber das war dumm
+        // Durch Null setzen wird die Variable wieder leer – vorher wollte ich das mit "" machen, aber das war unnötig
         setStandort(null);
     }
 

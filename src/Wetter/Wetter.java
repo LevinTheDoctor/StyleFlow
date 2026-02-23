@@ -1,7 +1,7 @@
 package Wetter;
 
 public class Wetter {
-    private String WetterLage; // Sonne, Regen, Schnne, Windig
+    private String WetterLage; // Sonne, Regen, Schnee, Windig
     private Double TempraturInGrad;
     private String WetterSituation;
 

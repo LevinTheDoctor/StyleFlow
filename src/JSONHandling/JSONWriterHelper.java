@@ -1,6 +1,6 @@
 package JSONHandling;
 import java.io.PrintWriter;
-// Die helper waren vorher in der JSON WriterKleidstücke
+// Die Helper waren vorher in der JSON WriterKleidungstuecke
 public class JSONWriterHelper {
     public static void Komma(PrintWriter writer, Boolean LetztesElement)
     {

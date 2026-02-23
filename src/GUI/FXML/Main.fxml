@@ -86,20 +86,22 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <TableView layoutX="34.0" layoutY="68.0" prefHeight="232.0" prefWidth="546.0">
+                        <TableView fx:id="sucheTableView" layoutX="34.0" layoutY="68.0" prefHeight="232.0" prefWidth="546.0">
                             <columns>
-                                <TableColumn prefWidth="75.0" text="C1" />
-                                <TableColumn prefWidth="75.0" text="C2" />
+                                <TableColumn fx:id="sucheSpalteBezeichnung" prefWidth="180.0" text="Bezeichnung" />
+                                <TableColumn fx:id="sucheSpalteArt" prefWidth="120.0" text="Art" />
+                                <TableColumn fx:id="sucheSpalteMarke" prefWidth="120.0" text="Marke" />
+                                <TableColumn fx:id="sucheSpalteFarbe" prefWidth="126.0" text="Farbe" />
                             </columns>
                         </TableView>
                         <Label layoutX="201.0" layoutY="14.0" text="Farbe" />
-                        <Button layoutX="526.0" layoutY="30.0" mnemonicParsing="false" text="Suche" />
-                        <ComboBox layoutX="34.0" layoutY="30.0" prefWidth="150.0" />
-                        <Label layoutX="34.0" layoutY="14.0" text="Klediungstück Art" />
-                        <ComboBox layoutX="367.0" layoutY="30.0" prefWidth="150.0" />
+                        <Button fx:id="sucheButton" layoutX="526.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleSuche" text="Suche" />
+                        <ComboBox fx:id="sucheKleidungsArtComboBox" layoutX="34.0" layoutY="30.0" prefWidth="150.0" promptText="Alle" />
+                        <Label layoutX="34.0" layoutY="14.0" text="Kleidungsstück Art" />
+                        <ComboBox fx:id="sucheMarkeComboBox" layoutX="367.0" layoutY="30.0" prefWidth="150.0" promptText="Optional" />
                         <Label layoutX="367.0" layoutY="14.0" text="Marke (Optional)" />
-                        <Button layoutX="451.0" layoutY="317.0" mnemonicParsing="false" text="Zu Outfit Hinzufügen" />
-                  <ColorPicker layoutX="201.0" layoutY="31.0" />
+                        <Button fx:id="zuOutfitButton" layoutX="451.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleZuOutfitHinzufuegen" text="Zu Outfit Hinzufügen" />
+                        <ColorPicker fx:id="sucheFarbeColorPicker" layoutX="201.0" layoutY="31.0" />
                     </children>
                 </AnchorPane>
             </content>

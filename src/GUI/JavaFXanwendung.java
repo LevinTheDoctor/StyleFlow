@@ -1,11 +1,15 @@
 package GUI;
 
+import JSONHandling.JSONWriterKleidungstuecke;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import JSONHandling.JSONWriterKleidungstuecke.*;
+import Logik.ProgramSpeicher;
 
 public class JavaFXanwendung extends Application {
 
@@ -13,7 +17,6 @@ public class JavaFXanwendung extends Application {
         //Hier wird das programm gestartet unten wird die Start methode von launch überladen
         launch(args);
     }
-
     @Override
     public void start(Stage stage) {
         try{
@@ -26,6 +29,9 @@ public class JavaFXanwendung extends Application {
             stage.getIcons().add(icon);
             stage.setHeight(500);
             stage.setWidth(800);
+            stage.setOnCloseRequest(e -> {
+                JSONWriterKleidungstuecke.JSONWrite(ProgramSpeicher.getSchrank());
+            });
             //Scene wird zu stage hinzu gefuegt
             stage.setScene(scene);
             //Stage wird sichtbar immer am Ende!

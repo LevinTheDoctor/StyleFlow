@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class JSONWriterKleidungstuecke {
 
-    public void JSONWrite(KleidungsContainer AlleKleidungsStuecke) {
+    public static void JSONWrite(KleidungsContainer AlleKleidungsStuecke) {
         if (AlleKleidungsStuecke == null) return;
 
         // 1. Basis & Kopfbedeckungen
@@ -103,7 +103,7 @@ public class JSONWriterKleidungstuecke {
         if (AlleKleidungsStuecke.getUebergangsJacken() != null)
             UebergangsJackeWriter(AlleKleidungsStuecke.getUebergangsJacken());
     }
-    public void  KleidungstueckWriter(ArrayList<Kleidungsstueck> Kleidunsstuecke)
+    public static void  KleidungstueckWriter(ArrayList<Kleidungsstueck> Kleidunsstuecke)
     {
         try
         {
@@ -140,7 +140,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void  KopfbeckungWriter(ArrayList<Kopfbedeckung> Kopfbecekung)
+    public static void  KopfbeckungWriter(ArrayList<Kopfbedeckung> Kopfbecekung)
     {
         try
         {
@@ -172,7 +172,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void  MeutzeWriter(ArrayList<Muetze> muetzes)
+    public static void  MeutzeWriter(ArrayList<Muetze> muetzes)
     {
         try
         {
@@ -206,7 +206,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void  HueteWriter(ArrayList<Hut> Huetes)
+    public static void  HueteWriter(ArrayList<Hut> Huetes)
     {
         try
         {
@@ -240,7 +240,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void  CapWriter(ArrayList<Cap> Caps)
+    public static void  CapWriter(ArrayList<Cap> Caps)
     {
         try
         {
@@ -275,7 +275,7 @@ public class JSONWriterKleidungstuecke {
     }
 
 
-    public void UnterteilWriter(ArrayList<Unterteil> Unterteile){
+    public static void UnterteilWriter(ArrayList<Unterteil> Unterteile){
         try
         {
             File UnterteileFile = new File("Unterteil.json");
@@ -308,7 +308,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void HoseWriter(ArrayList<Hose> Hosen){
+    public static void HoseWriter(ArrayList<Hose> Hosen){
         try
         {
             File HoseFile = new File("Hose.json");
@@ -344,7 +344,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void RockWriter(ArrayList<Rock> Rock){
+    public static void RockWriter(ArrayList<Rock> Rock){
         try
         {
             File UnterteileFile = new File("Unterteil.json");
@@ -377,7 +377,7 @@ public class JSONWriterKleidungstuecke {
     }
 
 
-    public void EinteilerWriter(ArrayList<Einteiler> Einteriler){
+    public static void EinteilerWriter(ArrayList<Einteiler> Einteriler){
         try
         {
             File EinteilerFile = new File("Einteiler.json");
@@ -412,7 +412,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void KleidWriter(ArrayList<Kleid> Kleider){
+    public static void KleidWriter(ArrayList<Kleid> Kleider){
         try
         {
             File KleidFile = new File("Kleid.json");
@@ -443,7 +443,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void OverallWriter(ArrayList<Overall> overalls){
+    public static void OverallWriter(ArrayList<Overall> overalls){
         try
         {
             File OverallFile = new File("Overall.json");
@@ -474,7 +474,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void SchuheWriter(ArrayList<Schuhe> Schuhe){
+    public static void SchuheWriter(ArrayList<Schuhe> Schuhe){
         try
         {
             File SchuheFile = new File("Schuhe.json");
@@ -506,7 +506,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void HighHeelWriter(ArrayList<HighHeels> highHeels){
+    public static void HighHeelWriter(ArrayList<HighHeels> highHeels){
         try
         {
             File HighHeelsFile = new File("HighHells.json");
@@ -538,7 +538,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void SneakerWriter(ArrayList<Sneaker> Sneaker){
+    public static void SneakerWriter(ArrayList<Sneaker> Sneaker){
         try
         {
             File SneakerFile = new File("Sneaker.json");
@@ -570,7 +570,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void StiefelWriter(ArrayList<Stiefel> Stiefel){
+    public static void StiefelWriter(ArrayList<Stiefel> Stiefel){
         try
         {
             File StiefelFile = new File("Stiefel.json");
@@ -603,7 +603,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void SandalenWriter(ArrayList<Sandalen> Sandalen){
+    public static void SandalenWriter(ArrayList<Sandalen> Sandalen){
         try
         {
             File SandalenFile = new File("Sandalen.json");
@@ -636,7 +636,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void HalbschueWriter(ArrayList<Halbschuhe> Halbschuhe){
+    public static void HalbschueWriter(ArrayList<Halbschuhe> Halbschuhe){
         try
         {
             File HalbschuheFile = new File("Halbschuhe.json");
@@ -669,7 +669,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void OberteilWriter(ArrayList<Oberteil> Oberteil){
+    public static void OberteilWriter(ArrayList<Oberteil> Oberteil){
         try
         {
             File ObrteilFile = new File("Oberteil.json");
@@ -702,7 +702,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void HemdWriter(ArrayList<Hemd> Hemd){
+    public static void HemdWriter(ArrayList<Hemd> Hemd){
         try
         {
             File HemdFile = new File("Hemd.json");
@@ -735,7 +735,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void PoloWriter(ArrayList<Polo> Polo){
+    public static void PoloWriter(ArrayList<Polo> Polo){
         try
         {
             File PoloFile = new File("Polo.json");
@@ -768,7 +768,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void PulloverWriter(ArrayList<Pullover> Pullover){
+    public static void PulloverWriter(ArrayList<Pullover> Pullover){
         try
         {
             File PulloverFile = new File("Pullover.json");
@@ -800,7 +800,7 @@ public class JSONWriterKleidungstuecke {
             LOGGER.severe(e.getMessage());
         }
     }
-    public void HoodieWriter(ArrayList<Hoodie> Hoodie){
+    public static void HoodieWriter(ArrayList<Hoodie> Hoodie){
         try
         {
             File HoodieFile = new File("Hoodie.json");
@@ -832,7 +832,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void TShirtWriter(ArrayList<TShirt> TShirt){
+    public static void TShirtWriter(ArrayList<TShirt> TShirt){
         try
         {
             File TShirtFile = new File("TShirt.json");
@@ -865,7 +865,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void TopWriter(ArrayList<Top> Top){
+    public static void TopWriter(ArrayList<Top> Top){
         try
         {
             File TopFile = new File("Top.json");
@@ -900,7 +900,7 @@ public class JSONWriterKleidungstuecke {
 
 
 
-    public void JackeWriter(ArrayList<Jacke> Jacke){
+    public static void JackeWriter(ArrayList<Jacke> Jacke){
         try
         {
             File JackeFile = new File("Jacke.json");
@@ -935,7 +935,7 @@ public class JSONWriterKleidungstuecke {
 
     }
 
-    public void MantelWriter(ArrayList<Mantel> Mantel){
+    public static void MantelWriter(ArrayList<Mantel> Mantel){
         try
         {
             File OverallFile = new File("Mantel.json");
@@ -967,7 +967,7 @@ public class JSONWriterKleidungstuecke {
     }
 
 
-    public void WinterJackeWriter(ArrayList<WinterJacke> WinterJacke){
+    public static void WinterJackeWriter(ArrayList<WinterJacke> WinterJacke){
         try
         {
             File WinterJackeFile = new File("WinterJacke.json");
@@ -998,7 +998,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void RegenJackeWriter(ArrayList<RegenJacke> RegenJacke){
+    public static void RegenJackeWriter(ArrayList<RegenJacke> RegenJacke){
         try
         {
             File RegenJackeFile = new File("RegenJacke.json");
@@ -1028,7 +1028,7 @@ public class JSONWriterKleidungstuecke {
             LOGGER.severe(e.getMessage());
         }
     }
-    public void SweatshirtJackeWriter(ArrayList<SweatshirtJacke> SweatshirtJacke){
+    public static void SweatshirtJackeWriter(ArrayList<SweatshirtJacke> SweatshirtJacke){
         try
         {
             File SweatshirtJackeFile = new File("SweatshirtJacke.json");
@@ -1059,7 +1059,7 @@ public class JSONWriterKleidungstuecke {
         }
     }
 
-    public void UebergangsJackeWriter(ArrayList<UebergangsJacke> UebergangsJacke){
+    public static void UebergangsJackeWriter(ArrayList<UebergangsJacke> UebergangsJacke){
         try
         {
             File UebergangsJackeFile = new File("UebergangsJacke.json");

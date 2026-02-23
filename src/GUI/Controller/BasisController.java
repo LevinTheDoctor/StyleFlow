@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,8 +11,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static JSONHandling.JSONReaderKleidungstuecke.ReadKleidungsJSON;
+import static Logik.ProgramSpeicher.getSchrank;
+import static Logik.ProgramSpeicher.setSchrank;
+
 public abstract class BasisController {
 
+    @FXML
+    public void initialize() {
+        setSchrank(ReadKleidungsJSON());
+    }
     protected void ladeFxml(String pfad, Node node) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pfad));

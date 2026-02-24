@@ -90,6 +90,9 @@ public class MainController extends BasisController {
         befuelleComboBox(wetterLageComboBox,
                 "Sonnig", "Bewölkt", "Regnerisch", "Schnee", "Windig"
         );
+
+        konfiguriereSucheTableView();
+        handleSuche();
     }
     private void konfiguriereSucheTableView() {
         if (sucheSpalteBezeichnung == null) return;
@@ -118,7 +121,7 @@ public class MainController extends BasisController {
         FilterLogik filterLogik = new FilterLogik();
 
         String art = sucheKleidungsArtComboBox.getValue();
-        if (art != null && !art.isBlank()) {
+        if (art != null && !art.isBlank() && !art.equals("Alle")) {
             String bedecktesKoerperteil = mapArtZuBedecktesKoerperteil(art);
             if (bedecktesKoerperteil != null) {
                 filterLogik.addFilter("bedeckteskoerperteil", bedecktesKoerperteil);

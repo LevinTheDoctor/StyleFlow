@@ -68,7 +68,7 @@ public class JSONReaderKleidungstuecke {
                     }
                 }
 
-                String[][] capsInhalt = KlassenStringAusJSONStringListe("Caps", KopfbdeckungJoined);
+                String[][] capsInhalt = KlassenStringAusJSONStringListe("Cap", KopfbdeckungJoined);
                 if (capsInhalt != null) {
                     for(String[] Inhalt : capsInhalt) {
                         capsJSON.add(new Cap(Inhalt));
@@ -89,7 +89,7 @@ public class JSONReaderKleidungstuecke {
             if (Unterteil != null) {
                 String[][] UnterteilJoined = JSONjoin(Unterteil,0,Kleidungsstuecke,5);
 
-                String[][] hosenInhalt = KlassenStringAusJSONStringListe("Hosen", UnterteilJoined);
+                String[][] hosenInhalt = KlassenStringAusJSONStringListe("Hose", UnterteilJoined);
                 if (hosenInhalt != null) {
                     for(String[] Inhalt : hosenInhalt) {
                         hosenJSON.add(new Hose(Inhalt));
@@ -115,7 +115,7 @@ public class JSONReaderKleidungstuecke {
             if (Einteiler != null) {
                 String[][] EinteilerJoined = JSONjoin(Einteiler,0,Kleidungsstuecke,5);
 
-                String[][] kleiderInhalt = KlassenStringAusJSONStringListe("Kleider", EinteilerJoined);
+                String[][] kleiderInhalt = KlassenStringAusJSONStringListe("Kleid", EinteilerJoined);
                 if (kleiderInhalt != null) {
                     for (String[] Inhalt : kleiderInhalt) {
                         kleiderJSON.add(new Kleid(Inhalt));

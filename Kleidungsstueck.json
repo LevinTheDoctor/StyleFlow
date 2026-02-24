@@ -1,10 +1,10 @@
 [
 {
-"Bezeichnung": "Steifel",
-"Farben": ["0x000000ff"],
+"Bezeichnung": "Jordan 1",
+"Farben": ["0x000080ff", "0xff0000ff"],
 "BedecktesKoerperteil": "Füße",
-"Wettereignung": "Regnerisch",
-"BildDateiPfad": "Inventory/SchwarzeStiefel.jpg",
+"Wettereignung": "Sonnig",
+"BildDateiPfad": "Inventory/Bildschirmfoto 2026-02-24 um 18.48.24.png",
 "ID":1
 }
 ]

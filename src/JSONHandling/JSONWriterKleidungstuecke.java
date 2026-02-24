@@ -506,7 +506,7 @@ public class JSONWriterKleidungstuecke {
     public static void HighHeelWriter(ArrayList<HighHeels> highHeels){
         try
         {
-            File HighHeelsFile = new File("HighHells.json");
+            File HighHeelsFile = new File("HighHeels.json");
             PrintWriter writer = new PrintWriter(HighHeelsFile);
             writer.println("[");
             int i = 0;

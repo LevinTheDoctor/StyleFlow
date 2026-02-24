@@ -46,10 +46,20 @@ public class BildHelper {
         return Helligkeit > 128;
     }
 
+    public static String HexZuRGBString(String FarbeInHexCode)
+    {
+        int[] rgbIntArray = HexZuRGB(FarbeInHexCode);
+        String rgbString = "";
+        for (int element : rgbIntArray) {
+            rgbString += Integer.toString(element);
+        }
+        return rgbString;
+    }
 
     // nimmt die Substrings
-    public static int[] HexZuRGB (String FarbeInHexCode)
+    public static int[] HexZuRGB (String FarbeInHexCodeMitX)
     {
+        String FarbeInHexCode = FarbeInHexCodeMitX.split("x")[1];
         String RinHex = FarbeInHexCode.substring(0,2);
         String GinHex = FarbeInHexCode.substring(2,4);
         String BinHex = FarbeInHexCode.substring(4,6);

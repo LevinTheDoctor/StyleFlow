@@ -8,10 +8,11 @@ import javafx.collections.ObservableList;
 import Logik.FilterLogik;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
+import javafx.scene.image.Image;
 import java.util.ArrayList;
 
 import static JSONHandling.JSONReaderKleidungstuecke.ReadKleidungsJSON;
@@ -19,7 +20,7 @@ import static Logik.ProgramSpeicher.getSchrank;
 import static Logik.ProgramSpeicher.setSchrank;
 
 public class MainController extends BasisController {
-
+    // Fuer Das Anlagen der Kleidungstuecke
     @FXML private ComboBox<String> kleidungsArtComboBox;
     @FXML private ComboBox<String> bedecktesKoerperteilComboBox;
     @FXML private ComboBox<String> temperaturComboBox;
@@ -38,6 +39,7 @@ public class MainController extends BasisController {
     @FXML private Label FarbenArray;
     @FXML private Label MaterialArray;
     @FXML private Label StyleArray;
+    @FXML private ImageView kleidungsImage;
 
     // Kleidungstücke Suchen
     @FXML private ComboBox<String> sucheKleidungsArtComboBox;
@@ -270,12 +272,13 @@ public class MainController extends BasisController {
                 new FileChooser.ExtensionFilter("Bilder", "*.png", "*.jpg", "*.jpeg", "*.gif")
         );
 
-        // Stage über den Button holen
         Stage stage = (Stage) bildPfadTextField.getScene().getWindow();
         java.io.File datei = fileChooser.showOpenDialog(stage);
 
         if (datei != null) {
             bildPfadTextField.setText(datei.getAbsolutePath());
+            Image bild = new Image(datei.toURI().toString());
+            kleidungsImage.setImage(bild);
         }
     }
 }

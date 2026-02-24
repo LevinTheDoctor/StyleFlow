@@ -1,10 +1,10 @@
 package JSONHandling;
 import java.io.PrintWriter;
-// Die Helper waren vorher in der JSON WriterKleidungstuecke
+
 public class JSONWriterHelper {
     public static void Komma(PrintWriter writer, Boolean LetztesElement)
     {
-        if (LetztesElement)
+        if (!LetztesElement)
         {
             writer.println(",");
         }

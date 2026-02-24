@@ -4,6 +4,7 @@ public abstract class Schuhe extends Kleidungsstueck {
     private String absatzHoehe;
     private String verschlussArt;
 
+
     public Schuhe(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String absatzHoehe, String verschlussArt) {
         super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
         this.absatzHoehe = absatzHoehe;

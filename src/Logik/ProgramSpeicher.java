@@ -7,12 +7,14 @@ import Outfit.Outfit;
 import java.util.ArrayList;
 
 public class ProgramSpeicher {
-    private static KleidungsContainer Schrank;
+    private static KleidungsContainer Schrank = new KleidungsContainer();
     private static ArrayList<Outfit> outfitListe = new ArrayList<>();
     private static ArrayList<Nutzer> nutzerList = new ArrayList<>();
 
     private static Outfit AktivesOutfit;
     private static Nutzer AktiverNutzer;
+
+
 
     private static void AddKleidungsstueckeToOutfit(Kleidungsstueck ks)
     {

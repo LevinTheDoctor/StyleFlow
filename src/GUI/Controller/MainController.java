@@ -74,6 +74,7 @@ public class MainController extends BasisController {
                 KleidungsContainer geladen = ReadKleidungsJSON();
                 setSchrank(geladen);
             } catch (Exception e) {
+                // Logging von Feheler
                 System.err.println("Fehler beim Lesen der JSON im MainController: " + e.getMessage());
                 e.printStackTrace();
             }
@@ -149,7 +150,6 @@ public class MainController extends BasisController {
             default -> null;
         };
     }
-
 
     private ArrayList<Kleidungsstueck> sammleAlleKleidungsstuecke(KleidungsContainer c) {
         ArrayList<Kleidungsstueck> alle = new ArrayList<>();

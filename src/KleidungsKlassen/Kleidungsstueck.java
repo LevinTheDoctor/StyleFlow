@@ -6,7 +6,6 @@ public abstract class Kleidungsstueck
 	private final String bezeichnung;
     private final String bedecktesKoerperteil;
     private final int kleidungsID;
-    private static int anzahlProKlasse; // muss noch definiert werden
     private static int gesamtAnzahl;
 
     private String[] farben;
@@ -114,7 +113,5 @@ public abstract class Kleidungsstueck
         return gesamtAnzahl;
     }
 
-    public static int getAnzahlProKlasse() {
-        return anzahlProKlasse;
-    }
+
 }

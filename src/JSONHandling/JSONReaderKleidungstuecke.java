@@ -53,15 +53,28 @@ public class JSONReaderKleidungstuecke {
             String[][] Kopfbedckungen = LesenSafe("Kopfbedeckung");
             if (Kopfbedckungen != null) {
                 String[][] KopfbdeckungJoined = JSONjoin(Kopfbedckungen,0,Kleidungsstuecke,5);
-                for(String[] Inhalt : KlassenStringAusJSONStringListe("Muetze",KopfbdeckungJoined)){
-                    muetzeJSON.add(new Muetze(Inhalt));
+
+                String[][] muetzeInhalt = KlassenStringAusJSONStringListe("Muetze", KopfbdeckungJoined);
+                if (muetzeInhalt != null) {
+                    for(String[] Inhalt : muetzeInhalt) {
+                        muetzeJSON.add(new Muetze(Inhalt));
+                    }
                 }
-                for(String[] Inhalt : KlassenStringAusJSONStringListe("Huete",KopfbdeckungJoined)){
-                    hueteJSON.add(new Hut(Inhalt));
+
+                String[][] hueteInhalt = KlassenStringAusJSONStringListe("Huete", KopfbdeckungJoined);
+                if (hueteInhalt != null) {
+                    for(String[] Inhalt : hueteInhalt) {
+                        hueteJSON.add(new Hut(Inhalt));
+                    }
                 }
-                for(String[] Inhalt : KlassenStringAusJSONStringListe("Caps",KopfbdeckungJoined)){
-                    capsJSON.add(new Cap(Inhalt));
+
+                String[][] capsInhalt = KlassenStringAusJSONStringListe("Caps", KopfbdeckungJoined);
+                if (capsInhalt != null) {
+                    for(String[] Inhalt : capsInhalt) {
+                        capsJSON.add(new Cap(Inhalt));
+                    }
                 }
+
                 kopfbedeckungeJSON.addAll(muetzeJSON);
                 kopfbedeckungeJSON.addAll(hueteJSON);
                 kopfbedeckungeJSON.addAll(capsJSON);
@@ -71,15 +84,25 @@ public class JSONReaderKleidungstuecke {
                 hueteJSON = null;
                 capsJSON = null;
             }
+
             String[][] Unterteil = LesenSafe("Unterteil");
             if (Unterteil != null) {
                 String[][] UnterteilJoined = JSONjoin(Unterteil,0,Kleidungsstuecke,5);
-                for(String[] Inhalt : KlassenStringAusJSONStringListe("Hosen",UnterteilJoined)) {
-                    hosenJSON.add(new Hose(Inhalt));
+
+                String[][] hosenInhalt = KlassenStringAusJSONStringListe("Hosen", UnterteilJoined);
+                if (hosenInhalt != null) {
+                    for(String[] Inhalt : hosenInhalt) {
+                        hosenJSON.add(new Hose(Inhalt));
+                    }
                 }
-                for(String[] Inhalt : KlassenStringAusJSONStringListe("Rocke",UnterteilJoined)) {
-                    roeckeJSON.add(new Rock(Inhalt));
+
+                String[][] roeckeInhalt = KlassenStringAusJSONStringListe("Rocke", UnterteilJoined);
+                if (roeckeInhalt != null) {
+                    for(String[] Inhalt : roeckeInhalt) {
+                        roeckeJSON.add(new Rock(Inhalt));
+                    }
                 }
+
                 unterteileJSON.addAll(hosenJSON);
                 unterteileJSON.addAll(roeckeJSON);
             }else{
@@ -87,15 +110,25 @@ public class JSONReaderKleidungstuecke {
                 hosenJSON = null;
                 roeckeJSON = null;
             }
+
             String[][] Einteiler = LesenSafe("Einteiler");
             if (Einteiler != null) {
                 String[][] EinteilerJoined = JSONjoin(Einteiler,0,Kleidungsstuecke,5);
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Kleider",EinteilerJoined)) {
-                    kleiderJSON.add(new Kleid(Inhalt));
+
+                String[][] kleiderInhalt = KlassenStringAusJSONStringListe("Kleider", EinteilerJoined);
+                if (kleiderInhalt != null) {
+                    for (String[] Inhalt : kleiderInhalt) {
+                        kleiderJSON.add(new Kleid(Inhalt));
+                    }
                 }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Overall",EinteilerJoined)) {
-                    overallJSON.add(new Overall(Inhalt));
+
+                String[][] overallInhalt = KlassenStringAusJSONStringListe("Overall", EinteilerJoined);
+                if (overallInhalt != null) {
+                    for (String[] Inhalt : overallInhalt) {
+                        overallJSON.add(new Overall(Inhalt));
+                    }
                 }
+
                 einteilerJSON.addAll(kleiderJSON);
                 einteilerJSON.addAll(overallJSON);
             } else {
@@ -103,24 +136,46 @@ public class JSONReaderKleidungstuecke {
                 kleiderJSON = null;
                 overallJSON = null;
             }
+
             String[][] Schuhe = LesenSafe("Schuhe");
             if (Schuhe != null) {
                 String[][] SchuheJoined = JSONjoin(Schuhe, 0, Kleidungsstuecke, 5);
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("HighHeels", SchuheJoined)) {
-                    highheelsJSON.add(new HighHeels(Inhalt));
+
+                String[][] highheelsInhalt = KlassenStringAusJSONStringListe("HighHeels", SchuheJoined);
+                if (highheelsInhalt != null) {
+                    for (String[] Inhalt : highheelsInhalt) {
+                        highheelsJSON.add(new HighHeels(Inhalt));
+                    }
                 }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Sneaker", SchuheJoined)) {
-                    sneakerJSON.add(new Sneaker(Inhalt));
+
+                String[][] sneakerInhalt = KlassenStringAusJSONStringListe("Sneaker", SchuheJoined);
+                if (sneakerInhalt != null) {
+                    for (String[] Inhalt : sneakerInhalt) {
+                        sneakerJSON.add(new Sneaker(Inhalt));
+                    }
                 }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Stiefel", SchuheJoined)) {
-                    stiefelJSON.add(new Stiefel(Inhalt));
+
+                String[][] stiefelInhalt = KlassenStringAusJSONStringListe("Stiefel", SchuheJoined);
+                if (stiefelInhalt != null) {
+                    for (String[] Inhalt : stiefelInhalt) {
+                        stiefelJSON.add(new Stiefel(Inhalt));
+                    }
                 }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Sandalen", SchuheJoined)) {
-                    sandalenJSON.add(new Sandalen(Inhalt));
+
+                String[][] sandalenInhalt = KlassenStringAusJSONStringListe("Sandalen", SchuheJoined);
+                if (sandalenInhalt != null) {
+                    for (String[] Inhalt : sandalenInhalt) {
+                        sandalenJSON.add(new Sandalen(Inhalt));
+                    }
                 }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Halbschuhe", SchuheJoined)) {
-                    halbschuheJSON.add(new Halbschuhe(Inhalt));
+
+                String[][] halbschuheInhalt = KlassenStringAusJSONStringListe("Halbschuhe", SchuheJoined);
+                if (halbschuheInhalt != null) {
+                    for (String[] Inhalt : halbschuheInhalt) {
+                        halbschuheJSON.add(new Halbschuhe(Inhalt));
+                    }
                 }
+
                 schuheJSON.addAll(highheelsJSON);
                 schuheJSON.addAll(sneakerJSON);
                 schuheJSON.addAll(stiefelJSON);
@@ -135,48 +190,92 @@ public class JSONReaderKleidungstuecke {
                 sandalenJSON = null;
                 halbschuheJSON = null;
             }
+
             String[][] Oberteile = LesenSafe("Oberteil");
             if (Oberteile != null) {
                 String[][] OberteilJoined = JSONjoin(Oberteile, 0, Kleidungsstuecke, 5);
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Hemd", OberteilJoined)) {
-                    hemdJSON.add(new Hemd(Inhalt));
-                }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Polo", OberteilJoined)) {
-                    poloJSON.add(new Polo(Inhalt));
-                }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Pullover", OberteilJoined)) {
-                    pulloverJSON.add(new Pullover(Inhalt));
-                }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Hoodie", OberteilJoined)) {
-                    hoodieJSON.add(new Hoodie(Inhalt));
-                }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("TShirt", OberteilJoined)) {
-                    tShirtJSON.add(new TShirt(Inhalt));
-                }
-                for (String[] Inhalt : KlassenStringAusJSONStringListe("Top", OberteilJoined)) {
-                    topJSON.add(new Top(Inhalt));
+
+                String[][] hemdInhalt = KlassenStringAusJSONStringListe("Hemd", OberteilJoined);
+                if (hemdInhalt != null) {
+                    for (String[] Inhalt : hemdInhalt) {
+                        hemdJSON.add(new Hemd(Inhalt));
+                    }
                 }
 
+                String[][] poloInhalt = KlassenStringAusJSONStringListe("Polo", OberteilJoined);
+                if (poloInhalt != null) {
+                    for (String[] Inhalt : poloInhalt) {
+                        poloJSON.add(new Polo(Inhalt));
+                    }
+                }
+
+                String[][] pulloverInhalt = KlassenStringAusJSONStringListe("Pullover", OberteilJoined);
+                if (pulloverInhalt != null) {
+                    for (String[] Inhalt : pulloverInhalt) {
+                        pulloverJSON.add(new Pullover(Inhalt));
+                    }
+                }
+
+                String[][] hoodieInhalt = KlassenStringAusJSONStringListe("Hoodie", OberteilJoined);
+                if (hoodieInhalt != null) {
+                    for (String[] Inhalt : hoodieInhalt) {
+                        hoodieJSON.add(new Hoodie(Inhalt));
+                    }
+                }
+
+                String[][] tshirtInhalt = KlassenStringAusJSONStringListe("TShirt", OberteilJoined);
+                if (tshirtInhalt != null) {
+                    for (String[] Inhalt : tshirtInhalt) {
+                        tShirtJSON.add(new TShirt(Inhalt));
+                    }
+                }
+
+                String[][] topInhalt = KlassenStringAusJSONStringListe("Top", OberteilJoined);
+                if (topInhalt != null) {
+                    for (String[] Inhalt : topInhalt) {
+                        topJSON.add(new Top(Inhalt));
+                    }
+                }
 
                 String[][] Jacke = LesenSafe("Jacke");
                 if (Jacke != null) {
-                    // Hier joinen wir Jacke mit den bereits fertigen OberteilJoined-Daten
                     String[][] JackeJoined = JSONjoin(Jacke, 0, OberteilJoined, 5);
-                    for (String[] Inhalt : KlassenStringAusJSONStringListe("Mantel", JackeJoined)) {
-                        mantelJSON.add(new Mantel(Inhalt));
+
+                    String[][] mantelInhalt = KlassenStringAusJSONStringListe("Mantel", JackeJoined);
+                    if (mantelInhalt != null) {
+                        for (String[] Inhalt : mantelInhalt) {
+                            mantelJSON.add(new Mantel(Inhalt));
+                        }
                     }
-                    for (String[] Inhalt : KlassenStringAusJSONStringListe("WinterJacke", JackeJoined)) {
-                        winterjackeJSON.add(new WinterJacke(Inhalt));
+
+                    String[][] winterjackeInhalt = KlassenStringAusJSONStringListe("WinterJacke", JackeJoined);
+                    if (winterjackeInhalt != null) {
+                        for (String[] Inhalt : winterjackeInhalt) {
+                            winterjackeJSON.add(new WinterJacke(Inhalt));
+                        }
                     }
-                    for (String[] Inhalt : KlassenStringAusJSONStringListe("RegenJacke", JackeJoined)) {
-                        regenjackeJSON.add(new RegenJacke(Inhalt));
+
+                    String[][] regenjackeInhalt = KlassenStringAusJSONStringListe("RegenJacke", JackeJoined);
+                    if (regenjackeInhalt != null) {
+                        for (String[] Inhalt : regenjackeInhalt) {
+                            regenjackeJSON.add(new RegenJacke(Inhalt));
+                        }
                     }
-                    for (String[] Inhalt : KlassenStringAusJSONStringListe("SweatshirtJacke", JackeJoined)) {
-                        sweatshirtjackeJSON.add(new SweatshirtJacke(Inhalt));
+
+                    String[][] sweatshirtjackeInhalt = KlassenStringAusJSONStringListe("SweatshirtJacke", JackeJoined);
+                    if (sweatshirtjackeInhalt != null) {
+                        for (String[] Inhalt : sweatshirtjackeInhalt) {
+                            sweatshirtjackeJSON.add(new SweatshirtJacke(Inhalt));
+                        }
                     }
-                    for (String[] Inhalt : KlassenStringAusJSONStringListe("UebergangsJacke", JackeJoined)) {
-                        uebergangsJackeJSON.add(new UebergangsJacke(Inhalt));
+
+                    String[][] uebergangsJackeInhalt = KlassenStringAusJSONStringListe("UebergangsJacke", JackeJoined);
+                    if (uebergangsJackeInhalt != null) {
+                        for (String[] Inhalt : uebergangsJackeInhalt) {
+                            uebergangsJackeJSON.add(new UebergangsJacke(Inhalt));
+                        }
                     }
+
                     jackeJSON.addAll(mantelJSON);
                     jackeJSON.addAll(winterjackeJSON);
                     jackeJSON.addAll(regenjackeJSON);
@@ -191,6 +290,7 @@ public class JSONReaderKleidungstuecke {
                     sweatshirtjackeJSON = null;
                     uebergangsJackeJSON = null;
                 }
+
                 oberteileJSON.addAll(hemdJSON);
                 oberteileJSON.addAll(poloJSON);
                 oberteileJSON.addAll(pulloverJSON);
@@ -220,9 +320,7 @@ public class JSONReaderKleidungstuecke {
                     jackeJSON, mantelJSON, winterjackeJSON, regenjackeJSON, sweatshirtjackeJSON, uebergangsJackeJSON
             );
         } else {
-          return null;
+            return null;
         }
     }
 }
-
-

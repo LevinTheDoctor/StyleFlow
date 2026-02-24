@@ -12,8 +12,14 @@ public class JSONReaderHelper {
 
 
     public static String[][] KlassenStringAusJSONStringListe(String Filename, String[][] VererbteDaten){
+        // VererbteDaten leer → direkt null zurückgeben
+        if (VererbteDaten == null || VererbteDaten.length == 0
+                || VererbteDaten[0] == null || VererbteDaten[0].length == 0) {
+            return null;
+        }
         String[][] KlasseAusJson = LesenSafe(Filename);
-        if(KlasseAusJson != null)
+        if(KlasseAusJson != null && KlasseAusJson.length > 0
+                && KlasseAusJson[0] != null && KlasseAusJson[0].length > 0)
         {
             return JSONjoin(KlasseAusJson,0,VererbteDaten,5);
         }
@@ -24,12 +30,12 @@ public class JSONReaderHelper {
     }
 
     public static int berechneZeilenProEintrag(ArrayList<String> Zeilen){
-        int Start = -1; // Minus 1, weil 0 ein möglicher Startwert ist – wichtig für die if-Abfrage
-        int Start2= 0;
+        int Start = -1;
+        int Start2 = -1;
 
         for (int i = 0; i < Zeilen.size(); i++)
         {
-            if (Start==-1) // ist ja nur beim ersten Mal -1
+            if (Start == -1)
             {
                 if(Zeilen.get(i).contains("{"))
                 {
@@ -41,18 +47,40 @@ public class JSONReaderHelper {
                 if(Zeilen.get(i).contains("{"))
                 {
                     Start2 = i;
-                    break; // nach zweiter Wertzuweisung bricht die Schleife ab, weil man alles Wichtige hat
+                    break;
                 }
-
             }
         }
 
-        return Start2 - Start;
+        // Zweites { gefunden → normaler Mehrfacheintrag-Fall
+        if (Start2 != -1) {
+            return Start2 - Start;
+        }
+
+        // Kein zweites { gefunden → nur ein Eintrag in der Datei
+        // Zeilenzahl bis zum ersten } nach dem { zählen
+        if (Start != -1) {
+            for (int i = Start + 1; i < Zeilen.size(); i++) {
+                if (Zeilen.get(i).contains("}")) {
+                    return (i - Start) + 1;
+                }
+            }
+        }
+
+        return 0; // leere Datei
     }
 
 
     public static String[][] JSONjoin(String[][] Grundliste,int indexIDGrundliste,String[][] Erweitrungsliste, int indexIDErweitrungsliste)
     {
+        // Sicherheitsprüfung: leere oder null Arrays abfangen
+        if (Grundliste == null || Erweitrungsliste == null
+                || Grundliste.length == 0 || Erweitrungsliste.length == 0
+                || Grundliste[0] == null || Erweitrungsliste[0] == null
+                || Grundliste[0].length == 0 || Erweitrungsliste[0].length == 0) {
+            return new String[0][0];
+        }
+
         String[][] JoinedListe = new String[Grundliste.length][Grundliste[0].length+Erweitrungsliste[0].length-1];
         int JoindListListIndex = 0;
         for(String[] GrundElement : Grundliste)
@@ -87,16 +115,14 @@ public class JSONReaderHelper {
     public static String[][] LesenSafe(String filename)
     {
         try{
-            return JSONzu2Darray(filename); // Historisch angewachsen – ursprünglich gab es die Funktion lesen, so ist es nur wegen einer eigenen Exception drin
+            return JSONzu2Darray(filename);
         }
         catch(KeineJsonGefundenException e){
             System.out.println("Datei nicht gefunden, überspringe: " + filename);
             return null;
         }
-
     }
 
-    // Hier ist Lesen möglich – nur zum Vergleich; ich finde, das ist besser, wenn es keine Vorgabe gab, mit Exceptions
     public static boolean LesenMoeglich(String filename)
     {
         File File = new File(filename + ".json");
@@ -125,7 +151,21 @@ public class JSONReaderHelper {
                 String[] AlleZeilen = Content.toString().split("\n");
                 ArrayList<String> ZeilenArrayList = new ArrayList<>(Arrays.asList(AlleZeilen));
                 int ZeilenProEintrag = berechneZeilenProEintrag(ZeilenArrayList);
+
+                // Sicherheitsprüfung: ungültige oder leere Datei
+                if (ZeilenProEintrag <= 2) {
+                    Logger LOGGER = Logger.getLogger(JSONReaderKleidungstuecke.class.getName());
+                    LOGGER.severe(String.valueOf(ZeilenProEintrag));
+                    return null;
+                }
+
                 int Anzahl = (ZeileAnzahl-2) / ZeilenProEintrag;
+
+                // Sicherheitsprüfung: keine Einträge
+                if (Anzahl <= 0) {
+                    return null;
+                }
+
                 int JSONIndex = 2;
                 String[][] Werte = new String[Anzahl][ZeilenProEintrag-2];
                 for (int indexAnzahl = 0; indexAnzahl < Anzahl; indexAnzahl++)
@@ -146,7 +186,6 @@ public class JSONReaderHelper {
                                 {
                                     Werte[indexAnzahl][zeile] ="false";
                                 }
-
                                 break;
                             case "STRING":
                                 Werte[indexAnzahl][zeile] = ReadString(AlleZeilen[JSONIndex+zeile]);
@@ -155,7 +194,6 @@ public class JSONReaderHelper {
                                 Werte[indexAnzahl][zeile] = ReadInteger(AlleZeilen[JSONIndex+zeile]).toString();
                                 break;
                         }
-
                     }
                     JSONIndex += ZeilenProEintrag;
                 }
@@ -165,7 +203,7 @@ public class JSONReaderHelper {
             {
                 Logger LOGGER = Logger.getLogger(JSONReaderKleidungstuecke.class.getName());
                 LOGGER.severe(e.getMessage());
-                return new String[0][0];
+                return null;
             }
         }
     }

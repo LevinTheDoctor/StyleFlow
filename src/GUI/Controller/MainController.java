@@ -71,7 +71,7 @@ public class MainController extends BasisController {
     public void initialize() {
         if (getSchrank() == null) {
             try {
-                KleidungsContainer geladen = ReadKleidungsJSON();
+                KleidungsContainer geladen = getSchrank();
                 setSchrank(geladen);
             } catch (Exception e) {
                 // Logging von Feheler
@@ -109,7 +109,7 @@ public class MainController extends BasisController {
 
     @FXML
     private void handleSuche() {
-        KleidungsContainer container = ReadKleidungsJSON();
+        KleidungsContainer container = getSchrank();
         if (container == null) {
             zeigeDialog("Keine Kleidungsdaten gefunden.");
             sucheErgebnisListe.clear();

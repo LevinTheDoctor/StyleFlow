@@ -63,5 +63,6 @@ public class TopController extends BasisController {
         neuesTop.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neuesTop);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

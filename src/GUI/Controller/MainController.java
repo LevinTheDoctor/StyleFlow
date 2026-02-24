@@ -8,11 +8,19 @@ import javafx.collections.ObservableList;
 import Logik.FilterLogik;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.scene.image.Image;
 import java.util.ArrayList;
 
-public class MainController extends BasisController {
+import static JSONHandling.JSONReaderKleidungstuecke.ReadKleidungsJSON;
+import static Logik.ProgramSpeicher.getSchrank;
+import static Logik.ProgramSpeicher.setSchrank;
 
+public class MainController extends BasisController {
+    // Fuer Das Anlagen der Kleidungstuecke
     @FXML private ComboBox<String> kleidungsArtComboBox;
     @FXML private ComboBox<String> bedecktesKoerperteilComboBox;
     @FXML private ComboBox<String> temperaturComboBox;
@@ -31,6 +39,7 @@ public class MainController extends BasisController {
     @FXML private Label FarbenArray;
     @FXML private Label MaterialArray;
     @FXML private Label StyleArray;
+    @FXML private ImageView kleidungsImage;
 
     // Kleidungstücke Suchen
     @FXML private ComboBox<String> sucheKleidungsArtComboBox;
@@ -56,8 +65,19 @@ public class MainController extends BasisController {
     private final ArrayList<String> materialListe = new ArrayList<>();
     private final ArrayList<String> styleListe    = new ArrayList<>();
 
+    FileChooser fileChooser = new FileChooser();
+
     @FXML
     public void initialize() {
+        try {
+            KleidungsContainer geladen = ReadKleidungsJSON();
+            if (geladen != null) {
+                setSchrank(geladen);
+            }
+        } catch (Exception e) {
+            System.err.println("Fehler beim Lesen der JSON im MainController: " + e.getMessage());
+            e.printStackTrace();
+        }
         befuelleComboBox(kleidungsArtComboBox,
                 "Schuhe", "Oberteil", "Unterteil", "Kopfbedeckung", "Einteiler"
         );
@@ -70,6 +90,9 @@ public class MainController extends BasisController {
         befuelleComboBox(wetterLageComboBox,
                 "Sonnig", "Bewölkt", "Regnerisch", "Schnee", "Windig"
         );
+
+        konfiguriereSucheTableView();
+        handleSuche();
     }
     private void konfiguriereSucheTableView() {
         if (sucheSpalteBezeichnung == null) return;
@@ -88,7 +111,7 @@ public class MainController extends BasisController {
 
     @FXML
     private void handleSuche() {
-        KleidungsContainer container = JSONReaderKleidungstuecke.ReadKleidungsJSON();
+        KleidungsContainer container = getSchrank();
         if (container == null) {
             zeigeDialog("Keine Kleidungsdaten gefunden.");
             sucheErgebnisListe.clear();
@@ -98,7 +121,7 @@ public class MainController extends BasisController {
         FilterLogik filterLogik = new FilterLogik();
 
         String art = sucheKleidungsArtComboBox.getValue();
-        if (art != null && !art.isBlank()) {
+        if (art != null && !art.isBlank() && !art.equals("Alle")) {
             String bedecktesKoerperteil = mapArtZuBedecktesKoerperteil(art);
             if (bedecktesKoerperteil != null) {
                 filterLogik.addFilter("bedeckteskoerperteil", bedecktesKoerperteil);
@@ -106,7 +129,7 @@ public class MainController extends BasisController {
         }
         Color farbe = sucheFarbeColorPicker.getValue();
         if (farbe != null && !farbe.equals(Color.WHITE)) {
-            filterLogik.addFilter("farben", farbeToString(farbe));
+            filterLogik.addFilter("farben", farbe.toString());
         }
         String marke = sucheMarkeComboBox.getValue();
         if (marke != null && !marke.isBlank()) {
@@ -128,14 +151,6 @@ public class MainController extends BasisController {
             case "Einteiler" -> "Ganzkörper";
             default -> null;
         };
-    }
-
-    private String farbeToString(Color c) {
-        if (c == null) return "";
-        int r = (int) (c.getRed() * 255);
-        int g = (int) (c.getGreen() * 255);
-        int b = (int) (c.getBlue() * 255);
-        return String.format("0x%02x%02x%02x%02x", r, g, b, 255);
     }
 
     private ArrayList<Kleidungsstueck> sammleAlleKleidungsstuecke(KleidungsContainer c) {
@@ -250,6 +265,22 @@ public class MainController extends BasisController {
                 EinteilerController next = ladeFxmlMitController(fxmlPfad, weiterButton);
                 if (next != null) next.setBasisVorauswahl(vorauswahl);
             }
+        }
+    }
+    @FXML
+    private void handleFileChooser() {
+        fileChooser.setTitle("Bild auswählen");
+        fileChooser.getExtensionFilters().setAll(
+                new FileChooser.ExtensionFilter("Bilder", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+
+        Stage stage = (Stage) bildPfadTextField.getScene().getWindow();
+        java.io.File datei = fileChooser.showOpenDialog(stage);
+
+        if (datei != null) {
+            bildPfadTextField.setText(datei.getAbsolutePath());
+            Image bild = new Image(datei.toURI().toString());
+            kleidungsImage.setImage(bild);
         }
     }
 }

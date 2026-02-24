@@ -67,5 +67,6 @@ public class HutController extends BasisController {
         neuerHut.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neuerHut);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

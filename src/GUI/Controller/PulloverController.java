@@ -64,5 +64,6 @@ public class PulloverController extends BasisController {
 
         AddKleidungsstueckToSchrank(neuerPullover);
         zeigeDialog("Pullover wurde erfolgreich gespeichert!");
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

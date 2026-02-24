@@ -1,2 +1,10 @@
 [
+{
+"Bezeichnung": "Steifel",
+"Farben": ["0x000000ff"],
+"BedecktesKoerperteil": "Füße",
+"Wettereignung": "Regnerisch",
+"BildDateiPfad": "Inventory/SchwarzeStiefel.jpg",
+"ID":1
+}
 ]

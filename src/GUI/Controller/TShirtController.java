@@ -54,5 +54,6 @@ public class TShirtController extends BasisController {
         neuesTShirt.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neuesTShirt);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

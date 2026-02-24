@@ -347,7 +347,7 @@ public class JSONWriterKleidungstuecke {
     public static void RockWriter(ArrayList<Rock> Rock){
         try
         {
-            File UnterteileFile = new File("Unterteil.json");
+            File UnterteileFile = new File("Rock.json");
             PrintWriter writer = new PrintWriter(UnterteileFile);
             writer.println("[");
             int i = 0;
@@ -475,8 +475,7 @@ public class JSONWriterKleidungstuecke {
     }
 
     public static void SchuheWriter(ArrayList<Schuhe> Schuhe){
-        try
-        {
+        try {
             File SchuheFile = new File("Schuhe.json");
             PrintWriter writer = new PrintWriter(SchuheFile);
             writer.println("[");
@@ -484,13 +483,12 @@ public class JSONWriterKleidungstuecke {
             for (Schuhe indexkleidungsstuck : Schuhe)
             {
                 writer.println("{");
-                WriteInteger(writer,"ID",indexkleidungsstuck.getKleidungsID(),false);
-                WriteString(writer,"absatzHoehe",indexkleidungsstuck.getAbsatzHoehe(),true);
-                if (i == Schuhe.size()-1)
-                {
+                WriteInteger(writer,"ID", indexkleidungsstuck.getKleidungsID(), false);
+                WriteString(writer,"absatzHoehe", indexkleidungsstuck.getAbsatzHoehe(), false);
+                WriteString(writer,"verschlussArt", indexkleidungsstuck.getVerschlussArt(), true); // ← neu
+                if (i == Schuhe.size()-1) {
                     writer.println("}");
-                } else
-                {
+                } else {
                     writer.println("},");
                 }
                 i++;
@@ -499,8 +497,7 @@ public class JSONWriterKleidungstuecke {
             writer.flush();
             writer.close();
         }
-        catch ( Exception e)
-        {
+        catch (Exception e) {
             Logger LOGGER = Logger.getLogger(JSONWriterKleidungstuecke.class.getName());
             LOGGER.severe(e.getMessage());
         }

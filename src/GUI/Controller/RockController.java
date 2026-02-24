@@ -58,5 +58,6 @@ public class RockController extends BasisController {
         neuerRock.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neuerRock);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

@@ -63,5 +63,6 @@ public class HemdController extends BasisController {
         neuesHemd.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neuesHemd);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

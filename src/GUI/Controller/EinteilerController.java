@@ -85,7 +85,7 @@ public class EinteilerController extends BasisController {
                 neuesKleid.setStyle(basisVorauswahl.getStyle());
 
                 AddKleidungsstueckToSchrank(neuesKleid);
-                zeigeDialog("Kleid wurde erfolgreich gespeichert!");
+                MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
             }
             case "Overall" -> {
                 Overall neuerOverall = new Overall(
@@ -105,6 +105,7 @@ public class EinteilerController extends BasisController {
                 neuerOverall.setStyle(basisVorauswahl.getStyle());
 
                 AddKleidungsstueckToSchrank(neuerOverall);
+                MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
             }
         }
     }

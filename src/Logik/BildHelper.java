@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class BildHelper {
 
@@ -28,7 +29,8 @@ public class BildHelper {
             {
                 Files.createDirectories(ProgrammPfad);
             }
-            Files.copy(OrginalBildPfad, PfadMitBild);
+            // Bilder mit selben datei namen werden überschreiben
+            Files.copy(OrginalBildPfad, PfadMitBild, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             // ist von IntelliJ, weil copy eine Exception wirft
             throw new RuntimeException(e);
@@ -46,10 +48,20 @@ public class BildHelper {
         return Helligkeit > 128;
     }
 
+    public static String HexZuRGBString(String FarbeInHexCode)
+    {
+        int[] rgbIntArray = HexZuRGB(FarbeInHexCode);
+        String rgbString = "";
+        for (int element : rgbIntArray) {
+            rgbString += Integer.toString(element);
+        }
+        return rgbString;
+    }
 
     // nimmt die Substrings
-    public static int[] HexZuRGB (String FarbeInHexCode)
+    public static int[] HexZuRGB (String FarbeInHexCodeMitX)
     {
+        String FarbeInHexCode = FarbeInHexCodeMitX.split("x")[1];
         String RinHex = FarbeInHexCode.substring(0,2);
         String GinHex = FarbeInHexCode.substring(2,4);
         String BinHex = FarbeInHexCode.substring(4,6);

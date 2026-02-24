@@ -13,7 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainController">
     <tabs>
         <Tab text="Outfit Vorschlag">
             <content>
@@ -51,19 +51,19 @@
                     <children>
                         <TextField fx:id="bildPfadTextField" layoutX="30.0" layoutY="31.0" />
                         <Label layoutX="30.0" layoutY="14.0" text="Bild" />
-                        <Button layoutX="203.0" layoutY="31.0" mnemonicParsing="false" text="Pfad" />
+                        <Button fx:id="OeffneFilechoser" layoutX="203.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleFileChooser" text="Pfad" />
                         <TextField fx:id="bezeichnungTextField" layoutX="30.0" layoutY="74.0" />
                         <Label layoutX="30.0" layoutY="57.0" text="Bezeichung" />
-                        <Label layoutX="421.0" layoutY="59.0" text="Klediungsstück Art" />
+                        <Label layoutX="421.0" layoutY="195.0" text="Klediungsstück Art" />
                         <Label layoutX="35.0" layoutY="100.0" text="Farbe" />
-                        <ComboBox fx:id="kleidungsArtComboBox" layoutX="423.0" layoutY="74.0" prefWidth="150.0" />
+                        <ComboBox fx:id="kleidungsArtComboBox" layoutX="421.0" layoutY="216.0" prefWidth="150.0" />
                         <Button fx:id="weiterButton" layoutX="520.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleWeiter" text="Weiter" />
                         <Button fx:id="FarbenButton" layoutX="203.0" layoutY="117.0" mnemonicParsing="false" onAction="#handleFarbeHinzufuegen" text="+" />
                         <Label layoutX="251.0" layoutY="122.0" text="Farben:" />
                         <Label layoutX="30.0" layoutY="234.0" text="Bedecktes Körperteil" />
                         <Label layoutX="31.0" layoutY="287.0" text="Temperatur Bereich" />
                         <ComboBox fx:id="temperaturComboBox" layoutX="34.0" layoutY="304.0" prefWidth="150.0" />
-                        <Label layoutX="226.0" layoutY="287.0" text="WetterLage" />
+                        <Label layoutX="226.0" layoutY="287.0" text="Wetter Lage" />
                         <ComboBox fx:id="wetterLageComboBox" layoutX="216.0" layoutY="304.0" prefWidth="150.0" />
                         <ComboBox fx:id="bedecktesKoerperteilComboBox" layoutX="30.0" layoutY="251.0" prefWidth="150.0" />
                         <TextField fx:id="MatriealTF" layoutX="31.0" layoutY="160.0" />
@@ -75,14 +75,15 @@
                         <TextField fx:id="markeTextField" layoutX="212.0" layoutY="251.0" />
                         <Label layoutX="222.0" layoutY="234.0" text="Marke" />
                         <TextField fx:id="StyleTF" layoutX="31.0" layoutY="203.0" />
-                        <Label layoutX="36.0" layoutY="186.0" text="style" />
+                        <Label layoutX="36.0" layoutY="186.0" text="Style" />
                         <Button fx:id="StyleButton" layoutX="204.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleStyleHinzufuegen" text="+" />
-                        <Label layoutX="252.0" layoutY="208.0" text="style" />
+                        <Label layoutX="252.0" layoutY="208.0" text="Style" />
                   <ColorPicker fx:id="farbeColorPicker" layoutX="36.0" layoutY="118.0" />
                   <Label layoutX="300.0" layoutY="122.0" />
                   <Label fx:id="FarbenArray" layoutX="300.0" layoutY="123.0" text="-" />
                   <Label fx:id="MaterialArray" layoutX="306.0" layoutY="165.0" text="-" />
                   <Label fx:id="StyleArray" layoutX="289.0" layoutY="208.0" text="-" />
+                  <ImageView fx:id="kleidungsImage" fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
                     </children></AnchorPane>
             </content>
         </Tab>

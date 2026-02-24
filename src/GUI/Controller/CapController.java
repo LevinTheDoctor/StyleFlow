@@ -55,5 +55,6 @@ public class CapController extends BasisController {
         neueCap.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neueCap);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

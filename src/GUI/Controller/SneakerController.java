@@ -58,5 +58,6 @@ public class SneakerController extends BasisController {
         neueSneaker.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neueSneaker);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

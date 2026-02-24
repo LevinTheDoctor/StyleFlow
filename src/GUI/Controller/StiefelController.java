@@ -46,18 +46,15 @@ public class StiefelController extends BasisController {
         }
 
         Stiefel neuerStiefel = new Stiefel(
-                new String[]{
-                        basisVorauswahl.getBezeichnung(),
-                        String.join(",", basisVorauswahl.getFarben()),
-                        basisVorauswahl.getBedecktesKoerperteil(),
-                        basisVorauswahl.getWetterLage(),
-                        basisVorauswahl.getBildPfad(),
-                        "",                                    
-                        absatzHoehe,
-                        verschlussArt,
-                        artDerStiefelComboBox.getValue(),
-                        musterComboBox.getValue()
-                }
+                basisVorauswahl.getBezeichnung(),
+                basisVorauswahl.getFarben(),
+                basisVorauswahl.getBedecktesKoerperteil(),
+                basisVorauswahl.getWetterLage(),
+                basisVorauswahl.getBildPfad(),
+                absatzHoehe,
+                verschlussArt,
+                artDerStiefelComboBox.getValue(),
+                musterComboBox.getValue()
         );
 
         // Optionale Felder setzen
@@ -67,5 +64,6 @@ public class StiefelController extends BasisController {
         neuerStiefel.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neuerStiefel);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

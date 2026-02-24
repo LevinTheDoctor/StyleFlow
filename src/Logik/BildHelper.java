@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class BildHelper {
 
@@ -28,7 +29,8 @@ public class BildHelper {
             {
                 Files.createDirectories(ProgrammPfad);
             }
-            Files.copy(OrginalBildPfad, PfadMitBild);
+            // Bilder mit selben datei namen werden überschreiben
+            Files.copy(OrginalBildPfad, PfadMitBild, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             // ist von IntelliJ, weil copy eine Exception wirft
             throw new RuntimeException(e);

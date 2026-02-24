@@ -69,15 +69,14 @@ public class MainController extends BasisController {
 
     @FXML
     public void initialize() {
-        if (getSchrank() == null) {
-            try {
-                KleidungsContainer geladen = getSchrank();
+        try {
+            KleidungsContainer geladen = ReadKleidungsJSON();
+            if (geladen != null) {
                 setSchrank(geladen);
-            } catch (Exception e) {
-                // Logging von Feheler
-                System.err.println("Fehler beim Lesen der JSON im MainController: " + e.getMessage());
-                e.printStackTrace();
             }
+        } catch (Exception e) {
+            System.err.println("Fehler beim Lesen der JSON im MainController: " + e.getMessage());
+            e.printStackTrace();
         }
         befuelleComboBox(kleidungsArtComboBox,
                 "Schuhe", "Oberteil", "Unterteil", "Kopfbedeckung", "Einteiler"

@@ -3,7 +3,7 @@ package Logik;
 import KleidungsKlassen.*;
 import Nutzer.Nutzer;
 import Outfit.Outfit;
-
+import JSONHandling.JSONWriterKleidungstuecke;
 import java.util.ArrayList;
 
 public class ProgramSpeicher {
@@ -128,6 +128,8 @@ public class ProgramSpeicher {
                 Schrank.getHalbschuhe().add(hsch);
             }
         }
+        // Sofort in JSON speichern
+        JSONWriterKleidungstuecke.JSONWrite(Schrank);
     }
 
     public static KleidungsContainer getSchrank() {

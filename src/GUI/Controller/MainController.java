@@ -106,7 +106,7 @@ public class MainController extends BasisController {
         }
         Color farbe = sucheFarbeColorPicker.getValue();
         if (farbe != null && !farbe.equals(Color.WHITE)) {
-            filterLogik.addFilter("farben", farbeToString(farbe));
+            filterLogik.addFilter("farben", farbe.toString());
         }
         String marke = sucheMarkeComboBox.getValue();
         if (marke != null && !marke.isBlank()) {
@@ -130,13 +130,6 @@ public class MainController extends BasisController {
         };
     }
 
-    private String farbeToString(Color c) {
-        if (c == null) return "";
-        int r = (int) (c.getRed() * 255);
-        int g = (int) (c.getGreen() * 255);
-        int b = (int) (c.getBlue() * 255);
-        return String.format("0x%02x%02x%02x%02x", r, g, b, 255);
-    }
 
     private ArrayList<Kleidungsstueck> sammleAlleKleidungsstuecke(KleidungsContainer c) {
         ArrayList<Kleidungsstueck> alle = new ArrayList<>();

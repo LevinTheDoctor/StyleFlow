@@ -51,5 +51,6 @@ public class HighHeelsController extends BasisController {
         neueHighHeels.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neueHighHeels);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

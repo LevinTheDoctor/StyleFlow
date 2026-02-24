@@ -150,6 +150,7 @@ public class JackeController extends BasisController {
                 AddKleidungsstueckToSchrank(neueUebergangsJacke);
                 break;
         }
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
 
     }
 }

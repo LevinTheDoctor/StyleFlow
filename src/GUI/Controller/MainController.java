@@ -9,7 +9,14 @@ import Logik.FilterLogik;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
 import java.util.ArrayList;
+
+import static JSONHandling.JSONReaderKleidungstuecke.ReadKleidungsJSON;
+import static Logik.ProgramSpeicher.getSchrank;
+import static Logik.ProgramSpeicher.setSchrank;
 
 public class MainController extends BasisController {
 
@@ -56,8 +63,19 @@ public class MainController extends BasisController {
     private final ArrayList<String> materialListe = new ArrayList<>();
     private final ArrayList<String> styleListe    = new ArrayList<>();
 
+    FileChooser fileChooser = new FileChooser();
+
     @FXML
     public void initialize() {
+        if (getSchrank() == null) {
+            try {
+                KleidungsContainer geladen = ReadKleidungsJSON();
+                setSchrank(geladen);
+            } catch (Exception e) {
+                System.err.println("Fehler beim Lesen der JSON im MainController: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
         befuelleComboBox(kleidungsArtComboBox,
                 "Schuhe", "Oberteil", "Unterteil", "Kopfbedeckung", "Einteiler"
         );
@@ -88,7 +106,7 @@ public class MainController extends BasisController {
 
     @FXML
     private void handleSuche() {
-        KleidungsContainer container = JSONReaderKleidungstuecke.ReadKleidungsJSON();
+        KleidungsContainer container = ReadKleidungsJSON();
         if (container == null) {
             zeigeDialog("Keine Kleidungsdaten gefunden.");
             sucheErgebnisListe.clear();
@@ -243,6 +261,21 @@ public class MainController extends BasisController {
                 EinteilerController next = ladeFxmlMitController(fxmlPfad, weiterButton);
                 if (next != null) next.setBasisVorauswahl(vorauswahl);
             }
+        }
+    }
+    @FXML
+    private void handleFileChooser() {
+        fileChooser.setTitle("Bild auswählen");
+        fileChooser.getExtensionFilters().setAll(
+                new FileChooser.ExtensionFilter("Bilder", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+
+        // Stage über den Button holen
+        Stage stage = (Stage) bildPfadTextField.getScene().getWindow();
+        java.io.File datei = fileChooser.showOpenDialog(stage);
+
+        if (datei != null) {
+            bildPfadTextField.setText(datei.getAbsolutePath());
         }
     }
 }

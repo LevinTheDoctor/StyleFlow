@@ -70,5 +70,6 @@ public class PoloController extends BasisController {
 
         AddKleidungsstueckToSchrank(neuesPolo);
         zeigeDialog("Polo wurde erfolgreich gespeichert!");
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

@@ -57,5 +57,6 @@ public class MuetzeController extends BasisController {
         neueMuetze.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neueMuetze);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

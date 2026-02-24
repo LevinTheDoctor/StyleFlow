@@ -74,5 +74,6 @@ public class HoseController extends BasisController {
         neueHose.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neueHose);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

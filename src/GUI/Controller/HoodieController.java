@@ -51,5 +51,6 @@ public class HoodieController extends BasisController {
         neuerHoodie.setStyle(basisVorauswahl.getStyle());
 
         AddKleidungsstueckToSchrank(neuerHoodie);
+        MainController main = ladeFxmlMitController("/GUI/FXML/Main.fxml", speichernButton);
     }
 }

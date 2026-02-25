@@ -1,18 +1,20 @@
 [
 {
-"Bezeichnung": "Stick Muetze",
-"Farben": ["0x333333ff"],
-"BedecktesKoerperteil": "Kopf",
-"Wettereignung": "Schnee",
-"BildDateiPfad": "Inventory/muetze.jpg",
-"ID":1
+"Bezeichnung": "Jordan 1 Fragemnt x Union",
+"Farben": ["0xffffffff", "0xff0000ff", "0x0000ffff"],
+"BedecktesKoerperteil": "Füße",
+"Wettereignung": "Sonnig",
+"BildDateiPfad": "Inventory/Bildschirmfoto 2026-02-24 um 18.48.24.png",
+"ID":1,
+"ID": "Jordan"
 },
 {
-"Bezeichnung": "Goth Platue Stiefel",
-"Farben": ["0x1a1a1aff"],
+"Bezeichnung": "Goth Boots",
+"Farben": ["0x000000ff"],
 "BedecktesKoerperteil": "Füße",
 "Wettereignung": "Schnee",
 "BildDateiPfad": "Inventory/SchwarzeStiefel.jpg",
-"ID":3
+"ID":2,
+"ID": "EMP"
 }
 ]

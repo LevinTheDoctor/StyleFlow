@@ -1,7 +1,9 @@
 package GUI.Controller;
 import JSONHandling.JSONReaderKleidungstuecke;
 import KleidungsKlassen.KleidungsContainer;
+import KleidungsKlassen.KleidungsHelper;
 import KleidungsKlassen.Kleidungsstueck;
+import Logik.ProgramSpeicher;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,8 +18,8 @@ import javafx.scene.image.Image;
 import java.util.ArrayList;
 
 import static JSONHandling.JSONReaderKleidungstuecke.ReadKleidungsJSON;
-import static Logik.ProgramSpeicher.getSchrank;
-import static Logik.ProgramSpeicher.setSchrank;
+import static KleidungsKlassen.KleidungsHelper.GetMarken;
+import static Logik.ProgramSpeicher.*;
 
 public class MainController extends BasisController {
     // Fuer Das Anlagen der Kleidungstuecke
@@ -69,14 +71,20 @@ public class MainController extends BasisController {
 
     @FXML
     public void initialize() {
-        try {
-            KleidungsContainer geladen = ReadKleidungsJSON();
-            if (geladen != null) {
-                setSchrank(geladen);
+        if (getSchrank() == null || getSchrank().getKleidungsstuecke().isEmpty())
+        {
+            try
+            {
+                KleidungsContainer geladen = ReadKleidungsJSON();
+                if (geladen != null)
+                {
+                    setSchrank(geladen);
+                }
+            } catch (Exception e)
+            {
+                System.err.println("Fehler beim Lesen der JSON im MainController: " + e.getMessage());
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            System.err.println("Fehler beim Lesen der JSON im MainController: " + e.getMessage());
-            e.printStackTrace();
         }
         befuelleComboBox(kleidungsArtComboBox,
                 "Schuhe", "Oberteil", "Unterteil", "Kopfbedeckung", "Einteiler"
@@ -93,6 +101,8 @@ public class MainController extends BasisController {
         befuelleComboBox(sucheKleidungsArtComboBox,
                 "Schuhe", "Oberteil", "Unterteil", "Kopfbedeckung", "Einteiler"
         );
+
+        befuelleComboBox(sucheMarkeComboBox, KleidungsHelper.GetMarken(ProgramSpeicher.getSchrank().getKleidungsstuecke()));
         konfiguriereSucheTableView();
         handleSuche();
     }
@@ -172,7 +182,8 @@ public class MainController extends BasisController {
             zeigeDialog("Bitte zuerst ein Kleidungsstück aus der Liste auswählen.");
             return;
         }
-        zeigeDialog("Zu Outfit hinzufügen: " + ausgewaehlt.getBezeichnung() + " – (Outfit-Logik noch nicht implementiert)");
+        zeigeDialog("Zu Outfit hinzufügen: " + ausgewaehlt.getBezeichnung() );
+        AddKleidungsstueckeToOutfit(ausgewaehlt);
     }
 
     // + Button für Farben

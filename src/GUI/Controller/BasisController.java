@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static JSONHandling.JSONReaderKleidungstuecke.ReadKleidungsJSON;
 import static Logik.ProgramSpeicher.getSchrank;
@@ -72,7 +73,9 @@ public abstract class BasisController {
     protected void befuelleComboBox(ComboBox<String> comboBox, String... werte) {
         comboBox.getItems().addAll(werte);
     }
-
+    protected void befuelleComboBox(ComboBox<String> comboBox, ArrayList<String> werte) {
+        comboBox.getItems().addAll(werte);
+    }
     protected void zeigeDialog(String nachricht) {
         System.out.println(nachricht);
     }

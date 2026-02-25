@@ -11,8 +11,8 @@ public class ProgramSpeicher {
     private static ArrayList<Outfit> outfitListe = new ArrayList<>();
     private static ArrayList<Nutzer> nutzerList = new ArrayList<>();
 
-    private static Outfit AktivesOutfit;
-    private static Nutzer AktiverNutzer;
+    private static Outfit AktivesOutfit = new Outfit();
+    private static Nutzer AktiverNutzer = new Nutzer();
 
     public static void AddKleidungsstueckeToOutfit(Kleidungsstueck ks)
     {

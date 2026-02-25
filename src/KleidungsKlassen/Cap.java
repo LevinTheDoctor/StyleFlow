@@ -5,9 +5,9 @@ public class Cap extends Kopfbedeckung
     private boolean istSchirmGekruemmt;
     private final String verschlussArt;
 
-    public Cap(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, boolean istSchirmGekruemmt, String verschlussArt)
+    public Cap(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad,String marke, boolean istSchirmGekruemmt, String verschlussArt)
     {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad,marke);
         this.istSchirmGekruemmt = istSchirmGekruemmt;
         this.verschlussArt = verschlussArt;
     }

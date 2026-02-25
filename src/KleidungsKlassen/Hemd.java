@@ -4,8 +4,8 @@ public class Hemd extends Oberteil {
     private final String kragenArt;
     private String muster;
 
-    public Hemd(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, String kragenArt, String muster) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, aermelLaenge, schnitt);
+    public Hemd(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad,String marke, int aermelLaenge, String schnitt, String kragenArt, String muster) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, marke, aermelLaenge, schnitt);
         this.kragenArt = kragenArt;
         this.muster = muster;
     }

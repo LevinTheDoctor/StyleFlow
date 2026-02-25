@@ -5,9 +5,9 @@ public class Hut extends Kopfbedeckung
     private int hoehe;
     private final String artHut;
 
-    public Hut(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int hoehe, String artHut)
+    public Hut(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad,String marke, int hoehe, String artHut)
     {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad,marke);
         this.hoehe = hoehe;
         this.artHut = artHut;
     }

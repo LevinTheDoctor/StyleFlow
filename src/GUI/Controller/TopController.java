@@ -51,6 +51,7 @@ public class TopController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 aermelLaenge,
                 schnitt,
                 ausschnittArtComboBox.getValue(),

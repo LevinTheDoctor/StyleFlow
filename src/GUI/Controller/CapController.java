@@ -45,6 +45,7 @@ public class CapController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 schirmGekruemmtCheckBox.isSelected(),
                 verschlussArtComboBox.getValue()
         );

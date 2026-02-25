@@ -4,8 +4,8 @@ public class Sandalen extends Schuhe {
     private final boolean istOffen;
     private int almanFaktor;
 
-    public Sandalen(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String absatzHoehe, String verschlussArt, boolean istOffen, int almanFaktor) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, absatzHoehe, verschlussArt);
+    public Sandalen(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad,String marke, String absatzHoehe, String verschlussArt, boolean istOffen, int almanFaktor) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad,marke, absatzHoehe, verschlussArt);
         this.istOffen = istOffen;
         this.almanFaktor = almanFaktor;
     }

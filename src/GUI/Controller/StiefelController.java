@@ -51,6 +51,7 @@ public class StiefelController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 absatzHoehe,
                 verschlussArt,
                 artDerStiefelComboBox.getValue(),
@@ -58,7 +59,6 @@ public class StiefelController extends BasisController {
         );
 
         // Optionale Felder setzen
-        neuerStiefel.setMarke(basisVorauswahl.getMarke());
         neuerStiefel.setAnmerkung(basisVorauswahl.getAnmerkung());
         neuerStiefel.setMaterial(basisVorauswahl.getMaterial());
         neuerStiefel.setStyle(basisVorauswahl.getStyle());

@@ -4,8 +4,8 @@ public abstract class Unterteil extends Kleidungsstueck {
     private final int laenge;
     private final int anzahlTaschen;
 
-    public Unterteil(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int laenge, int anzahlTaschen) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+    public Unterteil(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String marke,int laenge, int anzahlTaschen) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad,marke);
         this.laenge = laenge;
         this.anzahlTaschen = anzahlTaschen;
     }

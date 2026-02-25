@@ -59,6 +59,7 @@ public class HoseController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 laenge,
                 anzahlTaschen,
                 hatLoecherCheckBox.isSelected(),

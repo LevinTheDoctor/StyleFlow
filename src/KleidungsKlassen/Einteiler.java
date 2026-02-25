@@ -6,8 +6,8 @@ public abstract class Einteiler extends Kleidungsstueck {
     private int laenge;
     private final boolean hatAermel;
 
-    public Einteiler(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String ausschnittArt, String weite, int laenge, boolean hatAermel) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+    public Einteiler(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String marke,String ausschnittArt, String weite, int laenge, boolean hatAermel) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad,marke);
         this.ausschnittArt = ausschnittArt;
         this.weite = weite;
         this.laenge = laenge;

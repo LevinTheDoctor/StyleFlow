@@ -47,11 +47,11 @@ public class MuetzeController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 stilComboBox.getValue(),
                 strickArtComboBox.getValue()
         );
 
-        neueMuetze.setMarke(basisVorauswahl.getMarke());
         neueMuetze.setAnmerkung(basisVorauswahl.getAnmerkung());
         neueMuetze.setMaterial(basisVorauswahl.getMaterial());
         neueMuetze.setStyle(basisVorauswahl.getStyle());

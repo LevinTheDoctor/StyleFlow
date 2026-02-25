@@ -51,6 +51,7 @@ public class HalbschuheController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 absatzHoehe,
                 verschlussArt,
                 artComboBox.getValue(),

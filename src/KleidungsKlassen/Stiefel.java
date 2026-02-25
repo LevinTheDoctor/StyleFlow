@@ -6,8 +6,8 @@ public class Stiefel extends Schuhe {
 
 
 
-    public Stiefel(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String absatzHoehe, String verschlussArt, String art, String muster) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, absatzHoehe, verschlussArt);
+    public Stiefel(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String marke,String absatzHoehe, String verschlussArt, String art, String muster) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, marke,absatzHoehe, verschlussArt);
         this.art = art;
         this.muster = muster;
     }

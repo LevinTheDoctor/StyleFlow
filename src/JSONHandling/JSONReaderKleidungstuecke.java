@@ -271,6 +271,13 @@ public class JSONReaderKleidungstuecke {
                 oberteileJSON.addAll(tShirtJSON);
                 oberteileJSON.addAll(topJSON);
             }
+
+            kleidungsstueckeJSON.addAll(kopfbedeckungeJSON);
+            kleidungsstueckeJSON.addAll(unterteileJSON);
+            kleidungsstueckeJSON.addAll(einteilerJSON);
+            kleidungsstueckeJSON.addAll(schuheJSON);
+            kleidungsstueckeJSON.addAll(oberteileJSON);
+
             return new KleidungsContainer(
                     kleidungsstueckeJSON, kopfbedeckungeJSON, muetzeJSON, hueteJSON, capsJSON,
                     unterteileJSON, hosenJSON, roeckeJSON,einteilerJSON,kleiderJSON,overallJSON,

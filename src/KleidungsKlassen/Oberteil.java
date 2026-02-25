@@ -4,8 +4,8 @@ public abstract class Oberteil extends Kleidungsstueck {
     private int aermelLaenge;
     private String schnitt;
 
-    public Oberteil(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+    public Oberteil(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad,String marke, int aermelLaenge, String schnitt) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad,marke);
         this.aermelLaenge = aermelLaenge;
         this.schnitt = schnitt;
     }

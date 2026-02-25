@@ -74,6 +74,7 @@ public class EinteilerController extends BasisController {
                         basisVorauswahl.getBedecktesKoerperteil(),
                         basisVorauswahl.getWetterLage(),
                         basisVorauswahl.getBildPfad(),
+                        basisVorauswahl.getMarke(),
                         ausschnittArt,
                         weite,
                         laenge,
@@ -94,12 +95,12 @@ public class EinteilerController extends BasisController {
                         basisVorauswahl.getBedecktesKoerperteil(),
                         basisVorauswahl.getWetterLage(),
                         basisVorauswahl.getBildPfad(),
+                        basisVorauswahl.getMarke(),
                         ausschnittArt,
                         weite,
                         laenge,
                         hatAermel
                 );
-                neuerOverall.setMarke(basisVorauswahl.getMarke());
                 neuerOverall.setAnmerkung(basisVorauswahl.getAnmerkung());
                 neuerOverall.setMaterial(basisVorauswahl.getMaterial());
                 neuerOverall.setStyle(basisVorauswahl.getStyle());

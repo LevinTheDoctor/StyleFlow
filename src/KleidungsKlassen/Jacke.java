@@ -5,8 +5,8 @@ public abstract class Jacke extends Oberteil {
     private final boolean istWasserdicht;
     private String futterMaterial;
 
-    public Jacke(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int aermelLaenge, String schnitt, String verschlussArt, boolean istWasserdicht, String futterMaterial) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, aermelLaenge, schnitt);
+    public Jacke(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String marke,int aermelLaenge, String schnitt, String verschlussArt, boolean istWasserdicht, String futterMaterial) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, marke,aermelLaenge, schnitt);
         this.verschlussArt = verschlussArt;
         this.istWasserdicht = istWasserdicht;
         this.futterMaterial = futterMaterial;

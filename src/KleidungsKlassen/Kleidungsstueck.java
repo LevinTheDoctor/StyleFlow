@@ -17,12 +17,13 @@ public abstract class Kleidungsstueck
     private String anmerkung;
 
     // Konstruktor für neue Kleidungsstücke
-    public Kleidungsstueck(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad) {
+    public Kleidungsstueck(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad,String marke) {
         this.bezeichnung = bezeichnung;
         this.farben = farben;
         this.bedecktesKoerperteil = bedecktesKoerperteil;
         this.wettereignung = wettereignung;
         this.bildDateiPfad = BildBewegen(bildDateiPfad);
+        this.marke = marke;
         gesamtAnzahl += 1;
         this.kleidungsID = gesamtAnzahl;
     }
@@ -35,6 +36,7 @@ public abstract class Kleidungsstueck
         this.wettereignung = StringAusJson[3];
         this.bildDateiPfad = StringAusJson[4];
         this.kleidungsID = Integer.parseInt(StringAusJson[5]);
+        this.marke = StringAusJson[6];
         gesamtAnzahl += 1;
     }
     

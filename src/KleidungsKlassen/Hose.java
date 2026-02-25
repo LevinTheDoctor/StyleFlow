@@ -7,8 +7,8 @@ public class Hose extends Unterteil {
     private String besonderheiten;
     private final String artHose;
 
-    public Hose(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, int laenge, int anzahlTaschen, boolean hatLoecher, String weite, String waschung, String besonderheiten, String artHose) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, laenge, anzahlTaschen);
+    public Hose(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String marke,int laenge, int anzahlTaschen, boolean hatLoecher, String weite, String waschung, String besonderheiten, String artHose) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad,marke, laenge, anzahlTaschen);
         this.hatLoecher = hatLoecher;
         this.weite = weite;
         this.waschung = waschung;

@@ -57,6 +57,7 @@ public class HutController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 hoehe,
                 artHutComboBox.getValue()
         );

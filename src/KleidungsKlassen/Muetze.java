@@ -5,9 +5,9 @@ public class Muetze extends Kopfbedeckung
     private final String strickArt;
     private final String stil;
 
-    public Muetze(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String stil, String strickArt)
+    public Muetze(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String marke,String stil, String strickArt)
     {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad);
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad,marke);
         this.stil = stil;
         this.strickArt = strickArt;
     }

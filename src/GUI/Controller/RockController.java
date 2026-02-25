@@ -47,12 +47,12 @@ public class RockController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 laenge,
                 anzahlTaschen,
                 artRockComboBox.getValue()
         );
 
-        neuerRock.setMarke(basisVorauswahl.getMarke());
         neuerRock.setAnmerkung(basisVorauswahl.getAnmerkung());
         neuerRock.setMaterial(basisVorauswahl.getMaterial());
         neuerRock.setStyle(basisVorauswahl.getStyle());

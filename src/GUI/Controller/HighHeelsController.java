@@ -40,6 +40,7 @@ public class HighHeelsController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 absatzHoehe,
                 verschlussArt,
                 istOffenCheckBox.isSelected()

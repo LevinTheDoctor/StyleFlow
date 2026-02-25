@@ -1,8 +1,6 @@
 package GUI.Controller;
 
-import JSONHandling.JSONWriterKleidungstuecke;
 import KleidungsKlassen.Hoodie;
-import KleidungsKlassen.KleidungsContainer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -40,6 +38,7 @@ public class HoodieController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 aermelLaenge,
                 schnitt,
                 hatTascheCheckBox.isSelected()

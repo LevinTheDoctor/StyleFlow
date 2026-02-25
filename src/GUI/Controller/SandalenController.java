@@ -55,13 +55,13 @@ public class SandalenController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 absatzHoehe,
                 verschlussArt,
                 istOffenCheckBox.isSelected(),
                 almanFaktor
         );
 
-        neueSandalen.setMarke(basisVorauswahl.getMarke());
         neueSandalen.setAnmerkung(basisVorauswahl.getAnmerkung());
         neueSandalen.setMaterial(basisVorauswahl.getMaterial());
         neueSandalen.setStyle(basisVorauswahl.getStyle());

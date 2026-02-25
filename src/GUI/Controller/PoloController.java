@@ -57,6 +57,7 @@ public class PoloController extends BasisController {
                 basisVorauswahl.getBedecktesKoerperteil(),
                 basisVorauswahl.getWetterLage(),
                 basisVorauswahl.getBildPfad(),
+                basisVorauswahl.getMarke(),
                 aermelLaenge,
                 schnitt,
                 kragenArtComboBox.getValue(),

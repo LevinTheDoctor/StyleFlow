@@ -3,8 +3,8 @@ package KleidungsKlassen;
 public class Sneaker extends Schuhe {
     private final String technologie;
 
-    public Sneaker(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad, String absatzHoehe, String verschlussArt, String technologie) {
-        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad, absatzHoehe, verschlussArt);
+    public Sneaker(String bezeichnung, String[] farben, String bedecktesKoerperteil, String wettereignung, String bildDateiPfad,String marke, String absatzHoehe, String verschlussArt, String technologie) {
+        super(bezeichnung, farben, bedecktesKoerperteil, wettereignung, bildDateiPfad,marke, absatzHoehe, verschlussArt);
         this.technologie = technologie;
     }
 

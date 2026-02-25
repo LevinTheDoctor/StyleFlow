@@ -58,6 +58,11 @@ public class KleidungsHelper {
         return Gefunden;
     }
 
-
-
+    public static ArrayList<String> GetMarken(ArrayList<Kleidungsstueck> Kleidungstuecke){
+        ArrayList<String> Marken = new ArrayList<>();
+        for (Kleidungsstueck k : Kleidungstuecke){
+            Marken.add(k.getMarke());
+        }
+        return Marken;
+    }
 }

@@ -16,5 +16,59 @@
 "BildDateiPfad": "Inventory/SchwarzeStiefel.jpg",
 "ID":2,
 "ID": "EMP"
+},
+{
+"Bezeichnung": "LV Pearl Beanie",
+"Farben": ["0xb3ccffff", "0xf2f2f2ff"],
+"BedecktesKoerperteil": "Kopf",
+"Wettereignung": "Schnee",
+"BildDateiPfad": "Inventory/Bildschirmfoto 2026-02-25 um 23.19.57.png",
+"ID":3,
+"ID": "Louis Vuitton"
+},
+{
+"Bezeichnung": "Distressed Jeans",
+"Farben": ["0x8e8966ff", "0x49516aff"],
+"BedecktesKoerperteil": "Unterkörper",
+"Wettereignung": "Bewölkt",
+"BildDateiPfad": "Inventory/31219117_60541318_480-342828091.jpg",
+"ID":4,
+"ID": "No Faith Studios"
+},
+{
+"Bezeichnung": "Suprem Bandan Jeans",
+"Farben": ["0x80b3b3ff"],
+"BedecktesKoerperteil": "Unterkörper",
+"Wettereignung": "Bewölkt",
+"BildDateiPfad": "Inventory/Bildschirmfoto 2026-02-25 um 23.15.59.png",
+"ID":5,
+"ID": "Supreme"
+},
+{
+"Bezeichnung": "Luster",
+"Farben": ["0x000080ff"],
+"BedecktesKoerperteil": "Unterkörper",
+"Wettereignung": "Bewölkt",
+"BildDateiPfad": "Inventory/Bildschirmfoto 2026-02-25 um 23.16.17.png",
+"ID":6,
+"ID": "Dior"
+},
+{
+"Bezeichnung": "BaerenPullover",
+"Farben": ["0x000080ff"],
+"BedecktesKoerperteil": "Oberkörper",
+"Wettereignung": "Schnee",
+"BildDateiPfad": "Inventory/Bildschirmfoto 2026-02-25 um 23.17.57.png",
+"ID":7,
+"ID": "Polo Ralph Lauren"
+},
+{
+"Bezeichnung": "Supreme Tshirt",
+"Farben": ["0xccccccff"],
+"BedecktesKoerperteil": "Oberkörper",
+"Wettereignung": "Sonnig",
+"BildDateiPfad": "Inventory/Bildschirmfoto 2026-02-25 um 23.17.04.png",
+"ID":8,
+"ID": "Supreme"
 }
 ]

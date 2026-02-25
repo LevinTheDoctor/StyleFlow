@@ -1,12 +1,12 @@
 [
 {
 "ID":1,
-"absatzHoehe": "Niedrig (2-4 cm)",
-"verschlussArt": "Schnürsenkel"
+"absatzHoehe": "Jordan",
+"verschlussArt": "Niedrig (2-4 cm)"
 },
 {
 "ID":2,
-"absatzHoehe": "Hoch (>7 cm)",
-"verschlussArt": "Schnürsenkel"
+"absatzHoehe": "EMP",
+"verschlussArt": "Hoch (>7 cm)"
 }
 ]

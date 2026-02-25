@@ -1,2 +1,26 @@
 [
+{
+"ID":4,
+"HatLoecher":true,
+"Weite": "Wide",
+"Waschung": "Stonewash",
+"Besonderheiten": "Locher und Distressing",
+"artDerHose": "Jeans"
+},
+{
+"ID":5,
+"HatLoecher":false,
+"Weite": "Oversized",
+"Waschung": "Stonewash",
+"Besonderheiten": "bandan muster",
+"artDerHose": "Jeans"
+},
+{
+"ID":6,
+"HatLoecher":false,
+"Weite": "Slim",
+"Waschung": "Ungewaschen",
+"Besonderheiten": "Wax",
+"artDerHose": "Jeans"
+}
 ]

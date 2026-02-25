@@ -1,8 +1,6 @@
 package GUI.Controller;
 import JSONHandling.JSONReaderKleidungstuecke;
-import KleidungsKlassen.KleidungsContainer;
-import KleidungsKlassen.KleidungsHelper;
-import KleidungsKlassen.Kleidungsstueck;
+import KleidungsKlassen.*;
 import Logik.ProgramSpeicher;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -45,16 +43,24 @@ public class MainController extends BasisController {
 
     // Kleidungstücke Suchen
     @FXML private ComboBox<String> sucheKleidungsArtComboBox;
-    @FXML private ColorPicker      sucheFarbeColorPicker;
+    @FXML private ColorPicker sucheFarbeColorPicker;
     @FXML private ComboBox<String> sucheMarkeComboBox;
-    @FXML private Button           sucheButton;
+    @FXML private Button sucheButton;
     @FXML private TableView<Kleidungsstueck> sucheTableView;
     @FXML private TableColumn<Kleidungsstueck, String> sucheSpalteBezeichnung;
     @FXML private TableColumn<Kleidungsstueck, String> sucheSpalteArt;
     @FXML private TableColumn<Kleidungsstueck, String> sucheSpalteMarke;
     @FXML private TableColumn<Kleidungsstueck, String> sucheSpalteFarbe;
-    @FXML private Button           zuOutfitButton;
+    @FXML private Button zuOutfitButton;
 
+    //Für Outfit Erstellen
+    @FXML private ImageView kopfbedeckungBild;
+    @FXML private ImageView oberteilBild;
+    @FXML private ImageView unterteilBild;
+    @FXML private ImageView schuheBild;
+
+
+    // Fuer die Filter Logik
     private final ObservableList<Kleidungsstueck> sucheErgebnisListe = FXCollections.observableArrayList();
 
     // Farben, Material und Style können mehrfach hinzugefügt werden
@@ -66,8 +72,14 @@ public class MainController extends BasisController {
     private final ArrayList<String> farbenListe   = new ArrayList<>();
     private final ArrayList<String> materialListe = new ArrayList<>();
     private final ArrayList<String> styleListe    = new ArrayList<>();
-
+    // Ähnlich zu File Dialog aus C# für WPF
     FileChooser fileChooser = new FileChooser();
+
+    // index für Outfit Erstellen in ArrayList
+    private int kopfIndex = 0;
+    private int oberteilIndex = 0;
+    private int unterteilIndex = 0;
+    private int schuheIndex = 0;
 
     @FXML
     public void initialize() {
@@ -296,4 +308,112 @@ public class MainController extends BasisController {
             kleidungsImage.setImage(bild);
         }
     }
+
+    // Ein DRY part mal wieder :-)
+    @FXML
+    private void handelVorKopf()
+    {
+        ArrayList<Kopfbedeckung> liste = getSchrank().getKopfbedeckungen();
+        if (liste == null || liste.isEmpty())
+        {
+            return;
+        }
+        int maxGroesse = liste.size();
+        // Durch Mudolo wird sicher gestellt das kein idex out aufbounce kommt
+        kopfIndex = (kopfIndex + 1) % maxGroesse;
+        zeigeBild(kopfbedeckungBild, liste.get(kopfIndex));
+    }
+
+    @FXML
+    private void handelZuruckKopf()
+    {
+        ArrayList<Kopfbedeckung> liste = getSchrank().getKopfbedeckungen();
+        if (liste == null || liste.isEmpty())
+        {
+            return;
+        }
+        int maxGroesse = liste.size();
+        kopfIndex = (kopfIndex - 1 + maxGroesse) % maxGroesse;
+        zeigeBild(kopfbedeckungBild, liste.get(kopfIndex));
+    }
+
+    @FXML
+    private void handelVorOber()
+    {
+        ArrayList<Oberteil> liste = getSchrank().getOberteile();
+        if (liste == null || liste.isEmpty())
+        {
+            return;
+        }
+        int maxGroesse = liste.size();
+        oberteilIndex = (oberteilIndex  + 1) % maxGroesse;
+        zeigeBild(oberteilBild, liste.get(oberteilIndex ));
+    }
+
+    @FXML
+    private void handelZuruckOber()
+    {
+        ArrayList<Oberteil> liste = getSchrank().getOberteile();
+        if (liste == null || liste.isEmpty())
+        {
+            return;
+        }
+        int maxGroesse = liste.size();
+        oberteilIndex = (oberteilIndex - 1 + maxGroesse) % maxGroesse;
+        zeigeBild(oberteilBild, liste.get(oberteilIndex ));
+    }
+
+    @FXML
+    private void handelVorUnter()
+    {
+        ArrayList<Unterteil> liste = getSchrank().getUnterteile();
+        if (liste == null || liste.isEmpty())
+        {
+            return;
+        }
+        int maxGroesse = liste.size();
+        unterteilIndex = (unterteilIndex  + 1) % maxGroesse;
+        zeigeBild(unterteilBild, liste.get(unterteilIndex ));
+    }
+
+    @FXML
+    private void handelZuruckUnter()
+    {
+        ArrayList<Unterteil> liste = getSchrank().getUnterteile();
+        if (liste == null || liste.isEmpty())
+        {
+            return;
+        }
+        int maxGroesse = liste.size();
+        unterteilIndex = (unterteilIndex - 1 + maxGroesse) % maxGroesse;
+        zeigeBild(unterteilBild, liste.get(unterteilIndex ));
+    }
+
+    @FXML
+    private void handelVorSchuhe()
+    {
+        ArrayList<Schuhe> liste = getSchrank().getSchuhe();
+        if (liste == null || liste.isEmpty())
+        {
+            return;
+        }
+        int maxGroesse = liste.size();
+        schuheIndex = (schuheIndex  + 1 ) % maxGroesse;
+        zeigeBild(schuheBild, liste.get(schuheIndex));
+    }
+
+    @FXML
+    private void handelZuruckSchuhe()
+    {
+        ArrayList<Schuhe> liste = getSchrank().getSchuhe();
+        if (liste == null || liste.isEmpty())
+        {
+            return;
+        }
+        int maxGroesse = liste.size();
+        schuheIndex = (schuheIndex  - 1 + maxGroesse) % maxGroesse;
+        zeigeBild(schuheBild, liste.get(schuheIndex));
+    }
+
+
 }

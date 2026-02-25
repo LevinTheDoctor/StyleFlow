@@ -29,6 +29,11 @@ public class Nutzer implements INutzer {
         this.LeiblingsFarbe = new ArrayList<>(Arrays.asList(NutzerStringArray[4].split(",")));;
         NutzerAnzahl += 1;
     }
+    // Konstukur für speicher
+    public Nutzer() {
+        NutzerAnzahl += 1;
+        NutzerID = NutzerAnzahl;
+    }
 
     public static void setNutzerAnzahl(int nutzerAnzahl) {
         NutzerAnzahl = nutzerAnzahl;

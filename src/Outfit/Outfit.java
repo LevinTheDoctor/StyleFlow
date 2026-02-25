@@ -49,6 +49,11 @@ public class Outfit implements IOutfit {
 
     }
 
+    public Outfit() {
+        gesamtAnzahl += 1;
+        id = getGesamtAnzahl();
+    }
+
     public static int getGesamtAnzahl() {
         return gesamtAnzahl;
     }

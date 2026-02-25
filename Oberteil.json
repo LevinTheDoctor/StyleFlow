@@ -1,2 +1,12 @@
 [
+{
+"ID":7,
+"aermelLaenge":100,
+"schnitt": "Normalfit"
+},
+{
+"ID":8,
+"aermelLaenge":30,
+"schnitt": "Locker"
+}
 ]

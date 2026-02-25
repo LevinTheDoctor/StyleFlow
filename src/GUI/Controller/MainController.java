@@ -90,7 +90,9 @@ public class MainController extends BasisController {
         befuelleComboBox(wetterLageComboBox,
                 "Sonnig", "Bewölkt", "Regnerisch", "Schnee", "Windig"
         );
-
+        befuelleComboBox(sucheKleidungsArtComboBox,
+                "Schuhe", "Oberteil", "Unterteil", "Kopfbedeckung", "Einteiler"
+        );
         konfiguriereSucheTableView();
         handleSuche();
     }

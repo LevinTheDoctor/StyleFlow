@@ -1,10 +1,10 @@
 [
 {
-"Bezeichnung": "Steifel",
-"Farben": ["0x000000ff"],
-"BedecktesKoerperteil": "Füße",
-"Wettereignung": "Regnerisch",
-"BildDateiPfad": "Inventory/SchwarzeStiefel.jpg",
-"ID":1
+"Bezeichnung": "kaputte buchse",
+"Farben": ["0x4d66ccff"],
+"BedecktesKoerperteil": "Unterkörper",
+"Wettereignung": "Bewölkt",
+"BildDateiPfad": "Inventory/31219117_60541318_480-342828091.jpg",
+"ID":2
 }
 ]

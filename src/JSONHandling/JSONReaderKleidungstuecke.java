@@ -68,7 +68,7 @@ public class JSONReaderKleidungstuecke {
                     }
                 }
 
-                String[][] capsInhalt = KlassenStringAusJSONStringListe("Caps", KopfbdeckungJoined);
+                String[][] capsInhalt = KlassenStringAusJSONStringListe("Cap", KopfbdeckungJoined);
                 if (capsInhalt != null) {
                     for(String[] Inhalt : capsInhalt) {
                         capsJSON.add(new Cap(Inhalt));
@@ -78,18 +78,13 @@ public class JSONReaderKleidungstuecke {
                 kopfbedeckungeJSON.addAll(muetzeJSON);
                 kopfbedeckungeJSON.addAll(hueteJSON);
                 kopfbedeckungeJSON.addAll(capsJSON);
-            } else{
-                kopfbedeckungeJSON = null;
-                muetzeJSON = null;
-                hueteJSON = null;
-                capsJSON = null;
             }
 
             String[][] Unterteil = LesenSafe("Unterteil");
             if (Unterteil != null) {
                 String[][] UnterteilJoined = JSONjoin(Unterteil,0,Kleidungsstuecke,5);
 
-                String[][] hosenInhalt = KlassenStringAusJSONStringListe("Hosen", UnterteilJoined);
+                String[][] hosenInhalt = KlassenStringAusJSONStringListe("Hose", UnterteilJoined);
                 if (hosenInhalt != null) {
                     for(String[] Inhalt : hosenInhalt) {
                         hosenJSON.add(new Hose(Inhalt));
@@ -105,17 +100,13 @@ public class JSONReaderKleidungstuecke {
 
                 unterteileJSON.addAll(hosenJSON);
                 unterteileJSON.addAll(roeckeJSON);
-            }else{
-                unterteileJSON = null;
-                hosenJSON = null;
-                roeckeJSON = null;
             }
 
             String[][] Einteiler = LesenSafe("Einteiler");
             if (Einteiler != null) {
                 String[][] EinteilerJoined = JSONjoin(Einteiler,0,Kleidungsstuecke,5);
 
-                String[][] kleiderInhalt = KlassenStringAusJSONStringListe("Kleider", EinteilerJoined);
+                String[][] kleiderInhalt = KlassenStringAusJSONStringListe("Kleid", EinteilerJoined);
                 if (kleiderInhalt != null) {
                     for (String[] Inhalt : kleiderInhalt) {
                         kleiderJSON.add(new Kleid(Inhalt));
@@ -131,10 +122,6 @@ public class JSONReaderKleidungstuecke {
 
                 einteilerJSON.addAll(kleiderJSON);
                 einteilerJSON.addAll(overallJSON);
-            } else {
-                einteilerJSON = null;
-                kleiderJSON = null;
-                overallJSON = null;
             }
 
             String[][] Schuhe = LesenSafe("Schuhe");
@@ -182,14 +169,7 @@ public class JSONReaderKleidungstuecke {
                 schuheJSON.addAll(sandalenJSON);
                 schuheJSON.addAll(halbschuheJSON);
             }
-            else{
-                schuheJSON = null;
-                highheelsJSON = null;
-                sneakerJSON = null;
-                stiefelJSON = null;
-                sandalenJSON = null;
-                halbschuheJSON = null;
-            }
+
 
             String[][] Oberteile = LesenSafe("Oberteil");
             if (Oberteile != null) {
@@ -282,13 +262,6 @@ public class JSONReaderKleidungstuecke {
                     jackeJSON.addAll(sweatshirtjackeJSON);
                     jackeJSON.addAll(uebergangsJackeJSON);
                     oberteileJSON.addAll(jackeJSON);
-                }else{
-                    jackeJSON = null;
-                    mantelJSON = null;
-                    winterjackeJSON = null;
-                    regenjackeJSON = null;
-                    sweatshirtjackeJSON = null;
-                    uebergangsJackeJSON = null;
                 }
 
                 oberteileJSON.addAll(hemdJSON);
@@ -297,20 +270,6 @@ public class JSONReaderKleidungstuecke {
                 oberteileJSON.addAll(hoodieJSON);
                 oberteileJSON.addAll(tShirtJSON);
                 oberteileJSON.addAll(topJSON);
-            }else{
-                oberteileJSON = null;
-                hemdJSON = null;
-                poloJSON = null;
-                pulloverJSON = null;
-                hoodieJSON = null;
-                tShirtJSON = null;
-                topJSON = null;
-                jackeJSON = null;
-                mantelJSON = null;
-                winterjackeJSON = null;
-                regenjackeJSON = null;
-                sweatshirtjackeJSON = null;
-                uebergangsJackeJSON = null;
             }
             return new KleidungsContainer(
                     kleidungsstueckeJSON, kopfbedeckungeJSON, muetzeJSON, hueteJSON, capsJSON,

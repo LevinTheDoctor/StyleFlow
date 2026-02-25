@@ -28,9 +28,7 @@ public class JavaFXanwendung extends Application {
             stage.getIcons().add(icon);
             stage.setHeight(500);
             stage.setWidth(800);
-            stage.setOnCloseRequest(e -> {
-                JSONWriterKleidungstuecke.JSONWrite(ProgramSpeicher.getSchrank());
-            });
+
             //Scene wird zu stage hinzu gefuegt
             stage.setScene(scene);
             //Stage wird sichtbar immer am Ende!

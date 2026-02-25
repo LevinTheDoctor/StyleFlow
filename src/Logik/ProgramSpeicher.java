@@ -14,9 +14,7 @@ public class ProgramSpeicher {
     private static Outfit AktivesOutfit;
     private static Nutzer AktiverNutzer;
 
-
-
-    private static void AddKleidungsstueckeToOutfit(Kleidungsstueck ks)
+    public static void AddKleidungsstueckeToOutfit(Kleidungsstueck ks)
     {
         if (ks == null) return;
         if (ks instanceof Kopfbedeckung kb)

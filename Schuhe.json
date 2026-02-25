@@ -1,0 +1,12 @@
+[
+{
+"ID":1,
+"absatzHoehe": "Niedrig (2-4 cm)",
+"verschlussArt": "Schnürsenkel"
+},
+{
+"ID":2,
+"absatzHoehe": "Hoch (>7 cm)",
+"verschlussArt": "Schnürsenkel"
+}
+]

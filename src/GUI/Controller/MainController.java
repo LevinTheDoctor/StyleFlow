@@ -19,8 +19,7 @@ import java.util.ArrayList;
 
 import static JSONHandling.JSONReaderKleidungstuecke.ReadKleidungsJSON;
 import static KleidungsKlassen.KleidungsHelper.GetMarken;
-import static Logik.ProgramSpeicher.getSchrank;
-import static Logik.ProgramSpeicher.setSchrank;
+import static Logik.ProgramSpeicher.*;
 
 public class MainController extends BasisController {
     // Fuer Das Anlagen der Kleidungstuecke
@@ -183,7 +182,8 @@ public class MainController extends BasisController {
             zeigeDialog("Bitte zuerst ein Kleidungsstück aus der Liste auswählen.");
             return;
         }
-        zeigeDialog("Zu Outfit hinzufügen: " + ausgewaehlt.getBezeichnung() + " – (Outfit-Logik noch nicht implementiert)");
+        zeigeDialog("Zu Outfit hinzufügen: " + ausgewaehlt.getBezeichnung() );
+        AddKleidungsstueckeToOutfit(ausgewaehlt);
     }
 
     // + Button für Farben

@@ -15,8 +15,8 @@ public class Hut extends Kopfbedeckung
     public Hut(String[] StringAusJson)
     {
         super(StringAusJson);
-        this.hoehe = Integer.parseInt(StringAusJson[6]);
-        this.artHut = StringAusJson[7];
+        this.hoehe = Integer.parseInt(StringAusJson[7]);
+        this.artHut = StringAusJson[8];
     }
 
 

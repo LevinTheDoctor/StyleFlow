@@ -16,10 +16,10 @@ public abstract class Einteiler extends Kleidungsstueck {
 
     public Einteiler(String[] StringAusJson) {
         super(StringAusJson);
-        this.ausschnittArt = StringAusJson[6];
-        this.weite = StringAusJson[7];
-        this.laenge = Integer.parseInt(StringAusJson[8]);
-        this.hatAermel = Boolean.parseBoolean(StringAusJson[9]);
+        this.ausschnittArt = StringAusJson[7];
+        this.weite = StringAusJson[8];
+        this.laenge = Integer.parseInt(StringAusJson[9]);
+        this.hatAermel = Boolean.parseBoolean(StringAusJson[10]);
     }
 
 

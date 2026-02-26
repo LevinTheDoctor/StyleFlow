@@ -12,8 +12,8 @@ public class Pullover extends Oberteil {
 
     public Pullover(String[] StringAusJson) {
         super(StringAusJson);
-        this.ausschnittArt = StringAusJson[8];
-        this.strickArt = StringAusJson[9];
+        this.ausschnittArt = StringAusJson[9];
+        this.strickArt = StringAusJson[10];
     }
 
 

@@ -10,7 +10,7 @@ public class Sneaker extends Schuhe {
 
     public Sneaker(String[] StringAusJson) {
         super(StringAusJson);
-        this.technologie = StringAusJson[8];
+        this.technologie = StringAusJson[9];
     }
 
 

@@ -15,8 +15,8 @@ public class Muetze extends Kopfbedeckung
     public Muetze(String[] StringAusJson)
     {
         super(StringAusJson);
-        this.stil = StringAusJson[6];
-        this.strickArt = StringAusJson[7];
+        this.stil = StringAusJson[7];
+        this.strickArt = StringAusJson[8];
     }
 
 

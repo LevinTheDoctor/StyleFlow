@@ -12,8 +12,8 @@ public class Hemd extends Oberteil {
 
     public Hemd(String[] StringAusJson) {
         super(StringAusJson);
-        this.kragenArt = StringAusJson[8];
-        this.muster = StringAusJson[9];
+        this.kragenArt = StringAusJson[9];
+        this.muster = StringAusJson[10];
     }
 
 

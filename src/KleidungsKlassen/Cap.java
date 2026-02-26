@@ -15,8 +15,8 @@ public class Cap extends Kopfbedeckung
     public Cap(String[] StringAusJson)
     {
         super(StringAusJson);
-        this.istSchirmGekruemmt = Boolean.parseBoolean(StringAusJson[6]);
-        this.verschlussArt = StringAusJson[7];
+        this.istSchirmGekruemmt = Boolean.parseBoolean(StringAusJson[7]);
+        this.verschlussArt = StringAusJson[8];
     }
 
 

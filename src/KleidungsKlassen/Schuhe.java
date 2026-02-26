@@ -13,8 +13,8 @@ public abstract class Schuhe extends Kleidungsstueck {
 
     public Schuhe(String[] StringAusJson) {
         super(StringAusJson);
-        this.absatzHoehe = StringAusJson[6];
-        this.verschlussArt = StringAusJson[7];
+        this.absatzHoehe = StringAusJson[7];
+        this.verschlussArt = StringAusJson[8];
     }
 
 

@@ -10,7 +10,7 @@ public class HighHeels extends Schuhe {
 
     public HighHeels(String[] StringAusJson) {
         super(StringAusJson);
-        this.istOffen = Boolean.parseBoolean(StringAusJson[8]);
+        this.istOffen = Boolean.parseBoolean(StringAusJson[9]);
     }
 
 

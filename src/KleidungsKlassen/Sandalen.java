@@ -12,8 +12,8 @@ public class Sandalen extends Schuhe {
 
     public Sandalen(String[] StringAusJson) {
         super(StringAusJson);
-        this.istOffen = Boolean.parseBoolean(StringAusJson[8]);
-        this.almanFaktor = Integer.parseInt(StringAusJson[9]);
+        this.istOffen = Boolean.parseBoolean(StringAusJson[9]);
+        this.almanFaktor = Integer.parseInt(StringAusJson[10]);
     }
 
 

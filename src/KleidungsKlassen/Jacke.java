@@ -14,9 +14,9 @@ public abstract class Jacke extends Oberteil {
 
     public Jacke(String[] StringAusJson) {
         super(StringAusJson);
-        this.verschlussArt = StringAusJson[8];
-        this.istWasserdicht = Boolean.parseBoolean(StringAusJson[9]);
-        this.futterMaterial = StringAusJson[10];
+        this.verschlussArt = StringAusJson[9];
+        this.istWasserdicht = Boolean.parseBoolean(StringAusJson[10]);
+        this.futterMaterial = StringAusJson[11];
     }
 
 

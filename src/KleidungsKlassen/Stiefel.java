@@ -14,8 +14,8 @@ public class Stiefel extends Schuhe {
 
     public Stiefel(String[] StringAusJson) {
         super(StringAusJson);
-        this.art = StringAusJson[8];
-        this.muster = StringAusJson[9];
+        this.art = StringAusJson[9];
+        this.muster = StringAusJson[10];
     }
 
 

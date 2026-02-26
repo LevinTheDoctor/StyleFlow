@@ -10,7 +10,7 @@ public class TShirt extends Oberteil {
 
     public TShirt(String[] StringAusJson) {
         super(StringAusJson);
-        this.ausschnittArt = StringAusJson[8];
+        this.ausschnittArt = StringAusJson[9];
     }
 
 

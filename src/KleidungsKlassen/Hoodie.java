@@ -10,7 +10,7 @@ public class Hoodie extends Oberteil {
 
     public Hoodie(String[] StringAusJson) {
         super(StringAusJson);
-        this.hatTasche = Boolean.parseBoolean(StringAusJson[8]);
+        this.hatTasche = Boolean.parseBoolean(StringAusJson[9]);
     }
 
 

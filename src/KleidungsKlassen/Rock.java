@@ -10,7 +10,7 @@ public class Rock extends Unterteil {
 
     public Rock(String[] StringAusJson) {
         super(StringAusJson);
-        this.artRock = StringAusJson[8];
+        this.artRock = StringAusJson[9];
     }
 
 

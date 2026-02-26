@@ -12,8 +12,8 @@ public abstract class Unterteil extends Kleidungsstueck {
 
     public Unterteil(String[] StringAusJson) {
         super(StringAusJson);
-        this.laenge = Integer.parseInt(StringAusJson[6]);
-        this.anzahlTaschen = Integer.parseInt(StringAusJson[7]);
+        this.laenge = Integer.parseInt(StringAusJson[7]);
+        this.anzahlTaschen = Integer.parseInt(StringAusJson[8]);
     }
 
 

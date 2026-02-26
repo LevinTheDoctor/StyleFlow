@@ -12,8 +12,8 @@ public class Halbschuhe extends Schuhe {
 
     public Halbschuhe(String[] StringAusJson) {
         super(StringAusJson);
-        this.art = StringAusJson[8];
-        this.muster = StringAusJson[9];
+        this.art = StringAusJson[9];
+        this.muster = StringAusJson[10];
     }
 
 

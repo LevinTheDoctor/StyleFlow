@@ -12,8 +12,8 @@ public class Polo extends Oberteil {
 
     public Polo(String[] StringAusJson) {
         super(StringAusJson);
-        this.kragenArt = StringAusJson[8];
-        this.anzahlKnopfe = Integer.parseInt(StringAusJson[9]);
+        this.kragenArt = StringAusJson[9];
+        this.anzahlKnopfe = Integer.parseInt(StringAusJson[10]);
     }
 
 

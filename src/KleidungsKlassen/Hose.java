@@ -18,11 +18,11 @@ public class Hose extends Unterteil {
 
     public Hose(String[] StringAusJson) {
         super(StringAusJson);
-        this.hatLoecher = Boolean.parseBoolean(StringAusJson[8]);
-        this.weite = StringAusJson[9];
-        this.waschung = StringAusJson[10];
-        this.besonderheiten = StringAusJson[11];
-        this.artHose = StringAusJson[12];
+        this.hatLoecher = Boolean.parseBoolean(StringAusJson[9]);
+        this.weite = StringAusJson[10];
+        this.waschung = StringAusJson[11];
+        this.besonderheiten = StringAusJson[12];
+        this.artHose = StringAusJson[13];
     }
 
 

@@ -12,8 +12,8 @@ public class Top extends Oberteil {
 
     public Top(String[] StringAusJson) {
         super(StringAusJson);
-        this.ausschnittArt = StringAusJson[8];
-        this.traegerArt = StringAusJson[9];
+        this.ausschnittArt = StringAusJson[9];
+        this.traegerArt = StringAusJson[10];
     }
 
 

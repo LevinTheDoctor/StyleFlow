@@ -195,7 +195,15 @@ public class MainController extends BasisController {
             return;
         }
         zeigeDialog("Zu Outfit hinzufügen: " + ausgewaehlt.getBezeichnung() );
-        AddKleidungsstueckeToOutfit(ausgewaehlt);
+        if (ausgewaehlt instanceof Kopfbedeckung) {
+           zeigeBild(kopfbedeckungBild, (Kopfbedeckung) ausgewaehlt);
+        }else if (ausgewaehlt instanceof Oberteil) {
+            zeigeBild(oberteilBild, (Oberteil) ausgewaehlt);
+        }else if (ausgewaehlt instanceof Unterteil) {
+            zeigeBild(unterteilBild, (Unterteil) ausgewaehlt);
+        }else if (ausgewaehlt instanceof Schuhe) {
+            zeigeBild(schuheBild, (Schuhe) ausgewaehlt);
+        }
     }
 
     // + Button für Farben

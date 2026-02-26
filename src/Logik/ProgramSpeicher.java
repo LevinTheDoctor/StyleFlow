@@ -14,28 +14,6 @@ public class ProgramSpeicher {
     private static Outfit AktivesOutfit = new Outfit();
     private static Nutzer AktiverNutzer = new Nutzer();
 
-    public static void AddKleidungsstueckeToOutfit(Kleidungsstueck ks)
-    {
-        if (ks == null) return;
-        if (ks instanceof Kopfbedeckung kb)
-        {
-            AktivesOutfit.addKopfbeckung(kb);
-        } else if (ks instanceof Oberteil ot)
-        {
-            AktivesOutfit.addOberteil(ot);
-        }else if (ks instanceof Unterteil ut)
-        {
-            AktivesOutfit.addUnterteil(ut);
-        } else if (ks instanceof Einteiler et)
-        {
-            AktivesOutfit.addEinteiler(et);
-        } else if (ks instanceof Schuhe s)
-        {
-            AktivesOutfit.addSchuhe(s);
-        }
-    }
-
-
     public static void AddKleidungsstueckToSchrank(Kleidungsstueck ks) {
         if (ks == null) return;
         Schrank.getKleidungsstuecke().add(ks);
@@ -137,6 +115,7 @@ public class ProgramSpeicher {
     public static void setSchrank(KleidungsContainer schrank) {
         Schrank = schrank;
     }
+
 
     public static ArrayList<Outfit> getOutfitListe() {
         return outfitListe;

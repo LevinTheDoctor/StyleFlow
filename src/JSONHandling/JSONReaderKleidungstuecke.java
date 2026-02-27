@@ -13,7 +13,7 @@ public class JSONReaderKleidungstuecke {
     public static KleidungsContainer ReadKleidungsJSON() {
         ArrayList<Kleidungsstueck> kleidungsstueckeJSON = new ArrayList<>();
 
-        ArrayList<Kopfbedeckung> kopfbedeckungeJSON = new ArrayList<>();
+        ArrayList<Kopfbedeckung> kopfbedeckungJSON = new ArrayList<>();
         ArrayList<Muetze> muetzeJSON = new ArrayList<>();
         ArrayList<Hut> hueteJSON = new ArrayList<>();
         ArrayList<Cap> capsJSON = new ArrayList<>();
@@ -50,34 +50,34 @@ public class JSONReaderKleidungstuecke {
 
         String[][] Kleidungsstuecke = LesenSafe("Kleidungsstueck");
         if (Kleidungsstuecke != null) {
-            String[][] Kopfbedckungen = LesenSafe("Kopfbedeckung");
-            if (Kopfbedckungen != null) {
-                String[][] KopfbdeckungJoined = JSONjoin(Kopfbedckungen,0,Kleidungsstuecke,5);
+            String[][] Kopfbedeckungen = LesenSafe("Kopfbedeckung");
+            if (Kopfbedeckungen != null) {
+                String[][] KopfbedeckungJoined = JSONjoin(Kopfbedeckungen,0,Kleidungsstuecke,5);
 
-                String[][] muetzeInhalt = KlassenStringAusJSONStringListe("Muetze", KopfbdeckungJoined);
+                String[][] muetzeInhalt = KlassenStringAusJSONStringListe("Muetze", KopfbedeckungJoined);
                 if (muetzeInhalt != null) {
                     for(String[] Inhalt : muetzeInhalt) {
                         muetzeJSON.add(new Muetze(Inhalt));
                     }
                 }
 
-                String[][] hueteInhalt = KlassenStringAusJSONStringListe("Huete", KopfbdeckungJoined);
+                String[][] hueteInhalt = KlassenStringAusJSONStringListe("Huete", KopfbedeckungJoined);
                 if (hueteInhalt != null) {
                     for(String[] Inhalt : hueteInhalt) {
                         hueteJSON.add(new Hut(Inhalt));
                     }
                 }
 
-                String[][] capsInhalt = KlassenStringAusJSONStringListe("Cap", KopfbdeckungJoined);
+                String[][] capsInhalt = KlassenStringAusJSONStringListe("Cap", KopfbedeckungJoined);
                 if (capsInhalt != null) {
                     for(String[] Inhalt : capsInhalt) {
                         capsJSON.add(new Cap(Inhalt));
                     }
                 }
 
-                kopfbedeckungeJSON.addAll(muetzeJSON);
-                kopfbedeckungeJSON.addAll(hueteJSON);
-                kopfbedeckungeJSON.addAll(capsJSON);
+                kopfbedeckungJSON.addAll(muetzeJSON);
+                kopfbedeckungJSON.addAll(hueteJSON);
+                kopfbedeckungJSON.addAll(capsJSON);
             }
 
             String[][] Unterteil = LesenSafe("Unterteil");
@@ -272,14 +272,14 @@ public class JSONReaderKleidungstuecke {
                 oberteileJSON.addAll(topJSON);
             }
 
-            kleidungsstueckeJSON.addAll(kopfbedeckungeJSON);
+            kleidungsstueckeJSON.addAll(kopfbedeckungJSON);
             kleidungsstueckeJSON.addAll(unterteileJSON);
             kleidungsstueckeJSON.addAll(einteilerJSON);
             kleidungsstueckeJSON.addAll(schuheJSON);
             kleidungsstueckeJSON.addAll(oberteileJSON);
 
             return new KleidungsContainer(
-                    kleidungsstueckeJSON, kopfbedeckungeJSON, muetzeJSON, hueteJSON, capsJSON,
+                    kleidungsstueckeJSON, kopfbedeckungJSON, muetzeJSON, hueteJSON, capsJSON,
                     unterteileJSON, hosenJSON, roeckeJSON,einteilerJSON,kleiderJSON,overallJSON,
                     schuheJSON, highheelsJSON, sneakerJSON, stiefelJSON, sandalenJSON, halbschuheJSON,
                     oberteileJSON, hemdJSON, poloJSON, pulloverJSON, hoodieJSON, tShirtJSON, topJSON,

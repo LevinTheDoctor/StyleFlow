@@ -20,7 +20,7 @@ import static KleidungsKlassen.KleidungsHelper.GetMarken;
 import static Logik.ProgramSpeicher.*;
 
 public class MainController extends BasisController {
-    // Fuer Das Anlagen der Kleidungstuecke
+    // Für das Anlegen der Kleidungsstuecke
     @FXML private ComboBox<String> kleidungsArtComboBox;
     @FXML private ComboBox<String> bedecktesKoerperteilComboBox;
     @FXML private ComboBox<String> temperaturComboBox;
@@ -29,7 +29,7 @@ public class MainController extends BasisController {
     @FXML private TextField anmerkungTextField;
     @FXML private TextField markeTextField;
     @FXML private TextField bildPfadTextField;
-    @FXML private TextField MatriealTF;
+    @FXML private TextField MaterialTF;
     @FXML private TextField StyleTF;
     @FXML private ColorPicker farbeColorPicker;
     @FXML private Button weiterButton;
@@ -220,11 +220,11 @@ public class MainController extends BasisController {
 
     @FXML
     private void handleMaterialHinzufuegen() {
-        String material = MatriealTF.getText();
+        String material = MaterialTF.getText();
         if (material != null && !material.isBlank()) {
             materialListe.add(material);
             MaterialArray.setText(String.join(", ", materialListe));
-            MatriealTF.clear(); // Feld danach leeren ist benutzerfreundlicher
+            MaterialTF.clear(); // Feld danach leeren ist benutzerfreundlicher
         }
     }
 

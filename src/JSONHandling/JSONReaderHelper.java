@@ -69,27 +69,27 @@ public class JSONReaderHelper {
     }
 
 
-    public static String[][] JSONjoin(String[][] Grundliste, int indexIDGrundliste, String[][] Erweitrungsliste, int indexIDErweitrungsliste)
+    public static String[][] JSONjoin(String[][] Grundliste, int indexIDGrundliste, String[][] Erweiterungsliste, int indexIDErweiterungsliste)
     {
         // FIX: Null- und Leer-Checks bevor irgendetwas passiert
-        if (Grundliste == null || Erweitrungsliste == null
-                || Grundliste.length == 0 || Erweitrungsliste.length == 0
-                || Grundliste[0] == null || Erweitrungsliste[0] == null
-                || Grundliste[0].length == 0 || Erweitrungsliste[0].length == 0) {
+        if (Grundliste == null || Erweiterungsliste == null
+                || Grundliste.length == 0 || Erweiterungsliste.length == 0
+                || Grundliste[0] == null || Erweiterungsliste[0] == null
+                || Grundliste[0].length == 0 || Erweiterungsliste[0].length == 0) {
             return new String[0][0];
         }
 
-        String[][] JoinedListe = new String[Grundliste.length][Grundliste[0].length + Erweitrungsliste[0].length - 1];
-        int JoindListListIndex = 0;
+        String[][] JoinedListe = new String[Grundliste.length][Grundliste[0].length + Erweiterungsliste[0].length - 1];
+        int JoinedListListIndex = 0;
         for (String[] GrundElement : Grundliste)
         {
             int ID = Integer.parseInt(GrundElement[indexIDGrundliste]);
-            for (String[] ErweitrungElement : Erweitrungsliste)
+            for (String[] ErweiterungElement : Erweiterungsliste)
             {
-                int EID = Integer.parseInt(ErweitrungElement[indexIDErweitrungsliste]);
+                int EID = Integer.parseInt(ErweiterungElement[indexIDErweiterungsliste]);
                 if (ID == EID)
                 {
-                    System.arraycopy(ErweitrungElement, 0, JoinedListe[JoindListListIndex], 0, ErweitrungElement.length);
+                    System.arraycopy(ErweiterungElement, 0, JoinedListe[JoinedListListIndex], 0, ErweiterungElement.length);
                     String[] GrundElementOhneID = new String[GrundElement.length - 1];
                     int idxGrundOhneID = 0;
                     for (int indexG = 0; indexG < GrundElement.length; indexG++)
@@ -99,9 +99,9 @@ public class JSONReaderHelper {
                             idxGrundOhneID++;
                         }
                     }
-                    int StartIndex = ErweitrungElement.length;
-                    System.arraycopy(GrundElementOhneID, 0, JoinedListe[JoindListListIndex], StartIndex, GrundElementOhneID.length);
-                    JoindListListIndex++;
+                    int StartIndex = ErweiterungElement.length;
+                    System.arraycopy(GrundElementOhneID, 0, JoinedListe[JoinedListListIndex], StartIndex, GrundElementOhneID.length);
+                    JoinedListListIndex++;
                 }
             }
         }

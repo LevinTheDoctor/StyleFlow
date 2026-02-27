@@ -22,7 +22,7 @@ public class JSONWriterNutzer {
                 WriteString(writer,"nutzername",indexnutzer.getNutzername(),false);
                 WriteString(writer,"pfadZumBild",indexnutzer.getPfadZumBild(),false);
                 WriteString(writer,"Standort",indexnutzer.getStandort(),false);
-                WriteStringArray(writer,"LeiblingsFarbe",indexnutzer.getLeiblingsFarbe().toArray(new String[0]), true);
+                WriteStringArray(writer,"LieblingsFarbe",indexnutzer.getLieblingsFarbe().toArray(new String[0]), true);
 
                 if (i == nutzer.size()-1)
                 {

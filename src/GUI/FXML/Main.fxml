@@ -69,7 +69,7 @@
                         <Label layoutX="226.0" layoutY="287.0" text="Wetter Lage" />
                         <ComboBox fx:id="wetterLageComboBox" layoutX="216.0" layoutY="304.0" prefWidth="150.0" />
                         <ComboBox fx:id="bedecktesKoerperteilComboBox" layoutX="30.0" layoutY="251.0" prefWidth="150.0" />
-                        <TextField fx:id="MatriealTF" layoutX="31.0" layoutY="160.0" />
+                        <TextField fx:id="MaterialTF" layoutX="31.0" layoutY="160.0" />
                         <Label layoutX="36.0" layoutY="143.0" text="Material" />
                         <Button fx:id="MaterialButton" layoutX="204.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleMaterialHinzufuegen" text="+" />
                         <Label layoutX="252.0" layoutY="165.0" text="Material:" />

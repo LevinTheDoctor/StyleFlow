@@ -2,27 +2,27 @@ package Wetter;
 
 public class Wetter {
     private String WetterLage; // Sonne, Regen, Schnee, Windig
-    private Double TempraturInGrad;
+    private Double TemperaturInGrad;
     private String WetterSituation;
 
-    public Wetter(String wetterLage,  Double tempraturInGrad) {
+    public Wetter(String wetterLage,  Double temperaturInGrad) {
         WetterLage = wetterLage;
-        TempraturInGrad = tempraturInGrad;
-        WetterSituation = bestimmeWetterSituation(tempraturInGrad, wetterLage);
+        TemperaturInGrad = temperaturInGrad;
+        WetterSituation = bestimmeWetterSituation(temperaturInGrad, wetterLage);
 
     }
 
-    private String bestimmeWetterSituation(double tempraturInGrad,String WetterLage) {
+    private String bestimmeWetterSituation(double temperaturInGrad,String WetterLage) {
         String TemperaturInString;
-        if (TempraturInGrad < 0)
+        if (TemperaturInGrad < 0)
         {
             TemperaturInString = "Eisig";
         }
-        else if (TempraturInGrad < 15)
+        else if (TemperaturInGrad < 15)
         {
             TemperaturInString = "Kalt";
         }
-        else if (TempraturInGrad < 25)
+        else if (TemperaturInGrad < 25)
         {
             TemperaturInString = "Mild";
         }else{
@@ -40,12 +40,12 @@ public class Wetter {
         WetterLage = wetterLage;
     }
 
-    public Double getTempraturInGrad() {
-        return TempraturInGrad;
+    public Double getTemperaturInGrad() {
+        return TemperaturInGrad;
     }
 
-    public void setTempraturInGrad(Double tempraturInGrad) {
-        TempraturInGrad = tempraturInGrad;
+    public void setTemperaturInGrad(Double temperaturInGrad) {
+        TemperaturInGrad = temperaturInGrad;
     }
 
     public String getWetterSituation() {

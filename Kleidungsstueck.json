@@ -72,6 +72,15 @@
 "Marke": "Test"
 },
 {
+"Bezeichnung": "Hoodie",
+"Farben": ["0xffff00ff"],
+"BedecktesKoerperteil": "Oberkörper",
+"Wettereignung": "Regnerisch",
+"BildDateiPfad": "Inventory/hoodie.jpg",
+"ID":10,
+"Marke": "Test"
+},
+{
 "Bezeichnung": "Supreme Tshirt",
 "Farben": ["0xccccccff"],
 "BedecktesKoerperteil": "Oberkörper",
@@ -81,12 +90,12 @@
 "Marke": "Supreme"
 },
 {
-"Bezeichnung": "Hoodie",
-"Farben": ["0xffff00ff"],
-"BedecktesKoerperteil": "Oberkörper",
-"Wettereignung": "Regnerisch",
-"BildDateiPfad": "Inventory/hoodie.jpg",
-"ID":10,
-"Marke": "Test"
+"Bezeichnung": "Stickmuetze von Oma",
+"Farben": ["0x333333ff"],
+"BedecktesKoerperteil": "Kopf",
+"Wettereignung": "Schnee",
+"BildDateiPfad": "Inventory/muetze.jpg",
+"ID":11,
+"Marke": "Handarbeit"
 }
 ]

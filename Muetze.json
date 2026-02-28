@@ -3,5 +3,10 @@
 "ID":3,
 "stil": "Streetwear",
 "strickArt": "Noppen"
+},
+{
+"ID":11,
+"stil": "Klassisch",
+"strickArt": "Rippen"
 }
 ]

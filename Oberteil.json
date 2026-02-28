@@ -10,13 +10,13 @@
 "schnitt": "Locker"
 },
 {
-"ID":8,
-"aermelLaenge":30,
+"ID":10,
+"aermelLaenge":100,
 "schnitt": "Locker"
 },
 {
-"ID":10,
-"aermelLaenge":100,
+"ID":8,
+"aermelLaenge":30,
 "schnitt": "Locker"
 }
 ]

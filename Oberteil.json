@@ -5,8 +5,18 @@
 "schnitt": "Normalfit"
 },
 {
+"ID":9,
+"aermelLaenge":90,
+"schnitt": "Locker"
+},
+{
 "ID":8,
 "aermelLaenge":30,
+"schnitt": "Locker"
+},
+{
+"ID":10,
+"aermelLaenge":100,
 "schnitt": "Locker"
 }
 ]

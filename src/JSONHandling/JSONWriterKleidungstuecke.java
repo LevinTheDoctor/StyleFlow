@@ -120,7 +120,7 @@ public class JSONWriterKleidungstuecke {
                 WriteString(writer,"Wettereignung",indexkleidungsstuck.getWettereignung(),false);
                 WriteString(writer,"BildDateiPfad",indexkleidungsstuck.getBildDateiPfad(),false);
                 WriteInteger(writer,"ID",indexkleidungsstuck.getKleidungsID(),false);
-                WriteString(writer,"ID",indexkleidungsstuck.getMarke(),true);
+                WriteString(writer,"Marke",indexkleidungsstuck.getMarke(),true);
                 if (i == Kleidunsstuecke.size()-1)
                 {
                     writer.println("}");
